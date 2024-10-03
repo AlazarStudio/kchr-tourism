@@ -68,10 +68,10 @@ img {
     height: auto;
 }
 
-/* ::selection {
-    background-color: #e62d3c;
+::selection {
+    background-color: #25A9DD;
     color: #fff;
-} */
+}
 
 main {
     margin: 50px 0 50px 0;
