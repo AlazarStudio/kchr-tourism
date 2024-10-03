@@ -1,0 +1,39 @@
+.header {
+  padding: 20px 0;
+}
+
+.header_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper_item {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.main_icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.main_text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-weight: 500;
+}
+
+.main_text :first-child {
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+.main_text :last-child {
+  font-size: 12px;
+  line-height: 14px;
+}

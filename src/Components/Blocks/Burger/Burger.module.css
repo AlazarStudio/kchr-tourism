@@ -1,0 +1,11 @@
+.burger {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.burger a {
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 500;
+}
