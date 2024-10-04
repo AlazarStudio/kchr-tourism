@@ -25,3 +25,24 @@
   font-weight: 500;
   color: #BABABA;
 }
+
+@media (max-width: 1299px) {
+  .contact_item {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 2px solid var(--primaryColor);
+    border-radius: 10px;
+  }
+  
+  
+  .contact_item__text :first-child {
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 500;
+  }
+  
+
+}

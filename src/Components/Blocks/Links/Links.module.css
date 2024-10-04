@@ -21,3 +21,9 @@ p {
   font-size: 16px;
   line-height: 19px;
 }
+
+@media (max-width: 1299px) {
+  .links {
+    display: none;
+  }
+}

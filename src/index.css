@@ -81,6 +81,12 @@ main {
     background-color: #fff;
 }
 
+@media (max-width: 1299px) {
+    main {
+        margin: 90px 0 50px 0;
+    }
+}
+
 /* * {
     outline: 1px solid rgba(21, 255, 4, 0.6);
 } */

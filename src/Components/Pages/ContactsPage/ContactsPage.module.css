@@ -67,3 +67,71 @@
   font-size: 24px;
   line-height: 28px;
 }
+
+
+
+@media (max-width: 1299px) {
+
+  .head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .head img {
+    width: 40px;
+    height: 45px;
+    object-fit: contain;
+  }
+  
+  .head p {
+    font-size: 21px;
+    line-height: 23px;
+  }
+
+  .contacts_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 16px 180px 16px;
+    border: none;
+    gap: 50px;
+    /* background: linear-gradient(to left, transparent, #ffffff), url(/images/back_img.png); */
+    background: linear-gradient(to top, transparent 50%, #ffffff 75%), url(/images/back_img.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right 0 top 350px;
+  }
+
+  .work_schedule__wrapper {
+    width: 100%;
+    align-items: center;
+  }
+
+  .name {
+    width: 90%;
+    font-size: 22px;
+    line-height: 25px;
+  }
+  
+  .work_schedule {
+    padding: 40px 70px;
+    width: 90%;
+  }
+  
+  .date {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  
+  .time {
+    font-size: 30px;
+    line-height: 32px;
+  }
+  
+  .weekend {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}
