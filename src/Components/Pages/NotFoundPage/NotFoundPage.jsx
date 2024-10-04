@@ -1,7 +1,16 @@
+import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
+import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
+
 import styles from './NotFoundPage.module.css'
 
 function NotFoundPage({ children, ...props }) {
-	return <>404 Страница не найдена</>
+	return (
+		<main>
+			<CenterBlock>
+				<WidthBlock><p className={styles.not_found}>404 Страница не найдена</p></WidthBlock>
+			</CenterBlock>
+		</main>
+	)
 }
 
 export default NotFoundPage

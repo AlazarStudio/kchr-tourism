@@ -1,0 +1,11 @@
+.contacts_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.name {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 500;
+}
