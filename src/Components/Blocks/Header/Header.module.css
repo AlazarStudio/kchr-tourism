@@ -71,11 +71,11 @@
   }
 
   .main_text p:first-child {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .main_text p:last-child {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .burger {

@@ -63,7 +63,7 @@ function Header({ children, ...props }) {
 								className={styles.burger_icon}
 								ref={burgerIconRef}
 							>
-								<img style={{width:'fit-content', height:'fit-content'}} src='/images/menu.png' alt='Menu' />
+								<img src='/images/menu.png' alt='Menu' />
 							</div>
 						</div>
 					</div>
