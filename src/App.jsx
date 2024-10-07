@@ -10,9 +10,8 @@ function App() {
 	return (
 		<>
 			<Routes>
+				<Route index element={<MainPage />} />
 				<Route path='/' element={<Layout />}>
-					<Route index element={<ContactsPage />} />
-					{/* <Route index element={<MainPage />} /> */}
 					<Route path='/contact' element={<ContactsPage />} />
 					<Route path='*' element={<NotFoundPage />} />
 				</Route>

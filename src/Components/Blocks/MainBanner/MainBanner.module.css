@@ -1,0 +1,25 @@
+.main_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.main_text {
+  margin-top: 10vh;
+  width: 70%;
+  text-transform: uppercase;
+  font-size: 64px;
+  line-height: 94px;
+  font-weight: 600;
+  font-family: Montserrat Alternates;
+  color: #fff;
+}
+
+.main_slider_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sliderBox {
+  width: 1300px;
+}

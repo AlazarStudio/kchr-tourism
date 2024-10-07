@@ -1,0 +1,39 @@
+.burger {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.burger a {
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 500;
+  color: #fff;
+}
+
+
+
+/* Для больших экранов бургер-меню не отображается */
+@media (max-width: 1299px) {
+  .burger {
+    display: none;
+  }
+
+  .burger.active {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .burger a {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}

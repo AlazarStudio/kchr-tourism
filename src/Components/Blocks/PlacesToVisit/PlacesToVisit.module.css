@@ -1,0 +1,11 @@
+.visit_title {
+  font-size: 44px;
+  line-height: 66px;
+  font-weight: 600;
+  font-family: Montserrat Alternates;
+  text-transform: uppercase;
+}
+
+.sliderBox {
+  width: 1300px;
+}

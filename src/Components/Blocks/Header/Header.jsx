@@ -42,7 +42,7 @@ function Header({ children, ...props }) {
 					<div className={styles.header_wrapper}>
 						<Links />
 						<div className={styles.wrapper_item}>
-							<Link to='/contact' className={styles.main_icon}>
+							<Link to='/' className={styles.main_icon}>
 								<img src='/favicon-alazar-studio.png' alt='' />
 								<div className={styles.main_text}>
 									<p>КАРАЧАЕВО-ЧЕРКЕСИЯ</p>
