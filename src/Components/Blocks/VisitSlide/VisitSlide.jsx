@@ -5,9 +5,11 @@ function VisitSlide({ children, ...props }) {
 		<div className={styles.visit_wrapper}>
 			<div className={styles.text_wrapper}>
 				<p>{props.title}</p>
-				<img src='/images/arrow.png' alt='' />
+				<img style={{ cursor: 'pointer' }} src='/images/arrow.png' alt='' />
 			</div>
-			<div className={styles.image_wrapper}><img src={props.img} alt="" /></div>
+			<div className={styles.image_wrapper}>
+				<img src={props.img} alt='' />
+			</div>
 		</div>
 	)
 }

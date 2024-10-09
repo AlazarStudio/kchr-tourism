@@ -15,39 +15,41 @@ function PlacesToVisit({ children, ...props }) {
 	const [activeIndex, setActiveIndex] = useState(0)
 
 	return (
-		<CenterBlock>
-			<WidthBlock>
-				<p className={styles.visit_title}>Что посетить в Карачаево-Черкесии?</p>
-				<Swiper
-					className={styles.sliderBox}
-					spaceBetween={50}
-					slidesPerView={3}
-					breakpoints={{
-						0: {
-							slidesPerView: 1
-						},
+		<section>
+			<CenterBlock>
+				<WidthBlock>
+					<p className={styles.visit_title}>
+						Что посетить в Карачаево-Черкесии?
+					</p>
+					<Swiper
+						className={styles.sliderBox}
+						spaceBetween={20}
+						slidesPerView={3}
+						breakpoints={{
+							0: {
+								slidesPerView: 1
+							},
 
-						1299: {
-							slidesPerView: 3
-						}
-					}}
-					direction='horizontal'
-					loop={true}
-					autoplay={{
-						delay: 5000,
-						disableOnInteraction: false
-					}}
-					onSwiper={setSwiper}
-					onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
-				>
-					{visitSlides.map((item, index) => (
-						<SwiperSlide key={index}>
-							<VisitSlide {...item} />
-						</SwiperSlide>
-					))}
-				</Swiper>
-			</WidthBlock>
-		</CenterBlock>
+							1299: {
+								slidesPerView: 3
+							}
+						}}
+						direction='horizontal'
+						loop={true}
+						onSwiper={setSwiper}
+						onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
+					>
+						{visitSlides.map((item, index) => (
+							<SwiperSlide key={index}>
+								<div className={styles.visit_slide__wrapper}>
+									<VisitSlide {...item} />
+								</div>
+							</SwiperSlide>
+						))}
+					</Swiper>
+				</WidthBlock>
+			</CenterBlock>
+		</section>
 	)
 }
 

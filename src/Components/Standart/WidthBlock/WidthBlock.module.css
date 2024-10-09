@@ -1,4 +1,5 @@
 .WidthBlock{
+  position: relative;
   width: var(--blockWidth);
   display: flex;
   flex-direction: column;

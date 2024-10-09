@@ -1,5 +1,10 @@
+import EventsBlock from '../../Blocks/EventsBlock/EventsBlock'
+import Feedback from '../../Blocks/Feedback/Feedback'
+import Footer from '../../Blocks/Footer/Footer'
 import HeaderAbs from '../../Blocks/HeaderAbs/HeaderAbs'
 import MainBanner from '../../Blocks/MainBanner/MainBanner'
+import NewsBlock from '../../Blocks/NewsBlock/NewsBlock'
+import OurProjectsBlock from '../../Blocks/OurProjectsBlock/OurProjectsBlock'
 import PlacesToVisit from '../../Blocks/PlacesToVisit/PlacesToVisit'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
@@ -10,10 +15,15 @@ function MainPage({ children, ...props }) {
 	return (
 		<>
 			<HeaderAbs />
+
 			<MainBanner />
-			<section>
-				<PlacesToVisit />
-			</section>
+			<PlacesToVisit />
+			<EventsBlock />
+			<OurProjectsBlock />
+			<NewsBlock />
+			<Feedback />
+
+			<Footer />
 		</>
 	)
 }

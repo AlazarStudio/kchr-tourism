@@ -1,10 +1,17 @@
 .visit_wrapper {
-  padding: 15px 30px 30px 30px;
+  padding: 15px 30px 20px 30px;
+  width: 370px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background-color: #D7DAF166;
+  background-color: rgba(215, 218, 241, 0.4);
   border-radius: 20px;
+  transition: all ease-in-out 0.3s;
+}
+
+.visit_wrapper:hover {
+  transform: scale(1.05);
+  background-color: rgba(215, 218, 241, 0.6);
 }
 
 .text_wrapper {

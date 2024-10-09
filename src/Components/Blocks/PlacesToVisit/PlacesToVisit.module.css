@@ -9,3 +9,11 @@
 .sliderBox {
   width: 1300px;
 }
+
+.visit_slide__wrapper {
+  height: 370px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
