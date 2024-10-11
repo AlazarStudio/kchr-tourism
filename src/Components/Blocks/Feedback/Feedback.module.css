@@ -29,7 +29,7 @@
 }
 
 .form {
-  padding: 20px 0 0 100px;
+  padding: 20px 0 0 110px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -88,7 +88,7 @@
   padding: 20px 30px;
   height: 250px;
   font-size: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--borderColor);
   outline: none;
 }
 

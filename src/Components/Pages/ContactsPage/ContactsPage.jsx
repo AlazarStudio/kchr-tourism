@@ -1,4 +1,5 @@
 import ContactsBlock from '../../Blocks/ContactsBlock/ContactsBlock'
+import PageHeader from '../../Blocks/PageHeader/PageHeader'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 
@@ -9,11 +10,7 @@ function ContactsPage({ children, ...props }) {
 		<main>
 			<CenterBlock>
 				<WidthBlock>
-					<div className={styles.head}>
-						<img src='/images/left_pic.png' alt='' />
-						<p>АНО КЧР ТУРИЗМ</p>
-						<img src='/images/right_pic.png' alt='' />
-					</div>
+					<PageHeader title='АНО КЧР Туризм' />
 					<section className={styles.contacts_section}>
 						<ContactsBlock />
 						<div className={styles.work_schedule__wrapper}>

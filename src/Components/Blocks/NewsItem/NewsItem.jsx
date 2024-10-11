@@ -4,7 +4,7 @@ import styles from './NewsItem.module.css'
 
 function NewsItem({ children, ...props }) {
 	return (
-		<Link to={`/news/${props.link}`} className={styles.news_card__item}>
+		<Link to={`/news/${props.id}`} className={styles.news_card__item}>
 			<img src={props.img[0]} alt='' />
 			<div className={styles.news_cart__text}>
 				<p>{props.date}</p>

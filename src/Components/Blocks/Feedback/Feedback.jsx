@@ -55,7 +55,7 @@ function Feedback({ children, ...props }) {
 	return (
 		<section className={styles.last_section}>
 			<CenterBlock>
-				<WidthBlock>
+				<WidthBlock position='relative'>
 					<header className={styles.events_header}>
 						<div className={styles.events_header__item}>
 							<img src='/images/left_pic.png' alt='' />

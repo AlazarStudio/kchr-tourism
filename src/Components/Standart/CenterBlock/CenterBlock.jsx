@@ -1,26 +1,43 @@
 import styles from './CenterBlock.module.css'
 
-function CenterBlock({ children, ...props }) {
+function CenterBlock({
+	children,
+	width,
+	height,
+	minHeight,
+	gap,
+	background,
+	backgroundRepeat,
+	backgroundSize,
+	backgroundColor,
+	backgroundBlendMode,
+	margin,
+	padding,
+	opacity,
+	borderBottomRightRadius,
+	borderBottomLeftRadius,
+	...props
+}) {
 	return (
 		<>
 			<div
 				{...props}
 				className={styles.CenterBlock}
 				style={{
-					width: props.width,
-					height: props.height,
-					minHeight:props.minHeight,
-					gap: props.gap,
-					background: `url(${props.background})`,
+					width: width,
+					height: height,
+					minHeight: minHeight,
+					gap: gap,
+					background: `url(${background})`,
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',
-					backgroundColor: props.backgroundColor,
-					backgroundBlendMode: props.backgroundBlendMode,
-					margin: props.margin,
-					padding: props.padding,
-					opacity: props.opacity,
-					borderBottomRightRadius: props.borderBottomRightRadius,
-					borderBottomLeftRadius: props.borderBottomLeftRadius
+					backgroundColor: backgroundColor,
+					backgroundBlendMode: backgroundBlendMode,
+					margin: margin,
+					padding: padding,
+					opacity: opacity,
+					borderBottomRightRadius: borderBottomRightRadius,
+					borderBottomLeftRadius: borderBottomLeftRadius
 				}}
 			>
 				{children}

@@ -1,0 +1,84 @@
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter p {
+  font-size: 32px;
+  font-weight: 600;
+  background: var(--primaryLinear);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color:rgb(37, 169, 221);
+  display: table;
+}
+
+.selects_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.selects_wrapper select {
+  padding: 15px 30px;
+  width: 288px;
+  font-size: 16px;
+  line-height: 24px;
+  border: 1px solid var(--borderColor);
+  border-radius: 30px;
+  outline: none;
+  cursor: pointer;
+}
+
+.line {
+  margin-inline: 30px;
+  flex-grow: 1;
+  height: 1px;
+  background-color: var(--borderColor);
+}
+
+
+.announce_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 26px;
+}
+
+/* .announce_wrapper div {
+  flex-basis: 30%;
+} */
+
+.pagination {
+	display: flex;
+	list-style-type: none;
+	padding: 0;
+	margin-top: 20px;
+	justify-content: center;
+}
+
+.next_prev {
+	cursor: pointer;
+  padding: 5px 12px;
+}
+
+.page {
+  margin: 0 5px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	cursor: pointer;
+	border-radius: 8px;
+}
+
+.active {
+	background: linear-gradient(90deg, rgb(37, 169, 221), rgb(0, 238, 208));
+	color: white;
+}
+
+.active a {
+	color: white;
+}

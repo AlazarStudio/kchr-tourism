@@ -1,0 +1,43 @@
+.projects_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 52px;
+}
+
+.projects_wrapper div {
+  flex-basis: 48%;
+}
+
+.pagination {
+	display: flex;
+	list-style-type: none;
+	padding: 0;
+	margin-top: 20px;
+	justify-content: center;
+}
+
+.next_prev {
+	cursor: pointer;
+  padding: 5px 12px;
+}
+
+.page {
+  margin: 0 5px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	cursor: pointer;
+	border-radius: 8px;
+}
+
+.active {
+	background: linear-gradient(90deg, rgb(37, 169, 221), rgb(0, 238, 208));
+	color: white;
+}
+
+.active a {
+	color: white;
+}

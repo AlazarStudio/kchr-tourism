@@ -6,6 +6,11 @@
     scroll-behavior: smooth;
 }
 
+@font-face {
+    font-family: 'Montserrat Alternates';
+    src: url('/fonts/MontserratAlternates-Regular.ttf') format('truetype');
+}
+
 html {
     box-sizing: border-box;
     font-size: 16px;
@@ -20,6 +25,8 @@ a {
 :root {
     --blockWidth: 1300px;
     --primaryColor: #25A9DD;
+    --borderColor: rgba(0, 0, 0, 0.15);
+    --primaryLinear: linear-gradient(90deg, rgb(37, 169, 221), rgb(0, 238, 208));
 }
 
 #root {

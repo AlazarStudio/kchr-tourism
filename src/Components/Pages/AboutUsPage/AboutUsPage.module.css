@@ -1,0 +1,17 @@
+.abus_images__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.abus_images__wrapper img {
+  width: fit-content;
+  height: fit-content;
+}
+
+
+.abus_text {
+  padding: 50px;
+  font-size: 20px;
+  line-height: 40px;
+  border: 1px solid var(--borderColor);
+}

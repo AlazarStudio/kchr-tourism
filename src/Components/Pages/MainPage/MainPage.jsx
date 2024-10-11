@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import EventsBlock from '../../Blocks/EventsBlock/EventsBlock'
 import Feedback from '../../Blocks/Feedback/Feedback'
 import Footer from '../../Blocks/Footer/Footer'
@@ -12,6 +14,11 @@ import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 import styles from './MainPage.module.css'
 
 function MainPage({ children, ...props }) {
+	
+	useEffect(() => {
+		window.scrollTo({ top: '0', behavior: 'instant' })
+	}, [])
+
 	return (
 		<>
 			<HeaderAbs />

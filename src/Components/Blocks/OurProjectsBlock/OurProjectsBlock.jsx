@@ -19,7 +19,7 @@ function OurProjectsBlock({ children, ...props }) {
 								<p>наши Проекты</p>
 							</div>
 						</div>
-						<Link to='/'>Все проекты</Link>
+						<Link to='/our-projects'>Все проекты</Link>
 					</header>
 					<div className={styles.our_projects_wrapper}>
 						{projects.slice(-4).map((item, index) => (

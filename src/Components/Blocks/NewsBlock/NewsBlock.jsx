@@ -24,7 +24,7 @@ function NewsBlock({ children, ...props }) {
 								<p>нОВОСТИ</p>
 							</div>
 						</div>
-						<Link to='/'>Все новости</Link>
+						<Link to='/news'>Все новости</Link>
 					</header>
 
 					<Swiper

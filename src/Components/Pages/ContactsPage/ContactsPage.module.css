@@ -1,21 +1,4 @@
-.head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-.head img {
-  width: 75px;
-  height: 84px;
-  object-fit: contain;
-}
-
-.head p {
-  font-size: 44px;
-  line-height: 50px;
-  font-weight: 600;
-  font-family: Montserrat Alternates;
-}
 
 .contacts_section {
   padding: 30px 50px;

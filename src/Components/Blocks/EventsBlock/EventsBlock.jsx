@@ -29,7 +29,7 @@ function EventsBlock({ children, ...props }) {
 								</p>
 							</div>
 						</div>
-						<Link to='/'>Все события</Link>
+						<Link to='/events-announcement'>Все события</Link>
 					</header>
 				</WidthBlock>
 			</CenterBlock>
