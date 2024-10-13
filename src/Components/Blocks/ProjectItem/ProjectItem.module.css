@@ -5,6 +5,10 @@
   flex-direction: column;
   gap: 20px;
   overflow: hidden;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 0px 20px 0px rgba(34, 60, 80, 0.2);
+  border-radius: 20px;
 }
 
 .project_item__wrapper img {
@@ -16,16 +20,43 @@
 .project_item__wrapper p {
   padding-inline: 20px;
   flex-grow: 1;
-  display: flex;
   font-size: 24px;
   line-height: 29px;
   font-weight: 600;
   text-align: center;
-  max-height: 120px;
+  max-height: 112px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   word-break: break-word;
+}
+
+@media (max-width: 1299px) {
+  .project_item__wrapper {
+    flex-basis: 100%;
+    height: 340px;
+    border-radius: 20px;
+  }
+
+  .project_item__wrapper img {
+    height: 230px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  
+  .project_item__wrapper p {
+    padding-inline: 10px;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    max-height: 64px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+  }
 }

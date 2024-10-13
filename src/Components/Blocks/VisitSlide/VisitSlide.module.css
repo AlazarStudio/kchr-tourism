@@ -51,3 +51,45 @@
   height: 100%;
   object-fit: cover;
 }
+
+@media (max-width: 1299px) {
+  .visit_wrapper {
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .visit_wrapper:hover {
+    transform: none;
+    background-color: rgba(215, 218, 241, 0.4);
+  }
+  
+  .text_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .text_wrapper p {
+    font-size: 14px;
+  }
+  
+  .text_wrapper :first-child {
+    flex-basis: 80%;
+  }
+  
+  .text_wrapper :last-child {
+    flex-basis: 20%;
+  }
+  
+  .text_wrapper img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .image_wrapper {
+    width: 100%;
+    height: 190px;
+  }
+  
+}

@@ -15,12 +15,12 @@ function MainBanner({ children, ...props }) {
 
 	return (
 		<CenterBlock
-			minHeight='100vh'
+			// minHeight='100vh'
 			background='/images/main_back_img.png'
 			backgroundColor='rgba(0,0,0,.3)'
 			backgroundBlendMode='multiply'
-			borderBottomRightRadius='50px'
-			borderBottomLeftRadius='50px'
+			borderBottomRightRadius='35px'
+			borderBottomLeftRadius='35px'
 		>
 			<WidthBlock>
 				<div className={styles.main_wrapper}>
@@ -31,7 +31,7 @@ function MainBanner({ children, ...props }) {
 						slidesPerView={4}
 						breakpoints={{
 							0: {
-								slidesPerView: 1
+								slidesPerView: 2
 							},
 							1299: {
 								slidesPerView: 4

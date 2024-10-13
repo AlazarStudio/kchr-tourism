@@ -7,6 +7,7 @@ import { events, visitSlides } from '../../../../data'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 import EventsItem from '../EventsItem/EventsItem'
+import EventsItemExp from '../EventsItemExp/EventsItemExp'
 import VisitSlide from '../VisitSlide/VisitSlide'
 
 import styles from './EventsBlock.module.css'
@@ -33,7 +34,7 @@ function EventsBlock({ children, ...props }) {
 					</header>
 				</WidthBlock>
 			</CenterBlock>
-			<CenterBlock minHeight='750px' background='/images/events_bolck_img.png'>
+			<CenterBlock background='/images/events_bolck_img.png'>
 				<WidthBlock>
 					<Swiper
 						className={styles.sliderBox}
@@ -55,7 +56,7 @@ function EventsBlock({ children, ...props }) {
 					>
 						{events.map((item, index) => (
 							<SwiperSlide key={index}>
-								<EventsItem {...item} />
+								<EventsItemExp {...item} />
 							</SwiperSlide>
 						))}
 					</Swiper>

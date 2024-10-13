@@ -65,9 +65,9 @@
     flex-direction: column;
     gap: 15px;
     position: absolute;
-    top: 60px;
+    top: 75px;
     right: 0;
-    background-color: #fff;
+    background-color: #00000059;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
   }
@@ -75,5 +75,35 @@
   .burger a {
     font-size: 14px;
     line-height: 16px;
+  }
+
+  .dropdown_menu {
+    list-style: none;
+    display: block;
+    position: absolute;
+    top: -30px;
+    left: -135px;
+    background-color: #00000059;
+    /* padding: 0 10px 0 10px; */
+    /* border-bottom: 1px solid var(--primaryColor);
+    border-left: 1px solid var(--primaryColor);
+    border-right: 1px solid var(--primaryColor); */
+    border-radius: 10px 0px 0px 10px;
+    list-style: none;
+    margin: 0;
+    z-index: 1000;
+  }
+  
+  .dropdown_menu li {
+    width: 115px;
+    padding: 10px;
+  }
+  
+  .dropdown_menu li a {
+    font-size: 14px;
+  }
+  
+  .dropdown_menu li:last-child {
+    border: none;
   }
 }

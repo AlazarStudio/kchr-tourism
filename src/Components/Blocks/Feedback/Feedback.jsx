@@ -94,7 +94,7 @@ function Feedback({ children, ...props }) {
 								display: 'flex',
 								flexDirection: 'row',
 								gap: '15px',
-								fontSize: '16px'
+								// fontSize: '16px'
 							}}
 						>
 							<input

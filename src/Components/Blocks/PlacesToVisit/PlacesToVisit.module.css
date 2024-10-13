@@ -17,3 +17,20 @@
   align-items: center;
 }
 
+@media(max-width: 1299px) {
+  .visit_title {
+    padding-inline: 16px;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .sliderBox {
+    padding-inline: 16px;
+    width: 100%;
+  }
+
+  .visit_slide__wrapper {
+    height: 270px;
+  }
+}
+

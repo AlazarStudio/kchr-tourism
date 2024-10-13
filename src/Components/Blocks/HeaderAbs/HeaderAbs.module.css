@@ -52,10 +52,10 @@
 
 @media (max-width: 1299px) {
   .header {
-    background-color: #fff;
+    background-color: transparent;
     margin-bottom: 70px;
     padding: 10px 16px;
-    position: fixed;
+    position: absolute;
     width: 100%;
     z-index: 9999;
     -webkit-box-shadow: 0px 3px 8px 0px rgba(34, 60, 80, 0.2);
