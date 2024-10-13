@@ -8,13 +8,10 @@ import MainBanner from '../../Blocks/MainBanner/MainBanner'
 import NewsBlock from '../../Blocks/NewsBlock/NewsBlock'
 import OurProjectsBlock from '../../Blocks/OurProjectsBlock/OurProjectsBlock'
 import PlacesToVisit from '../../Blocks/PlacesToVisit/PlacesToVisit'
-import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
-import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 
 import styles from './MainPage.module.css'
 
 function MainPage({ children, ...props }) {
-	
 	useEffect(() => {
 		window.scrollTo({ top: '0', behavior: 'instant' })
 	}, [])
