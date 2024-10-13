@@ -45,7 +45,7 @@ function NewsBlock({ children, ...props }) {
 						onSwiper={setSwiper}
 						onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
 					>
-						{news.map((item, index) => (
+						{news.slice(-4).map((item, index) => (
 							<SwiperSlide key={index}>
 								<NewsItem {...item} />
 							</SwiperSlide>

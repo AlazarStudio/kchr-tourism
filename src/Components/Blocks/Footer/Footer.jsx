@@ -19,11 +19,11 @@ function Footer({ children, ...props }) {
 							</div>
 						</Link>
 						<nav className={styles.links}>
-							<Link to='/contact'>НОВОСТИ</Link>
-							<Link to='/contact'>О НАС</Link>
-							<Link to='/contact'>НАШИ ПРОЕКТЫ</Link>
-							<Link to='/contact'>АНОНСЫ СОБЫТИЙ</Link>
-							<Link to='/contact'>ПОДДЕРЖКА БИЗНЕСА</Link>
+							<Link to='/news'>НОВОСТИ</Link>
+							<Link to='/about-us'>О НАС</Link>
+							<Link to='/our-projects'>НАШИ ПРОЕКТЫ</Link>
+							<Link to='/events-announcement'>АНОНСЫ СОБЫТИЙ</Link>
+							<Link to='/business-support'>ПОДДЕРЖКА БИЗНЕСА</Link>
 							<Link to='/contact'>КОНТАКТЫ</Link>
 						</nav>
 						<div className={styles.links}>

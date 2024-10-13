@@ -24,8 +24,12 @@
 .news_cart__text :first-child {
   font-size: 20px;
   line-height: 30px;
-  font-weight: 600;
-  color: var(--primaryColor);
+  font-weight: 700;
+  background: var(--primaryLinear);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color:rgb(37, 169, 221);
+  display: table;
 }
 
 .news_cart__text :last-child {

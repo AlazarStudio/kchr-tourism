@@ -61,12 +61,12 @@ function ProjectsPage({ children, ...props }) {
 	}, [])
 
 	return (
-		<main>
+		<main ref={projectsRef}>
 			<CenterBlock>
 				<WidthBlock>
 					<PageHeader title='наши Проекты' />
 
-					<div ref={projectsRef} className={styles.projects_wrapper}>
+					<div className={styles.projects_wrapper}>
 						{displayProjects.map((item, index) => (
 							<ProjectItem key={index} {...item} />
 						))}

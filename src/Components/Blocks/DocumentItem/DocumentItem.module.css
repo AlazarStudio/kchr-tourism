@@ -1,0 +1,38 @@
+.doc_wrapper {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-radius: 10px;
+}
+
+.doc_wrapper:nth-child(odd) {
+  background-color: #ffffff;
+  /* Цвет фона для нечетных элементов */
+}
+
+.doc_wrapper:nth-child(even) {
+  background-color: #E8F8FF;
+  /* Цвет фона для четных элементов */
+}
+
+.doc_wrapper img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.doc_info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.doc_info p, a {
+  font-size: 20px;
+  transition: all ease-in-out 0.3s;
+}
+
+.doc_info a:hover {
+  color: var(--primaryColor);
+}

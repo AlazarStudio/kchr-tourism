@@ -2,7 +2,7 @@
   width: var(--blockWidth);
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px;
 }
 
 @media (min-width: 0px) and (max-width: 1299px) {

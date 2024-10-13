@@ -1,0 +1,67 @@
+.news_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 45px;
+}
+
+.news_wrapper a {
+  flex-basis: 31%;
+}
+
+.switch_buttons {
+  padding: 25px 0;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.switch_buttons button {
+  padding: 13px 0;
+  width: 210px;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: #EFF0F9;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  transition: all ease-in-out 0.3s;
+}
+
+.switch_buttons .activeButton {
+  color: var(--primaryColor);
+}
+
+.pagination {
+	display: flex;
+	list-style-type: none;
+	padding: 0;
+	margin-top: 20px;
+	justify-content: center;
+}
+
+.next_prev {
+	cursor: pointer;
+  padding: 5px 12px;
+}
+
+.page {
+  margin: 0 5px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	cursor: pointer;
+	border-radius: 8px;
+}
+
+.active {
+	background: linear-gradient(90deg, rgb(37, 169, 221), rgb(0, 238, 208));
+	color: white;
+}
+
+.active a {
+	color: white;
+}

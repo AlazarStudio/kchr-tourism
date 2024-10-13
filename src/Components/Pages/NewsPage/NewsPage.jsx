@@ -22,16 +22,15 @@ function NewsPage({ children, ...props }) {
 
 	const pageCount = Math.ceil(news.length / itemsPerPage)
 
-	
 	const safePage = Math.min(page, pageCount)
-	
+
 	const [currentPage, setCurrentPage] = useState(safePage - 1)
-	
+
 	const displayNews = news.slice(
 		currentPage * itemsPerPage,
 		(currentPage + 1) * itemsPerPage
 	)
-	
+
 	if (safePage < 1 || safePage > pageCount) {
 		return <NotFoundPage />
 	}
@@ -54,11 +53,11 @@ function NewsPage({ children, ...props }) {
 	}, [])
 
 	return (
-		<main>
+		<main ref={newsRef}>
 			<CenterBlock>
 				<WidthBlock>
 					<PageHeader title='новости' />
-					<div ref={newsRef} className={styles.news_wrapper}>
+					<div className={styles.news_wrapper}>
 						{displayNews.map((item, index) => (
 							<NewsItem key={index} {...item} />
 						))}

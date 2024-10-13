@@ -21,6 +21,10 @@ a {
     text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 
 :root {
     --blockWidth: 1300px;

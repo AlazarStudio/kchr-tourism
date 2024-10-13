@@ -1,11 +1,11 @@
 .news_wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between
+  gap: 45px;
 }
 
 .news_wrapper a {
-  flex-basis: 30%;
+  flex-basis: 31%;
 }
 
 .pagination {
