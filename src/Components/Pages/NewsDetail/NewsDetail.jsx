@@ -19,7 +19,7 @@ function NewsDetail({ children, ...props }) {
 	}, [])
 
 	return (
-		<main>
+		<main className={styles.main_wrapper}>
 			<CenterBlock>
 				<WidthBlock>
 					<p className={styles.article_title}>{article.title}</p>

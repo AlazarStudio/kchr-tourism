@@ -9,15 +9,15 @@
 }
 
 .pagination {
-	display: flex;
-	list-style-type: none;
-	padding: 0;
-	margin-top: 20px;
-	justify-content: center;
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+  justify-content: center;
 }
 
 .next_prev {
-	cursor: pointer;
+  cursor: pointer;
   padding: 5px 12px;
 }
 
@@ -28,15 +28,50 @@
   display: flex;
   justify-content: center;
   align-items: center;
-	cursor: pointer;
-	border-radius: 8px;
+  cursor: pointer;
+  border-radius: 8px;
 }
 
 .active {
-	background: linear-gradient(90deg, rgb(37, 169, 221), rgb(0, 238, 208));
-	color: white;
+  background: linear-gradient(90deg, rgb(37, 169, 221), rgb(0, 238, 208));
+  color: white;
 }
 
 .active a {
-	color: white;
+  color: white;
+}
+
+@media (max-width: 1299px) {
+  .projects_wrapper {
+    padding: 0 16px;
+    gap: 30px;
+  }
+
+  .pagination {
+    padding: 0 16px;
+  }
+
+  .next_prev {
+    cursor: pointer;
+    padding: 5px 12px;
+  }
+
+  .next_prev p {
+    font-size: 0;
+  }
+
+  .page {
+    margin: 0 5px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .page a {
+    font-size: 14px;
+  }
 }

@@ -4,7 +4,7 @@ import styles from './BSItem.module.css'
 
 function BSItem({ children, ...props }) {
 	return (
-		<Link to={`/business-support/${props.id}`} className={styles.news_card__item}>
+		<Link to={`/business-support/${props.id}`} state={props.type} className={styles.news_card__item}>
 			<img src={props.img[0]} alt='' />
 			<div className={styles.news_cart__text}>
 				<p>{props.date}</p>

@@ -2,7 +2,10 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import AboutUsPage from './Components/Pages/AboutUsPage/AboutUsPage'
+import BSDetail from './Components/Pages/BSDetail/BSDetail'
+import BusinessSupportPage from './Components/Pages/BusinessSupportPage/BusinessSupportPage'
 import ContactsPage from './Components/Pages/ContactsPage/ContactsPage'
+import DocsPage from './Components/Pages/DocsPage/DocsPage'
 import EventsAnnouncementPage from './Components/Pages/EventsAnnouncementPage/EventsAnnouncementPage'
 import EventsDetail from './Components/Pages/EventsDetail/EventsDetail'
 import MainPage from './Components/Pages/MainPage/MainPage'
@@ -12,8 +15,6 @@ import NotFoundPage from './Components/Pages/NotFoundPage/NotFoundPage'
 import ProjectDetail from './Components/Pages/ProjectDetail/ProjectDetail'
 import ProjectsPage from './Components/Pages/ProjectsPage/ProjectsPage'
 import Layout from './Components/Standart/Layout/Layout'
-import BusinessSupportPage from './Components/Pages/BusinessSupportPage/BusinessSupportPage'
-import DocsPage from './Components/Pages/DocsPage/DocsPage'
 
 function App() {
 	return (
@@ -33,6 +34,7 @@ function App() {
 					/>
 					<Route path='/events-announcement/:id' element={<EventsDetail />} />
 					<Route path='/business-support' element={<BusinessSupportPage />} />
+					<Route path='/business-support/:id' element={<BSDetail />} />
 					<Route path='/contact' element={<ContactsPage />} />
 					<Route path='*' element={<NotFoundPage />} />
 				</Route>

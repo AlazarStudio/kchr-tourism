@@ -26,3 +26,36 @@
   height: 580px;
   object-fit: cover;
 }
+
+@media (max-width: 1299px) {
+  .main_wrapper {
+    padding: 0 16px;
+  }
+
+  .article_title {
+    padding-inline: 0;
+    padding-top: 20px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  
+  .article_text {
+    padding: 20px;
+    font-size: 16px;
+    line-height: 28px;
+  }
+  
+  .article_images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .article_images img {
+    flex-basis: 48%;
+    width: 48%;
+    height: 220px;
+    object-fit: cover;
+  }
+}

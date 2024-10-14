@@ -1,18 +1,22 @@
 import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 
-import { projects } from '../../../../data'
+import { bs, bs2, bs3 } from '../../../../data'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 
-import styles from './ProjectDetail.module.css'
+import styles from './BSDetail.module.css'
 
-function ProjectDetail({ children, ...props }) {
+function BSDetail({ children, ...props }) {
 	const { id } = useParams()
-	console.log(id)
+	const location = useLocation()
+	// console.log(id)
 
-	const article = projects.find(link => link.id == id)
-	console.log(article)
+	const type = location.state || ''
+	const items = type === 1 ? bs : type === 2 ? bs2 : bs3
+
+	const article = items.find(link => link.id === id)
+	// console.log(article)
 
 	useEffect(() => {
 		window.scrollTo({ top: '0', behavior: 'instant' })
@@ -40,4 +44,4 @@ function ProjectDetail({ children, ...props }) {
 	)
 }
 
-export default ProjectDetail
+export default BSDetail

@@ -17,3 +17,22 @@
   font-family: Montserrat Alternates;
   text-transform: uppercase;
 }
+
+
+@media (max-width: 1299px) {
+  .head {
+    padding: 20px 16px 0 16px;
+    gap: 10px;
+  }
+
+  .head img {
+    width: 40px;
+    height: 45px;
+  }
+
+  .head p {
+    font-size: 21px;
+    line-height: 26px;
+    text-align: center;
+  }
+}

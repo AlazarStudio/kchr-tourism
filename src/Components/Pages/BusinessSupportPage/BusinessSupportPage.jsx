@@ -68,7 +68,6 @@ function BusinessSupportPage({ children, ...props }) {
 							onClick={() => {
 								setType(1)
 							}}
-							
 						>
 							для туризма
 						</button>
@@ -79,7 +78,6 @@ function BusinessSupportPage({ children, ...props }) {
 								setCurrentPage(0)
 								setSearchParams({ page: 1 })
 							}}
-
 						>
 							для отельеров
 						</button>
@@ -88,7 +86,7 @@ function BusinessSupportPage({ children, ...props }) {
 							onClick={() => {
 								setType(3)
 								setCurrentPage(0)
-								setSearchParams({ page: 1 })  // Обновляем параметр страницы
+								setSearchParams({ page: 1 }) // Обновляем параметр страницы
 							}}
 						>
 							гранты
@@ -97,7 +95,7 @@ function BusinessSupportPage({ children, ...props }) {
 
 					<div className={styles.news_wrapper}>
 						{displayNews.map((item, index) => (
-							<BSItem key={index} {...item} />
+							<BSItem key={index} type:type {...item} />
 						))}
 					</div>
 
