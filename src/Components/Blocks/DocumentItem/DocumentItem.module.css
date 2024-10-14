@@ -28,11 +28,35 @@
   gap: 10px;
 }
 
-.doc_info p, a {
+.doc_info p,
+a {
   font-size: 20px;
   transition: all ease-in-out 0.3s;
 }
 
 .doc_info a:hover {
   color: var(--primaryColor);
+}
+
+
+
+@media (max-width: 1299px) {
+  .doc_wrapper {
+    border-radius: 10px;
+  }
+
+  .doc_info p,
+  a {
+    font-size: 14px;
+  }
+
+  .doc_wrapper img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+  }
+
+  .doc_info a:hover {
+    color: #000;
+  }
 }
