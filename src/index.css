@@ -84,18 +84,18 @@ img {
     color: #fff;
 }
 
-main {
+/* main {
     margin: 50px 0 50px 0;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     background-color: #fff;
-}
+} */
 
 @media (max-width: 1299px) {
-    main {
+    /* main {
         margin: 76px 0 50px 0;
-    }
+    } */
 }
 
 /* * {

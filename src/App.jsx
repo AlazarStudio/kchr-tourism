@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import AboutUsPage from './Components/Pages/AboutUsPage/AboutUsPage'
+import AdminPage from './Components/Pages/Admin/AdminPage'
 import BSDetail from './Components/Pages/BSDetail/BSDetail'
 import BusinessSupportPage from './Components/Pages/BusinessSupportPage/BusinessSupportPage'
 import ContactsPage from './Components/Pages/ContactsPage/ContactsPage'
@@ -38,6 +39,16 @@ function App() {
 					<Route path='/contact' element={<ContactsPage />} />
 					<Route path='*' element={<NotFoundPage />} />
 				</Route>
+					<Route path="/admin/*" element={<AdminPage />} />
+				{/* {!isAuthenticated ? (
+					<>
+						<Route path='/admin' element={<Auth />} />
+					</>
+				) : (
+					<>
+						<Route path='/admin' element={<MainPage />} />
+					</>
+				)} */}
 			</Routes>
 		</>
 	)
