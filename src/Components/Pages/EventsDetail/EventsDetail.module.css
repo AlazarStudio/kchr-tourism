@@ -37,7 +37,21 @@
   font-weight: 600;
 }
 
+.main_wrapper {
+  margin: 50px 0 50px 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+
+
 @media (max-width: 1299px) {
+  .main_wrapper {
+    margin: 76px 0 50px 0;
+  }
+
   .main_wrapper {
     padding: 0 16px;
   }

@@ -7,7 +7,7 @@ import styles from './ContactsPage.module.css'
 
 function ContactsPage({ children, ...props }) {
 	return (
-		<main>
+		<main className={styles.main_wrapper}>
 			<CenterBlock>
 				<WidthBlock>
 					<PageHeader title='АНО КЧР Туризм' />

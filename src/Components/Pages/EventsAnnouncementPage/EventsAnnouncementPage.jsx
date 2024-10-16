@@ -54,7 +54,7 @@ function EventsAnnouncementPage({ children, ...props }) {
 	}, [])
 
 	return (
-		<main>
+		<main className={styles.main_wrapper}>
 			<CenterBlock>
 				<WidthBlock>
 					<PageHeader title='Анонсы событий' />

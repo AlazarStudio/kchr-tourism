@@ -57,7 +57,7 @@ function BusinessSupportPage({ children, ...props }) {
 	}, [])
 
 	return (
-		<main ref={newsRef}>
+		<main ref={newsRef} className={styles.main_wrapper}>
 			<CenterBlock>
 				<WidthBlock>
 					<PageHeader title='Поддержка бизнеса' />

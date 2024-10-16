@@ -1,8 +1,11 @@
+import axios from 'axios'
 import { useEffect, useRef, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import { useSearchParams } from 'react-router-dom'
 
-import { news } from '../../../../data'
+import getToken from '../../../getToken'
+import serverConfig from '../../../serverConfig'
+// import { news } from '../../../../data'
 import NewsItem from '../../Blocks/NewsItem/NewsItem'
 import PageHeader from '../../Blocks/PageHeader/PageHeader'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
@@ -11,9 +14,31 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage'
 
 import styles from './NewsPage.module.css'
 
+const fetchNews = async () => {
+	try {
+		const response = await axios.get(`${serverConfig}/news`, {
+			headers: { Authorization: `Bearer ${getToken}` }
+		})
+		return response.data
+	} catch (error) {
+		console.error('Error fetching products:', error)
+		return []
+	}
+}
+
 function NewsPage({ children, ...props }) {
 	const [searchParams, setSearchParams] = useSearchParams()
 	const newsRef = useRef(null)
+	const [news, setNews] = useState([])
+
+	// Используем хуки до всех проверок
+	useEffect(() => {
+		const getNews = async () => {
+			const news = await fetchNews()
+			setNews(news)
+		}
+		getNews()
+	}, [])
 
 	// Извлекаем параметр "page" из строки запроса
 	const page = parseInt(searchParams.get('page')) || 1
@@ -26,14 +51,11 @@ function NewsPage({ children, ...props }) {
 
 	const [currentPage, setCurrentPage] = useState(safePage - 1)
 
+	// Это проверка на то, что хук работает корректно
 	const displayNews = news.slice(
 		currentPage * itemsPerPage,
 		(currentPage + 1) * itemsPerPage
 	)
-
-	if (safePage < 1 || safePage > pageCount) {
-		return <NotFoundPage />
-	}
 
 	const handlePageClick = ({ selected }) => {
 		setSearchParams({ page: selected + 1 })
@@ -43,6 +65,7 @@ function NewsPage({ children, ...props }) {
 		}
 	}
 
+	// Дополнительные хуки
 	useEffect(() => {
 		// Обновляем currentPage при изменении параметра страницы
 		setCurrentPage(safePage - 1)
@@ -52,8 +75,13 @@ function NewsPage({ children, ...props }) {
 		window.scrollTo({ top: 0, behavior: 'instant' })
 	}, [])
 
+	// Проверка на корректный рендер страницы после всех хуков
+	if (safePage < 1 || safePage > pageCount) {
+		return <NotFoundPage />
+	}
+
 	return (
-		<main ref={newsRef}>
+		<main ref={newsRef} className={styles.main_wrapper}>
 			<CenterBlock>
 				<WidthBlock>
 					<PageHeader title='новости' />

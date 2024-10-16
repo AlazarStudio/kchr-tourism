@@ -8,7 +8,7 @@ function VisitSlide({ children, ...props }) {
 				<img style={{ cursor: 'pointer' }} src='/images/arrow.png' alt='' />
 			</div>
 			<div className={styles.image_wrapper}>
-				<img src={props.img} alt='' />
+				<img src={props.images} alt='' />
 			</div>
 		</div>
 	)

@@ -2,35 +2,35 @@ export const contacts = [
 	{
 		id: 1,
 		link: 'https://yandex.ru/maps/-/CDTH7612',
-		img: '/images/location.png',
+		images: '/images/location.png',
 		title: 'Наш адрес',
 		subtitle: 'Черкесск, Октябрьская 376 б'
 	},
 	{
 		id: 2,
 		link: 'https://wa.me/+79280319656',
-		img: '/images/whatsapp.png',
+		images: '/images/whatsapp.png',
 		title: 'WatsApp',
 		subtitle: '+7 928 031-96-56'
 	},
 	{
 		id: 3,
 		link: 'https://t.me/+79280319656',
-		img: '/images/tg.svg',
+		images: '/images/tg.svg',
 		title: 'Telegram',
 		subtitle: '+7 928 031-96-56'
 	},
 	{
 		id: 4,
 		link: 'mailto:kchtourism@bk.ru',
-		img: '/images/email.png',
+		images: '/images/email.png',
 		title: 'E-mail',
 		subtitle: 'kchtourism@bk.ru'
 	},
 	{
 		id: 5,
 		link: 'https://vk.com/kchturism',
-		img: '/images/vk1.png',
+		images: '/images/vk1.png',
 		title: 'Вконтакте',
 		subtitle: '@kchturism'
 	}
@@ -38,64 +38,64 @@ export const contacts = [
 
 export const mainSliderImgs = [
 	{
-		img: '/images/main1.png'
+		images: '/images/main1.png'
 	},
 	{
-		img: '/images/main2.png'
+		images: '/images/main2.png'
 	},
 	{
-		img: '/images/main3.png'
+		images: '/images/main3.png'
 	},
 	{
-		img: '/images/main4.jpeg'
+		images: '/images/main4.jpeg'
 	},
 	{
-		img: '/images/main1.png'
+		images: '/images/main1.png'
 	},
 	{
-		img: '/images/main2.png'
+		images: '/images/main2.png'
 	},
 	{
-		img: '/images/main3.png'
+		images: '/images/main3.png'
 	},
 	{
-		img: '/images/main1.png'
+		images: '/images/main1.png'
 	},
 	{
-		img: '/images/main2.png'
+		images: '/images/main2.png'
 	},
 	{
-		img: '/images/main3.png'
+		images: '/images/main3.png'
 	},
 	{
-		img: '/images/main4.jpeg'
+		images: '/images/main4.jpeg'
 	},
 	{
-		img: '/images/main1.png'
+		images: '/images/main1.png'
 	},
 	{
-		img: '/images/main2.png'
+		images: '/images/main2.png'
 	},
 	{
-		img: '/images/main3.png'
+		images: '/images/main3.png'
 	}
 ]
 
 export const visitSlides = [
 	{
-		img: '/images/visit1.png',
+		images: '/images/visit1.png',
 		title: 'Бадукские озера'
 	},
 	{
-		img: '/images/visit2.jpeg',
+		images: '/images/visit2.jpeg',
 		title: 'Ферма Альпак в Архызе'
 	},
 	{
-		img: '/images/visit3.jpeg',
+		images: '/images/visit3.jpeg',
 		title: 'Домбай'
 	},
 	{
-		img: '/images/visit4.png',
+		images: '/images/visit4.png',
 		title: 'Обсерватория в Архызе'
 	}
 ]
@@ -103,7 +103,7 @@ export const visitSlides = [
 export const events = [
 	{
 		id: 1,
-		img: [
+		images: [
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
 			'/images/events3.jpeg',
@@ -117,7 +117,7 @@ export const events = [
 	},
 	{
 		id: 2,
-		img: [
+		images: [
 			'/images/events2.jpeg',
 			'/images/events1.jpeg',
 			'/images/events3.jpeg',
@@ -131,7 +131,7 @@ export const events = [
 	},
 	{
 		id: 3,
-		img: [
+		images: [
 			'/images/events3.jpeg',
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
@@ -145,7 +145,7 @@ export const events = [
 	},
 	{
 		id: 4,
-		img: [
+		images: [
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
 			'/images/events3.jpeg',
@@ -159,7 +159,7 @@ export const events = [
 	},
 	{
 		id: 5,
-		img: [
+		images: [
 			'/images/events2.jpeg',
 			'/images/events1.jpeg',
 			'/images/events3.jpeg',
@@ -173,7 +173,7 @@ export const events = [
 	},
 	{
 		id: 4,
-		img: [
+		images: [
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
 			'/images/events3.jpeg',
@@ -187,7 +187,7 @@ export const events = [
 	},
 	{
 		id: 6,
-		img: [
+		images: [
 			'/images/events3.jpeg',
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
@@ -201,7 +201,7 @@ export const events = [
 	},
 	{
 		id: 1,
-		img: [
+		images: [
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
 			'/images/events3.jpeg',
@@ -215,7 +215,7 @@ export const events = [
 	},
 	{
 		id: 2,
-		img: [
+		images: [
 			'/images/events2.jpeg',
 			'/images/events1.jpeg',
 			'/images/events3.jpeg',
@@ -229,7 +229,7 @@ export const events = [
 	},
 	{
 		id: 3,
-		img: [
+		images: [
 			'/images/events3.jpeg',
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
@@ -244,7 +244,7 @@ export const events = [
 
 	{
 		id: 5,
-		img: [
+		images: [
 			'/images/events2.jpeg',
 			'/images/events1.jpeg',
 			'/images/events3.jpeg',
@@ -258,7 +258,7 @@ export const events = [
 	},
 	{
 		id: 6,
-		img: [
+		images: [
 			'/images/events3.jpeg',
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
@@ -272,7 +272,7 @@ export const events = [
 	},
 	{
 		id: 1,
-		img: [
+		images: [
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
 			'/images/events3.jpeg',
@@ -286,7 +286,7 @@ export const events = [
 	},
 	{
 		id: 2,
-		img: [
+		images: [
 			'/images/events2.jpeg',
 			'/images/events1.jpeg',
 			'/images/events3.jpeg',
@@ -300,7 +300,7 @@ export const events = [
 	},
 	{
 		id: 3,
-		img: [
+		images: [
 			'/images/events3.jpeg',
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
@@ -314,7 +314,7 @@ export const events = [
 	},
 	{
 		id: 4,
-		img: [
+		images: [
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
 			'/images/events3.jpeg',
@@ -328,7 +328,7 @@ export const events = [
 	},
 	{
 		id: 5,
-		img: [
+		images: [
 			'/images/events2.jpeg',
 			'/images/events1.jpeg',
 			'/images/events3.jpeg',
@@ -342,7 +342,7 @@ export const events = [
 	},
 	{
 		id: 4,
-		img: [
+		images: [
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
 			'/images/events3.jpeg',
@@ -356,7 +356,7 @@ export const events = [
 	},
 	{
 		id: 6,
-		img: [
+		images: [
 			'/images/events3.jpeg',
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
@@ -370,7 +370,7 @@ export const events = [
 	},
 	{
 		id: 1,
-		img: [
+		images: [
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
 			'/images/events3.jpeg',
@@ -384,7 +384,7 @@ export const events = [
 	},
 	{
 		id: 2,
-		img: [
+		images: [
 			'/images/events2.jpeg',
 			'/images/events1.jpeg',
 			'/images/events3.jpeg',
@@ -398,7 +398,7 @@ export const events = [
 	},
 	{
 		id: 3,
-		img: [
+		images: [
 			'/images/events3.jpeg',
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
@@ -413,7 +413,7 @@ export const events = [
 
 	{
 		id: 5,
-		img: [
+		images: [
 			'/images/events2.jpeg',
 			'/images/events1.jpeg',
 			'/images/events3.jpeg',
@@ -427,7 +427,7 @@ export const events = [
 	},
 	{
 		id: 6,
-		img: [
+		images: [
 			'/images/events3.jpeg',
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
@@ -441,7 +441,7 @@ export const events = [
 	},
 	{
 		id: 1,
-		img: [
+		images: [
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
 			'/images/events3.jpeg',
@@ -455,7 +455,7 @@ export const events = [
 	},
 	{
 		id: 2,
-		img: [
+		images: [
 			'/images/events2.jpeg',
 			'/images/events1.jpeg',
 			'/images/events3.jpeg',
@@ -469,7 +469,7 @@ export const events = [
 	},
 	{
 		id: 3,
-		img: [
+		images: [
 			'/images/events3.jpeg',
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
@@ -483,7 +483,7 @@ export const events = [
 	},
 	{
 		id: 4,
-		img: [
+		images: [
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
 			'/images/events3.jpeg',
@@ -497,7 +497,7 @@ export const events = [
 	},
 	{
 		id: 5,
-		img: [
+		images: [
 			'/images/events2.jpeg',
 			'/images/events1.jpeg',
 			'/images/events3.jpeg',
@@ -511,7 +511,7 @@ export const events = [
 	},
 	{
 		id: 4,
-		img: [
+		images: [
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
 			'/images/events3.jpeg',
@@ -525,7 +525,7 @@ export const events = [
 	},
 	{
 		id: 6,
-		img: [
+		images: [
 			'/images/events3.jpeg',
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
@@ -539,7 +539,7 @@ export const events = [
 	},
 	{
 		id: 1,
-		img: [
+		images: [
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
 			'/images/events3.jpeg',
@@ -553,7 +553,7 @@ export const events = [
 	},
 	{
 		id: 2,
-		img: [
+		images: [
 			'/images/events2.jpeg',
 			'/images/events1.jpeg',
 			'/images/events3.jpeg',
@@ -567,7 +567,7 @@ export const events = [
 	},
 	{
 		id: 3,
-		img: [
+		images: [
 			'/images/events3.jpeg',
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
@@ -582,7 +582,7 @@ export const events = [
 
 	{
 		id: 5,
-		img: [
+		images: [
 			'/images/events2.jpeg',
 			'/images/events1.jpeg',
 			'/images/events3.jpeg',
@@ -596,7 +596,7 @@ export const events = [
 	},
 	{
 		id: 6,
-		img: [
+		images: [
 			'/images/events3.jpeg',
 			'/images/events1.jpeg',
 			'/images/events2.jpeg',
@@ -613,7 +613,7 @@ export const events = [
 export const projects = [
 	{
 		id: 1,
-		img: [
+		images: [
 			'/images/project2.jpeg',
 			'/images/project3.jpeg',
 			'/images/project2.jpeg',
@@ -626,7 +626,7 @@ export const projects = [
 	},
 	{
 		id: 2,
-		img: [
+		images: [
 			'/images/project3.jpeg',
 			'/images/project2.jpeg',
 			'/images/project3.jpeg',
@@ -639,7 +639,7 @@ export const projects = [
 	},
 	{
 		id: 3,
-		img: [
+		images: [
 			'/images/project2.jpeg',
 			'/images/project1.jpeg',
 			'/images/project3.jpeg',
@@ -652,7 +652,7 @@ export const projects = [
 	},
 	{
 		id: 4,
-		img: [
+		images: [
 			'/images/project1.jpeg',
 			'/images/project3.jpeg',
 			'/images/project2.jpeg',
@@ -665,7 +665,7 @@ export const projects = [
 	},
 	{
 		id: 5,
-		img: [
+		images: [
 			'/images/project2.jpeg',
 			'/images/project3.jpeg',
 			'/images/project2.jpeg',
@@ -678,7 +678,7 @@ export const projects = [
 	},
 	{
 		id: 6,
-		img: [
+		images: [
 			'/images/project2.jpeg',
 			'/images/project3.jpeg',
 			'/images/project2.jpeg',
@@ -691,7 +691,7 @@ export const projects = [
 	},
 	{
 		id: 7,
-		img: [
+		images: [
 			'/images/project3.jpeg',
 			'/images/project2.jpeg',
 			'/images/project2.jpeg',
@@ -704,7 +704,7 @@ export const projects = [
 	},
 	{
 		id: 8,
-		img: [
+		images: [
 			'/images/project1.jpeg',
 			'/images/project3.jpeg',
 			'/images/project2.jpeg',
@@ -717,7 +717,7 @@ export const projects = [
 	},
 	{
 		id: 9,
-		img: [
+		images: [
 			'/images/project2.jpeg',
 			'/images/project3.jpeg',
 			'/images/project2.jpeg',
@@ -733,7 +733,7 @@ export const projects = [
 export const news = [
 	{
 		id: '1',
-		img: [
+		images: [
 			'/images/news2.jpeg',
 			'/images/news1.jpeg',
 			'/images/news3.jpeg',
@@ -753,7 +753,7 @@ export const news = [
 	},
 	{
 		id: '2',
-		img: [
+		images: [
 			'/images/news5.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -774,7 +774,7 @@ export const news = [
 	},
 	{
 		id: '3',
-		img: [
+		images: [
 			'/images/news3.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -794,7 +794,7 @@ export const news = [
 	},
 	{
 		id: '4',
-		img: [
+		images: [
 			'/images/news8.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -814,7 +814,7 @@ export const news = [
 	},
 	{
 		id: '5',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -835,7 +835,7 @@ export const news = [
 	},
 	{
 		id: '6',
-		img: [
+		images: [
 			'/images/news7.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -855,7 +855,7 @@ export const news = [
 	},
 	{
 		id: '7',
-		img: [
+		images: [
 			'/images/news11.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -875,7 +875,7 @@ export const news = [
 	},
 	{
 		id: '8',
-		img: [
+		images: [
 			'/images/news4.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -896,7 +896,7 @@ export const news = [
 	},
 	{
 		id: '9',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -916,7 +916,7 @@ export const news = [
 	},
 	{
 		id: '1',
-		img: [
+		images: [
 			'/images/news2.jpeg',
 			'/images/news1.jpeg',
 			'/images/news3.jpeg',
@@ -936,7 +936,7 @@ export const news = [
 	},
 	{
 		id: '2',
-		img: [
+		images: [
 			'/images/news5.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -957,7 +957,7 @@ export const news = [
 	},
 	{
 		id: '3',
-		img: [
+		images: [
 			'/images/news3.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -977,7 +977,7 @@ export const news = [
 	},
 	{
 		id: '4',
-		img: [
+		images: [
 			'/images/news8.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -997,7 +997,7 @@ export const news = [
 	},
 	{
 		id: '5',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1018,7 +1018,7 @@ export const news = [
 	},
 	{
 		id: '6',
-		img: [
+		images: [
 			'/images/news7.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1038,7 +1038,7 @@ export const news = [
 	},
 	{
 		id: '7',
-		img: [
+		images: [
 			'/images/news11.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1058,7 +1058,7 @@ export const news = [
 	},
 	{
 		id: '8',
-		img: [
+		images: [
 			'/images/news4.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1079,7 +1079,7 @@ export const news = [
 	},
 	{
 		id: '9',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1099,7 +1099,7 @@ export const news = [
 	},
 	{
 		id: '1',
-		img: [
+		images: [
 			'/images/news2.jpeg',
 			'/images/news1.jpeg',
 			'/images/news3.jpeg',
@@ -1119,7 +1119,7 @@ export const news = [
 	},
 	{
 		id: '2',
-		img: [
+		images: [
 			'/images/news5.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1140,7 +1140,7 @@ export const news = [
 	},
 	{
 		id: '3',
-		img: [
+		images: [
 			'/images/news3.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1160,7 +1160,7 @@ export const news = [
 	},
 	{
 		id: '4',
-		img: [
+		images: [
 			'/images/news8.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1180,7 +1180,7 @@ export const news = [
 	},
 	{
 		id: '5',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1201,7 +1201,7 @@ export const news = [
 	},
 	{
 		id: '6',
-		img: [
+		images: [
 			'/images/news7.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1221,7 +1221,7 @@ export const news = [
 	},
 	{
 		id: '7',
-		img: [
+		images: [
 			'/images/news11.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1241,7 +1241,7 @@ export const news = [
 	},
 	{
 		id: '8',
-		img: [
+		images: [
 			'/images/news4.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1262,7 +1262,7 @@ export const news = [
 	},
 	{
 		id: '9',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1285,7 +1285,7 @@ export const news = [
 export const bs = [
 	{
 		id: '1',
-		img: [
+		images: [
 			'/images/news2.jpeg',
 			'/images/news1.jpeg',
 			'/images/news3.jpeg',
@@ -1305,7 +1305,7 @@ export const bs = [
 	},
 	{
 		id: '2',
-		img: [
+		images: [
 			'/images/news5.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1326,7 +1326,7 @@ export const bs = [
 	},
 	{
 		id: '3',
-		img: [
+		images: [
 			'/images/news3.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1346,7 +1346,7 @@ export const bs = [
 	},
 	{
 		id: '4',
-		img: [
+		images: [
 			'/images/news8.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1366,7 +1366,7 @@ export const bs = [
 	},
 	{
 		id: '5',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1387,7 +1387,7 @@ export const bs = [
 	},
 	{
 		id: '6',
-		img: [
+		images: [
 			'/images/news7.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1407,7 +1407,7 @@ export const bs = [
 	},
 	{
 		id: '7',
-		img: [
+		images: [
 			'/images/news11.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1427,7 +1427,7 @@ export const bs = [
 	},
 	{
 		id: '8',
-		img: [
+		images: [
 			'/images/news4.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1448,7 +1448,7 @@ export const bs = [
 	},
 	{
 		id: '9',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1468,7 +1468,7 @@ export const bs = [
 	},
 	{
 		id: '1',
-		img: [
+		images: [
 			'/images/news2.jpeg',
 			'/images/news1.jpeg',
 			'/images/news3.jpeg',
@@ -1488,7 +1488,7 @@ export const bs = [
 	},
 	{
 		id: '2',
-		img: [
+		images: [
 			'/images/news5.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1509,7 +1509,7 @@ export const bs = [
 	},
 	{
 		id: '3',
-		img: [
+		images: [
 			'/images/news3.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1529,7 +1529,7 @@ export const bs = [
 	},
 	{
 		id: '4',
-		img: [
+		images: [
 			'/images/news8.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1549,7 +1549,7 @@ export const bs = [
 	},
 	{
 		id: '5',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1570,7 +1570,7 @@ export const bs = [
 	},
 	{
 		id: '6',
-		img: [
+		images: [
 			'/images/news7.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1590,7 +1590,7 @@ export const bs = [
 	},
 	{
 		id: '7',
-		img: [
+		images: [
 			'/images/news11.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1610,7 +1610,7 @@ export const bs = [
 	},
 	{
 		id: '8',
-		img: [
+		images: [
 			'/images/news4.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1631,7 +1631,7 @@ export const bs = [
 	},
 	{
 		id: '9',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1651,7 +1651,7 @@ export const bs = [
 	},
 	{
 		id: '1',
-		img: [
+		images: [
 			'/images/news2.jpeg',
 			'/images/news1.jpeg',
 			'/images/news3.jpeg',
@@ -1671,7 +1671,7 @@ export const bs = [
 	},
 	{
 		id: '2',
-		img: [
+		images: [
 			'/images/news5.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1692,7 +1692,7 @@ export const bs = [
 	},
 	{
 		id: '3',
-		img: [
+		images: [
 			'/images/news3.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1712,7 +1712,7 @@ export const bs = [
 	},
 	{
 		id: '4',
-		img: [
+		images: [
 			'/images/news8.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1732,7 +1732,7 @@ export const bs = [
 	},
 	{
 		id: '5',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1753,7 +1753,7 @@ export const bs = [
 	},
 	{
 		id: '6',
-		img: [
+		images: [
 			'/images/news7.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1773,7 +1773,7 @@ export const bs = [
 	},
 	{
 		id: '7',
-		img: [
+		images: [
 			'/images/news11.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1793,7 +1793,7 @@ export const bs = [
 	},
 	{
 		id: '8',
-		img: [
+		images: [
 			'/images/news4.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1814,7 +1814,7 @@ export const bs = [
 	},
 	{
 		id: '9',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1837,7 +1837,7 @@ export const bs = [
 export const bs2 = [
 	{
 		id: '3',
-		img: [
+		images: [
 			'/images/news3.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1857,7 +1857,7 @@ export const bs2 = [
 	},
 	{
 		id: '4',
-		img: [
+		images: [
 			'/images/news8.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1877,7 +1877,7 @@ export const bs2 = [
 	},
 	{
 		id: '5',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1898,7 +1898,7 @@ export const bs2 = [
 	},
 	{
 		id: '6',
-		img: [
+		images: [
 			'/images/news7.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1918,7 +1918,7 @@ export const bs2 = [
 	},
 	{
 		id: '7',
-		img: [
+		images: [
 			'/images/news11.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1938,7 +1938,7 @@ export const bs2 = [
 	},
 	{
 		id: '8',
-		img: [
+		images: [
 			'/images/news4.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1959,7 +1959,7 @@ export const bs2 = [
 	},
 	{
 		id: '9',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -1979,7 +1979,7 @@ export const bs2 = [
 	},
 	{
 		id: '1',
-		img: [
+		images: [
 			'/images/news2.jpeg',
 			'/images/news1.jpeg',
 			'/images/news3.jpeg',
@@ -1999,7 +1999,7 @@ export const bs2 = [
 	},
 	{
 		id: '2',
-		img: [
+		images: [
 			'/images/news5.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2020,7 +2020,7 @@ export const bs2 = [
 	},
 	{
 		id: '3',
-		img: [
+		images: [
 			'/images/news3.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2040,7 +2040,7 @@ export const bs2 = [
 	},
 	{
 		id: '4',
-		img: [
+		images: [
 			'/images/news8.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2060,7 +2060,7 @@ export const bs2 = [
 	},
 	{
 		id: '5',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2081,7 +2081,7 @@ export const bs2 = [
 	},
 	{
 		id: '6',
-		img: [
+		images: [
 			'/images/news7.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2101,7 +2101,7 @@ export const bs2 = [
 	},
 	{
 		id: '7',
-		img: [
+		images: [
 			'/images/news11.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2121,7 +2121,7 @@ export const bs2 = [
 	},
 	{
 		id: '8',
-		img: [
+		images: [
 			'/images/news4.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2142,7 +2142,7 @@ export const bs2 = [
 	},
 	{
 		id: '9',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2162,7 +2162,7 @@ export const bs2 = [
 	},
 	{
 		id: '1',
-		img: [
+		images: [
 			'/images/news2.jpeg',
 			'/images/news1.jpeg',
 			'/images/news3.jpeg',
@@ -2182,7 +2182,7 @@ export const bs2 = [
 	},
 	{
 		id: '2',
-		img: [
+		images: [
 			'/images/news5.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2203,7 +2203,7 @@ export const bs2 = [
 	},
 	{
 		id: '3',
-		img: [
+		images: [
 			'/images/news3.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2223,7 +2223,7 @@ export const bs2 = [
 	},
 	{
 		id: '4',
-		img: [
+		images: [
 			'/images/news8.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2243,7 +2243,7 @@ export const bs2 = [
 	},
 	{
 		id: '5',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2264,7 +2264,7 @@ export const bs2 = [
 	},
 	{
 		id: '6',
-		img: [
+		images: [
 			'/images/news7.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2284,7 +2284,7 @@ export const bs2 = [
 	},
 	{
 		id: '7',
-		img: [
+		images: [
 			'/images/news11.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2304,7 +2304,7 @@ export const bs2 = [
 	},
 	{
 		id: '8',
-		img: [
+		images: [
 			'/images/news4.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2325,7 +2325,7 @@ export const bs2 = [
 	},
 	{
 		id: '9',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2348,7 +2348,7 @@ export const bs2 = [
 export const bs3 = [
 	{
 		id: '2',
-		img: [
+		images: [
 			'/images/news5.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2369,7 +2369,7 @@ export const bs3 = [
 	},
 	{
 		id: '3',
-		img: [
+		images: [
 			'/images/news3.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2389,7 +2389,7 @@ export const bs3 = [
 	},
 	{
 		id: '4',
-		img: [
+		images: [
 			'/images/news8.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2409,7 +2409,7 @@ export const bs3 = [
 	},
 	{
 		id: '5',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2430,7 +2430,7 @@ export const bs3 = [
 	},
 	{
 		id: '6',
-		img: [
+		images: [
 			'/images/news7.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2450,7 +2450,7 @@ export const bs3 = [
 	},
 	{
 		id: '7',
-		img: [
+		images: [
 			'/images/news11.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2470,7 +2470,7 @@ export const bs3 = [
 	},
 	{
 		id: '8',
-		img: [
+		images: [
 			'/images/news4.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2491,7 +2491,7 @@ export const bs3 = [
 	},
 	{
 		id: '9',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2511,7 +2511,7 @@ export const bs3 = [
 	},
 	{
 		id: '1',
-		img: [
+		images: [
 			'/images/news2.jpeg',
 			'/images/news1.jpeg',
 			'/images/news3.jpeg',
@@ -2531,7 +2531,7 @@ export const bs3 = [
 	},
 	{
 		id: '2',
-		img: [
+		images: [
 			'/images/news5.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2552,7 +2552,7 @@ export const bs3 = [
 	},
 	{
 		id: '3',
-		img: [
+		images: [
 			'/images/news3.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2572,7 +2572,7 @@ export const bs3 = [
 	},
 	{
 		id: '4',
-		img: [
+		images: [
 			'/images/news8.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2592,7 +2592,7 @@ export const bs3 = [
 	},
 	{
 		id: '5',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2613,7 +2613,7 @@ export const bs3 = [
 	},
 	{
 		id: '6',
-		img: [
+		images: [
 			'/images/news7.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2633,7 +2633,7 @@ export const bs3 = [
 	},
 	{
 		id: '7',
-		img: [
+		images: [
 			'/images/news11.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2653,7 +2653,7 @@ export const bs3 = [
 	},
 	{
 		id: '8',
-		img: [
+		images: [
 			'/images/news4.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2674,7 +2674,7 @@ export const bs3 = [
 	},
 	{
 		id: '9',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2694,7 +2694,7 @@ export const bs3 = [
 	},
 	{
 		id: '1',
-		img: [
+		images: [
 			'/images/news2.jpeg',
 			'/images/news1.jpeg',
 			'/images/news3.jpeg',
@@ -2714,7 +2714,7 @@ export const bs3 = [
 	},
 	{
 		id: '2',
-		img: [
+		images: [
 			'/images/news5.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2735,7 +2735,7 @@ export const bs3 = [
 	},
 	{
 		id: '3',
-		img: [
+		images: [
 			'/images/news3.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2755,7 +2755,7 @@ export const bs3 = [
 	},
 	{
 		id: '4',
-		img: [
+		images: [
 			'/images/news8.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2775,7 +2775,7 @@ export const bs3 = [
 	},
 	{
 		id: '5',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2796,7 +2796,7 @@ export const bs3 = [
 	},
 	{
 		id: '6',
-		img: [
+		images: [
 			'/images/news7.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2816,7 +2816,7 @@ export const bs3 = [
 	},
 	{
 		id: '7',
-		img: [
+		images: [
 			'/images/news11.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2836,7 +2836,7 @@ export const bs3 = [
 	},
 	{
 		id: '8',
-		img: [
+		images: [
 			'/images/news4.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2857,7 +2857,7 @@ export const bs3 = [
 	},
 	{
 		id: '9',
-		img: [
+		images: [
 			'/images/news10.jpeg',
 			'/images/news1.jpeg',
 			'/images/news2.jpeg',
@@ -2880,32 +2880,32 @@ export const bs3 = [
 export const docs = [
 	{
 		categoryId: 1,
-		img: '/images/pdf.png',
+		images: '/images/pdf.png',
 		src: '/docs/file1.pdf',
 		title: 'Государственное задание 2017'
 	},
 	{
 		categoryId: 1,
-		img: '/images/pdf.png',
+		images: '/images/pdf.png',
 		src: '/docs/file1.pdf',
 		title: 'Государственное задание 2018'
 	},
 	{
 		categoryId: 1,
-		img: '/images/pdf.png',
+		images: '/images/pdf.png',
 		src: '/docs/file1.pdf',
 		title: 'Государственное задание 2019'
 	},
 	{
 		categoryId: 1,
-		img: '/images/docx.png',
+		images: '/images/docx.png',
 		src: '/docs/file2.docx',
 		title:
 			'Отчет о выполнении государственного задания за 1 квартал 2019 года (объем предоставляемых социальных услуг)'
 	},
 	{
 		categoryId: 1,
-		img: '/images/docx.png',
+		images: '/images/docx.png',
 		src: '/docs/file2.docx',
 		title:
 			'Отчет о выполнении государственного задания за 2 квартал 2019 года (объем предоставляемых социальных услуг)'
@@ -2913,42 +2913,42 @@ export const docs = [
 
 	{
 		categoryId: 2,
-		img: '/images/docx.png',
+		images: '/images/docx.png',
 		src: '/docs/file2.docx',
 		title:
 			'Закон Карачаево-Черкесской Республики от 15.12.2014 № 88-РЗ «О перечне социальных услуг, предоставляемых поставщиками социальных услуг в Карачаево-Черкесской Республике»'
 	},
 	{
 		categoryId: 2,
-		img: '/images/docx.png',
+		images: '/images/docx.png',
 		src: '/docs/file2.docx',
 		title:
 			'Закон Карачаево-Черкесской Республики от 15.12.2014 № 88-РЗ «О перечне социальных услуг, предоставляемых поставщиками социальных услуг в Карачаево-Черкесской Республике»'
 	},
 	{
 		categoryId: 2,
-		img: '/images/docx.png',
+		images: '/images/docx.png',
 		src: '/docs/file2.docx',
 		title:
 			'Закон Карачаево-Черкесской Республики от 15.12.2014 № 88-РЗ «О перечне социальных услуг, предоставляемых поставщиками социальных услуг в Карачаево-Черкесской Республике»'
 	},
 	{
 		categoryId: 2,
-		img: '/images/docx.png',
+		images: '/images/docx.png',
 		src: '/docs/file2.docx',
 		title:
 			'Закон Карачаево-Черкесской Республики от 15.12.2014 № 88-РЗ «О перечне социальных услуг, предоставляемых поставщиками социальных услуг в Карачаево-Черкесской Республике»'
 	},
 	{
 		categoryId: 2,
-		img: '/images/docx.png',
+		images: '/images/docx.png',
 		src: '/docs/file2.docx',
 		title:
 			'Закон Карачаево-Черкесской Республики от 15.12.2014 № 88-РЗ «О перечне социальных услуг, предоставляемых поставщиками социальных услуг в Карачаево-Черкесской Республике»'
 	},
 	{
 		categoryId: 2,
-		img: '/images/docx.png',
+		images: '/images/docx.png',
 		src: '/docs/file2.docx',
 		title:
 			'Закон Карачаево-Черкесской Республики от 15.12.2014 № 88-РЗ «О перечне социальных услуг, предоставляемых поставщиками социальных услуг в Карачаево-Черкесской Республике»'

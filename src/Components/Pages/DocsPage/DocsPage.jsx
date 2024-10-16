@@ -8,7 +8,7 @@ import styles from './DocsPage.module.css'
 
 function DocsPage({ children, ...props }) {
 	return (
-		<main>
+		<main className={styles.main_wrapper}>
 			<CenterBlock>
 				<WidthBlock>
 					<PageHeader title='Документы' />

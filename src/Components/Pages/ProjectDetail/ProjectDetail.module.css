@@ -11,12 +11,12 @@
   font-size: 20px;
   line-height: 40px;
   border: 1px solid var(--borderColor);
+  text-align: justify;
 }
 
 .article_images {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 30px;
 }
 
@@ -27,7 +27,19 @@
   object-fit: cover;
 }
 
+.main_wrapper {
+  margin: 50px 0 50px 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
 @media (max-width: 1299px) {
+  .main_wrapper {
+    margin: 76px 0 50px 0;
+  }
+
   .main_wrapper {
     padding: 0 16px;
   }
@@ -38,20 +50,20 @@
     font-size: 18px;
     line-height: 24px;
   }
-  
+
   .article_text {
     padding: 20px;
     font-size: 16px;
     line-height: 28px;
   }
-  
+
   .article_images {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 10px;
   }
-  
+
   .article_images img {
     flex-basis: 48%;
     width: 48%;

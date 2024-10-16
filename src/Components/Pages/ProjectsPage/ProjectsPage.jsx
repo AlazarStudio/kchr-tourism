@@ -1,8 +1,11 @@
+import axios from 'axios'
 import { useEffect, useRef, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import { useSearchParams } from 'react-router-dom'
 
-import { projects } from '../../../../data'
+// import { projects } from '../../../../data'
+import getToken from '../../../getToken'
+import serverConfig from '../../../serverConfig'
 import PageHeader from '../../Blocks/PageHeader/PageHeader'
 import ProjectItem from '../../Blocks/ProjectItem/ProjectItem'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
@@ -11,21 +14,43 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage'
 
 import styles from './ProjectsPage.module.css'
 
+const fetchProjects = async () => {
+	try {
+		const response = await axios.get(`${serverConfig}/projects`, {
+			headers: { Authorization: `Bearer ${getToken}` }
+		})
+		return response.data
+	} catch (error) {
+		console.error('Error fetching products:', error)
+		return []
+	}
+}
+
 function ProjectsPage({ children, ...props }) {
 	const [searchParams, setSearchParams] = useSearchParams()
 	const projectsRef = useRef(null)
+	const [projects, setProjects] = useState([])
+
+	// Используем хуки до всех проверок
+	useEffect(() => {
+		const getProjects = async () => {
+			const projects = await fetchProjects()
+			setProjects(projects)
+		}
+		getProjects()
+	}, [])
 
 	// Извлекаем параметр "page" из строки запроса
 	const page = parseInt(searchParams.get('page')) || 1
 
 	const itemsPerPage = 6
-	
+
 	const pageCount = Math.ceil(projects.length / itemsPerPage)
 
 	const safePage = Math.min(page, pageCount)
 
 	const [currentPage, setCurrentPage] = useState(safePage - 1)
-	
+
 	const displayProjects = projects.slice(
 		currentPage * itemsPerPage,
 		(currentPage + 1) * itemsPerPage
@@ -33,11 +58,6 @@ function ProjectsPage({ children, ...props }) {
 
 	// console.log(projects.length)
 	// console.log(displayProjects.length)
-
-	// Если запрашиваемая страница меньше 1 или больше pageCount, возвращаем NotFoundPage
-	if (safePage < 1 || safePage > pageCount) {
-		return <NotFoundPage />
-	}
 
 	const handlePageClick = ({ selected }) => {
 		setSearchParams({ page: selected + 1 })
@@ -60,8 +80,13 @@ function ProjectsPage({ children, ...props }) {
 		window.scrollTo({ top: 0, behavior: 'instant' })
 	}, [])
 
+	// Если запрашиваемая страница меньше 1 или больше pageCount, возвращаем NotFoundPage
+	if (safePage < 1 || safePage > pageCount) {
+		return <NotFoundPage />
+	}
+
 	return (
-		<main ref={projectsRef}>
+		<main ref={projectsRef} className={styles.main_wrapper}>
 			<CenterBlock>
 				<WidthBlock>
 					<PageHeader title='наши Проекты' />

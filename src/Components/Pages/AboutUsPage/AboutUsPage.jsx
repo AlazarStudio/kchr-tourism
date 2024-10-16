@@ -6,7 +6,7 @@ import styles from './AboutUsPage.module.css'
 
 function AboutUsPage({ children, ...props }) {
 	return (
-		<main>
+		<main className={styles.main_wrapper}>
 			<CenterBlock>
 				<WidthBlock>
 					<PageHeader title='о нас' />

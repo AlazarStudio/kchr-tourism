@@ -9,10 +9,10 @@ import styles from './EventsDetail.module.css'
 
 function EventsDetail({ children, ...props }) {
 	const { id } = useParams()
-	console.log(id)
+	// console.log(id)
 
 	const article = events.find(link => link.id == id)
-	console.log(article)
+	// console.log(article)
 
 	useEffect(() => {
 		window.scrollTo({ top: '0', behavior: 'instant' })
@@ -23,11 +23,11 @@ function EventsDetail({ children, ...props }) {
 			<CenterBlock>
 				<WidthBlock>
 					<p className={styles.article_title}>{article.title}</p>
-					<div className={styles.article_info} style={{ textTransform: 'uppercase' }}>
+					{/* <div className={styles.article_info} style={{ textTransform: 'uppercase' }}>
 						<p>{article.date}</p>
 						<p>{article.day}</p>
 						<p>{article.location}</p>
-					</div>
+					</div> */}
 
 					<div
 						dangerouslySetInnerHTML={{ __html: article.text }}
@@ -35,10 +35,18 @@ function EventsDetail({ children, ...props }) {
 					/>
 
 					<div className={styles.article_images}>
-						{article.img.map((img, index) => (
+						{article.images.map((img, index) => (
 							<img key={index} src={img} alt='' />
 						))}
 					</div>
+
+					{/* <div className={styles.article_images}>
+						{news.images &&
+							Array.isArray(news.images) &&
+							news.images.map((img, index) => (
+								<img key={index} src={`${uploadsConfig}${img}`} alt='' />
+							))}
+					</div> */}
 				</WidthBlock>
 			</CenterBlock>
 		</main>
