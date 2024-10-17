@@ -47,6 +47,36 @@ export const handleSave = async values => {
 		values.images = uploadedImages
 	}
 
-	// Возвращаем измененные данные для создания новости
+	return values
+}
+
+// Функция для обновления изображений
+export const updateImages = async (existingImages = [], newFiles = []) => {
+	// Загружаем новые файлы на сервер
+	let uploadedImages = []
+	if (newFiles.length > 0) {
+		uploadedImages = await uploadFiles(newFiles)
+	}
+
+	// Объединяем старые изображения с новыми
+	const updatedImages = [...existingImages, ...uploadedImages]
+
+	return updatedImages
+}
+
+// Функция для сохранения формы
+export const handleSaveWithImages = async values => {
+	const existingImages = values.images || [] // Старые изображения
+	const newFiles = values.imagesRaw || [] // Новые загруженные файлы
+
+	// Обновляем изображения (старые + новые)
+	const updatedImages = await updateImages(existingImages, newFiles)
+
+	// Сохраняем значения формы с обновленными изображениями
+	values.images = updatedImages
+
+	// Удаляем временные поля
+	delete values.imagesRaw
+
 	return values
 }

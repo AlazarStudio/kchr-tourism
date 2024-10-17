@@ -74,9 +74,25 @@
   background-color: #fff;
 }
 
+.not_found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 700;
+  color: var(--primaryColor);
+}
+
 
 
 @media (max-width: 1299px) {
+
+  .not_found {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
   .main_wrapper {
     margin: 76px 0 50px 0;
   }

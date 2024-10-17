@@ -3,7 +3,7 @@ import { fetchUtils } from 'react-admin'
 import getToken from '../../../../getToken'
 
 export const fetchJsonWithToken = async (url, options = {}) => {
-	console.log(url, options)
+	// console.log(url, options)
 	if (!options.headers) {
 		options.headers = new Headers({ Accept: 'application/json' })
 	}

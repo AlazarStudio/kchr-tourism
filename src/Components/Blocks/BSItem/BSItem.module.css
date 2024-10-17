@@ -5,6 +5,10 @@
   gap: 20px;
   overflow: hidden;
   border-radius: 20px;
+}
+
+.news_card__item:hover {
+  transform: scale(1.05);
   -webkit-box-shadow: 0px 0px 20px 0px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 0px 0px 20px 0px rgba(34, 60, 80, 0.2);
   box-shadow: 0px 0px 20px 0px rgba(34, 60, 80, 0.2);
@@ -31,7 +35,7 @@
   background: var(--primaryLinear);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color:rgb(37, 169, 221);
+  color: rgb(37, 169, 221);
   display: table;
 }
 
@@ -56,23 +60,23 @@
     gap: 20px;
     overflow: hidden;
   }
-  
+
   .news_card__item img {
     height: 300px;
     object-fit: cover;
     border-radius: 20px;
   }
-  
+
   .news_cart__text {
     padding-inline: 16px;
     gap: 15px;
   }
-  
+
   .news_cart__text :first-child {
     font-size: 16px;
     line-height: 18px;
   }
-  
+
   .news_cart__text :last-child {
     font-size: 16px;
     line-height: 24px;

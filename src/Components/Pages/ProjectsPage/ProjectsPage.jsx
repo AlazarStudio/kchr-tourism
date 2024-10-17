@@ -31,7 +31,6 @@ function ProjectsPage({ children, ...props }) {
 	const projectsRef = useRef(null)
 	const [projects, setProjects] = useState([])
 
-	// Используем хуки до всех проверок
 	useEffect(() => {
 		const getProjects = async () => {
 			const projects = await fetchProjects()

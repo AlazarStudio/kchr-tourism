@@ -1,13 +1,39 @@
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { projects } from '../../../../data'
+// import { projects } from '../../../../data'
+import getToken from '../../../getToken'
+import serverConfig from '../../../serverConfig'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 import ProjectItem from '../ProjectItem/ProjectItem'
 
 import styles from './OurProjectsBlock.module.css'
 
+const fetchProjects = async () => {
+	try {
+		const response = await axios.get(`${serverConfig}/projects`, {
+			headers: { Authorization: `Bearer ${getToken}` }
+		})
+		return response.data
+	} catch (error) {
+		console.error('Error fetching products:', error)
+		return []
+	}
+}
+
 function OurProjectsBlock({ children, ...props }) {
+	const [projects, setProjects] = useState([])
+
+	useEffect(() => {
+		const getProjects = async () => {
+			const projects = await fetchProjects()
+			setProjects(projects)
+		}
+		getProjects()
+	}, [])
+
 	return (
 		<section>
 			<CenterBlock>

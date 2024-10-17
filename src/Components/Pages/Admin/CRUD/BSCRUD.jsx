@@ -8,6 +8,7 @@ import {
 	FileInput,
 	FunctionField,
 	List,
+	SelectInput,
 	SimpleForm,
 	TextField,
 	TextInput
@@ -27,7 +28,8 @@ const formatDate = dateString => {
 	const options = {
 		day: '2-digit',
 		month: '2-digit',
-		year: 'numeric'
+		year: 'numeric',
+    weekday: 'long'
 		// hour: '2-digit',
 		// minute: '2-digit'
 	}
@@ -35,7 +37,7 @@ const formatDate = dateString => {
 	return new Date(dateString).toLocaleString('ru-RU', options)
 }
 
-export const NewsList = props => (
+export const BSList = props => (
 	<List {...props}>
 		<Datagrid>
 			<TextField source='id' label='№' />
@@ -70,20 +72,27 @@ export const NewsList = props => (
 	</List>
 )
 
-export const NewsEdit = props => (
+export const BSEdit = props => (
 	<Edit {...props} transform={handleSaveWithImages}>
 		<SimpleForm>
 			<TextInput disabled source='id' label='№' />
+			<SelectInput
+				source='type'
+				label='Выберите тип поддержки'
+				choices={[
+					{ id: 'tourism', name: 'Для туризма' },
+					{ id: 'hoteliers', name: 'Для отельеров' },
+					{ id: 'grants', name: 'Гранты' }
+				]}
+			/>
 			<TextInput source='title' label='Заголовок' />
 			<RichTextInput source='text' label='Текст' />
 			<DateTimeInput source='date' label='Дата' />
 
-			{/* Поле для добавления новых изображений */}
 			<FileInput source='imagesRaw' label='Добавить новые изображения' multiple>
 				<FileField source='src' title='title' />
 			</FileInput>
 
-			{/* Отображение старых изображений */}
 			<FunctionField
 				label='Старые изображения'
 				render={record => {
@@ -114,9 +123,18 @@ export const NewsEdit = props => (
 	</Edit>
 )
 
-export const NewsCreate = props => (
+export const BSCreate = props => (
 	<Create {...props} transform={handleSave}>
 		<SimpleForm>
+			<SelectInput
+				source='type'
+				label='Выберите тип поддержки'
+				choices={[
+					{ id: 'tourism', name: 'Для туризма' },
+					{ id: 'hoteliers', name: 'Для отельеров' },
+					{ id: 'grants', name: 'Гранты' }
+				]}
+			/>
 			<TextInput source='title' label='Заголовок' />
 			<RichTextInput source='text' label='Текст' />
 			<DateTimeInput source='date' label='Дата' />
