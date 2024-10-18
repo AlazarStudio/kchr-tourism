@@ -1,5 +1,6 @@
 import AddBusinessIcon from '@mui/icons-material/AddBusiness'
 import EventIcon from '@mui/icons-material/Event'
+import InfoIcon from '@mui/icons-material/Info'
 import LightbulbCircleIcon from '@mui/icons-material/LightbulbCircle'
 import NewspaperIcon from '@mui/icons-material/Newspaper'
 import simpleRestProvider from 'ra-data-simple-rest'
@@ -10,7 +11,9 @@ import { Admin, Resource } from 'react-admin'
 
 import serverConfig from '../../../serverConfig'
 
+import { AboutUsCreate, AboutUsEdit, AboutUsList } from './CRUD/AboutUsCRUD'
 import { BSCreate, BSEdit, BSList } from './CRUD/BSCRUD'
+import { EventsCreate, EventsEdit, EventsList } from './CRUD/EventsCRUD'
 import { NewsCreate, NewsEdit, NewsList } from './CRUD/NewsCRUD'
 import authProvider from './JS/authProvider'
 import { fetchJsonWithToken } from './JS/fetchJsonWithToken'
@@ -55,6 +58,24 @@ function AdminPage() {
 				list={<BSList />}
 				edit={<BSEdit />}
 				create={<BSCreate />}
+			/>
+
+			<Resource
+				icon={LightbulbCircleIcon}
+				name='events'
+				options={{ label: 'Анонсы событий' }}
+				list={<EventsList />}
+				edit={<EventsEdit />}
+				create={<EventsCreate />}
+			/>
+
+			<Resource
+				icon={InfoIcon}
+				name='about-us'
+				options={{ label: 'О нас' }}
+				list={<AboutUsList />}
+				edit={<AboutUsEdit />}
+				create={<AboutUsCreate />}
 			/>
 		</Admin>
 	)

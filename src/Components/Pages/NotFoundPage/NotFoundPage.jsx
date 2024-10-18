@@ -5,11 +5,11 @@ import styles from './NotFoundPage.module.css'
 
 function NotFoundPage({ children, ...props }) {
 	return (
-		<main>
-			<CenterBlock>
-				<WidthBlock><p className={styles.not_found}>404 Страница не найдена</p></WidthBlock>
-			</CenterBlock>
-		</main>
+		<CenterBlock>
+			<WidthBlock>
+				<p className={styles.not_found}>404 Страница не найдена</p>
+			</WidthBlock>
+		</CenterBlock>
 	)
 }
 

@@ -45,14 +45,18 @@ function NewsPage({ children, ...props }) {
 
 	const itemsPerPage = 9
 
-	const pageCount = Math.ceil(news.length / itemsPerPage)
+	const sortedNews = [...news].sort(
+		(a, b) => new Date(b.date) - new Date(a.date)
+	)
+
+	const pageCount = Math.ceil(sortedNews.length / itemsPerPage)
 
 	const safePage = Math.min(page, pageCount)
 
 	const [currentPage, setCurrentPage] = useState(safePage - 1)
 
 	// Это проверка на то, что хук работает корректно
-	const displayNews = news.slice(
+	const displayNews = sortedNews.slice(
 		currentPage * itemsPerPage,
 		(currentPage + 1) * itemsPerPage
 	)

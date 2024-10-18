@@ -1,9 +1,6 @@
-// fileUploadUtils.js
 import Cookies from 'js-cookie'
 
 import uploadsConfig from '../../../../uploadsConfig'
-
-// Убедитесь, что путь правильный
 
 const token = Cookies.get('token')
 
@@ -58,8 +55,10 @@ export const updateImages = async (existingImages = [], newFiles = []) => {
 		uploadedImages = await uploadFiles(newFiles)
 	}
 
-	// Объединяем старые изображения с новыми
-	const updatedImages = [...existingImages, ...uploadedImages]
+	// Объединяем старые изображения с новыми и удаляем дубликаты
+	const updatedImages = Array.from(
+		new Set([...existingImages, ...uploadedImages])
+	)
 
 	return updatedImages
 }

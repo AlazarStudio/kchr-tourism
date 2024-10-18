@@ -54,6 +54,8 @@ export const NewsList = props => (
 
 			<FunctionField label='Дата' render={record => formatDate(record.date)} />
 
+			{/* <TextField source='date' /> */}
+
 			<FunctionField
 				label='Текст'
 				render={record => stripHTML(record.text)}

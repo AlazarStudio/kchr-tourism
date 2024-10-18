@@ -90,6 +90,14 @@
   background-color: #fff;
 }
 
+.events_none {
+  text-align: center;
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 700;
+  color: var(--primaryColor);
+}
+
 
 
 @media (max-width: 1299px) {
@@ -150,4 +158,11 @@
   .page a {
     font-size: 14px;
   }
+
+  .events_none {
+    padding: 0 16px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
 }

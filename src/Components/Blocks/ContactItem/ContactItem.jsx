@@ -3,7 +3,7 @@ import styles from './ContactItem.module.css'
 function ContactItem({ ...props }) {
 	return (
 		<a href={props.link} target='_blank' className={styles.contact_item}>
-			<img src={props.img} alt='' />
+			<img src={props.images} alt='' />
 			<div className={styles.contact_item__text}>
 				<p>{props.title}</p>
 				<p>{props.subtitle}</p>

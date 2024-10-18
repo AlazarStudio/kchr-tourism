@@ -8,3 +8,11 @@
   font-weight: 700;
   color: var(--primaryColor);
 }
+
+@media (max-width: 1299px) {
+  .not_found {
+    height: 81vh;
+    padding: 0 16px;
+    font-size: 20px;
+  }
+}

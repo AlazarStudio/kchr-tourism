@@ -40,7 +40,11 @@ const RichTextInput = props => {
 			[{ list: 'ordered' }, { list: 'bullet' }],
 			['bold', 'italic', 'underline', 'strike', 'blockquote'],
 			[{ indent: '-1' }, { indent: '+1' }, { align: [] }],
-			['link', 'image', 'video']
+			[{ color: [] }, { background: [] }],
+			// [{ align: [] }],
+
+			['clean']
+			// ['link', 'image', 'video']
 		]
 	}
 

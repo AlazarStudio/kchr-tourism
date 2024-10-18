@@ -9,17 +9,7 @@ function BSItem({ children, ...props }) {
 		const options = {
 			day: '2-digit',
 			month: '2-digit',
-			year: 'numeric',
-			// hour: '2-digit',
-			// minute: '2-digit'
-		}
-
-		return new Date(dateString).toLocaleString('ru-RU', options)
-	}
-
-	const formatDate2 = dateString => {
-		const options = {
-			weekday: 'long'
+			year: 'numeric'
 		}
 
 		return new Date(dateString).toLocaleString('ru-RU', options)
@@ -34,7 +24,6 @@ function BSItem({ children, ...props }) {
 			<img src={`${uploadsConfig}${props.images[0]}`} alt='' />
 			<div className={styles.news_cart__text}>
 				<p>{formatDate(props.date)}</p>
-				<p>{formatDate2(props.date) === 'четверг'? 'чт' : 'lskfgj'}</p>
 				<p>{props.title}</p>
 			</div>
 		</Link>

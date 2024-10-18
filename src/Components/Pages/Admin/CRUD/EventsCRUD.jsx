@@ -1,5 +1,7 @@
 import React from 'react'
 import {
+	BooleanInput,
+	CheckboxGroupInput,
 	Create,
 	Datagrid,
 	DateTimeInput,
@@ -29,7 +31,7 @@ const formatDate = dateString => {
 		day: '2-digit',
 		month: '2-digit',
 		year: 'numeric',
-    // weekday: 'long'
+		weekday: 'long'
 		// hour: '2-digit',
 		// minute: '2-digit'
 	}
@@ -37,7 +39,7 @@ const formatDate = dateString => {
 	return new Date(dateString).toLocaleString('ru-RU', options)
 }
 
-export const BSList = props => (
+export const EventsList = props => (
 	<List {...props}>
 		<Datagrid>
 			<TextField source='id' label='№' />
@@ -72,17 +74,20 @@ export const BSList = props => (
 	</List>
 )
 
-export const BSEdit = props => (
+export const EventsEdit = props => (
 	<Edit {...props} transform={handleSaveWithImages}>
 		<SimpleForm>
 			<TextInput disabled source='id' label='№' />
+			<BooleanInput source='isCurrent' label='Сделать событие текущим' />
 			<SelectInput
-				source='type'
-				label='Выберите тип поддержки'
+				source='city'
+				label='Выберите город'
 				choices={[
-					{ id: 'tourism', name: 'Для туризма' },
-					{ id: 'hoteliers', name: 'Для отельеров' },
-					{ id: 'grants', name: 'Гранты' }
+					{ id: 'Архыз', name: 'Архыз' },
+					{ id: 'Теберда', name: 'Теберда' },
+					{ id: 'Домбай', name: 'Домбай' },
+					{ id: 'Черкесск', name: 'Черкесск' },
+					{ id: 'Пятигорск', name: 'Пятигорск' }
 				]}
 			/>
 			<TextInput source='title' label='Заголовок' />
@@ -123,16 +128,18 @@ export const BSEdit = props => (
 	</Edit>
 )
 
-export const BSCreate = props => (
+export const EventsCreate = props => (
 	<Create {...props} transform={handleSave}>
 		<SimpleForm>
 			<SelectInput
-				source='type'
-				label='Выберите тип поддержки'
+				source='city'
+				label='Выберите город'
 				choices={[
-					{ id: 'tourism', name: 'Для туризма' },
-					{ id: 'hoteliers', name: 'Для отельеров' },
-					{ id: 'grants', name: 'Гранты' }
+					{ id: 'Архыз', name: 'Архыз' },
+					{ id: 'Теберда', name: 'Теберда' },
+					{ id: 'Домбай', name: 'Домбай' },
+					{ id: 'Черкесск', name: 'Черкесск' },
+					{ id: 'Пятигорск', name: 'Пятигорск' }
 				]}
 			/>
 			<TextInput source='title' label='Заголовок' />

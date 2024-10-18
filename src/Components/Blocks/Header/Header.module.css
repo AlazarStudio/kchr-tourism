@@ -3,6 +3,14 @@
   position: sticky;
   top: 0;
   background-color: #fff;
+  transition: all ease-in-out 0.3s;
+  z-index: 99;
+}
+
+.isScrolled {
+  -webkit-box-shadow: 0px 8px 10px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 8px 10px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 8px 10px 0px rgba(34, 60, 80, 0.2);
 }
 
 .header_wrapper {

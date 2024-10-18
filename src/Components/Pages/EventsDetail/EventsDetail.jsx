@@ -1,7 +1,11 @@
-import { useEffect } from 'react'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { events, projects } from '../../../../data'
+import getToken from '../../../getToken'
+import serverConfig from '../../../serverConfig'
+import uploadsConfig from '../../../uploadsConfig'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 
@@ -11,8 +15,28 @@ function EventsDetail({ children, ...props }) {
 	const { id } = useParams()
 	// console.log(id)
 
-	const article = events.find(link => link.id == id)
+	const [news, setNews] = useState({})
+
+	// const article = news.find(link => link.id === id)
 	// console.log(article)
+
+	useEffect(() => {
+		const fetchEvent = async () => {
+			try {
+				const response = await axios.get(
+					`${serverConfig}/events/${parseInt(id)}`,
+					{
+						headers: { Authorization: `Bearer ${getToken}` }
+					}
+				)
+				// console.log(response.data)
+				setNews(response.data)
+			} catch (error) {
+				console.error('Error fetching news:', error)
+			}
+		}
+		fetchEvent()
+	}, [id])
 
 	useEffect(() => {
 		window.scrollTo({ top: '0', behavior: 'instant' })
@@ -22,7 +46,7 @@ function EventsDetail({ children, ...props }) {
 		<main className={styles.main_wrapper}>
 			<CenterBlock>
 				<WidthBlock>
-					<p className={styles.article_title}>{article.title}</p>
+					<p className={styles.article_title}>{news.title}</p>
 					{/* <div className={styles.article_info} style={{ textTransform: 'uppercase' }}>
 						<p>{article.date}</p>
 						<p>{article.day}</p>
@@ -30,23 +54,17 @@ function EventsDetail({ children, ...props }) {
 					</div> */}
 
 					<div
-						dangerouslySetInnerHTML={{ __html: article.text }}
+						dangerouslySetInnerHTML={{ __html: news.text }}
 						className={styles.article_text}
 					/>
 
 					<div className={styles.article_images}>
-						{article.images.map((img, index) => (
-							<img key={index} src={img} alt='' />
-						))}
-					</div>
-
-					{/* <div className={styles.article_images}>
 						{news.images &&
 							Array.isArray(news.images) &&
 							news.images.map((img, index) => (
 								<img key={index} src={`${uploadsConfig}${img}`} alt='' />
 							))}
-					</div> */}
+					</div>
 				</WidthBlock>
 			</CenterBlock>
 		</main>

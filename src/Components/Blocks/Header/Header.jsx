@@ -12,6 +12,7 @@ function Header({ children, ...props }) {
 	const [burgerActive, setBurgerActive] = useState(false)
 	const menuRef = useRef(null)
 	const burgerIconRef = useRef(null)
+	const [isScrolled, setIsScrolled] = useState(false)
 
 	const toggleBurger = () => {
 		setBurgerActive(prevIsOpen => !prevIsOpen)
@@ -35,8 +36,21 @@ function Header({ children, ...props }) {
 		}
 	}, [])
 
+	const handleScroll = () => {
+		setIsScrolled(window.scrollY > 0)
+	}
+
+	useEffect(() => {
+		window.addEventListener('scroll', handleScroll)
+		return () => {
+			window.removeEventListener('scroll', handleScroll)
+		}
+	}, [])
+
 	return (
-		<header className={styles.header}>
+		<header
+			className={`${styles.header} ${isScrolled ? styles.isScrolled : null}`}
+		>
 			<CenterBlock>
 				<WidthBlock>
 					<div className={styles.header_wrapper}>

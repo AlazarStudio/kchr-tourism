@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import 'swiper/css'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { events, visitSlides } from '../../../../data'
+import getToken from '../../../getToken'
+import serverConfig from '../../../serverConfig'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 import EventsItem from '../EventsItem/EventsItem'
@@ -12,9 +15,30 @@ import VisitSlide from '../VisitSlide/VisitSlide'
 
 import styles from './EventsBlock.module.css'
 
+const fetchNews = async () => {
+	try {
+		const response = await axios.get(`${serverConfig}/events`, {
+			headers: { Authorization: `Bearer ${getToken}` }
+		})
+		return response.data
+	} catch (error) {
+		console.error('Error fetching products:', error)
+		return []
+	}
+}
 function EventsBlock({ children, ...props }) {
 	const [swiper, setSwiper] = useState()
 	const [activeIndex, setActiveIndex] = useState(0)
+	const [news, setNews] = useState([])
+
+	useEffect(() => {
+		const getNews = async () => {
+			const news = await fetchNews()
+			setNews(news)
+		}
+		getNews()
+	}, [])
+
 	return (
 		<section className={styles.places_section}>
 			<CenterBlock>
@@ -54,7 +78,7 @@ function EventsBlock({ children, ...props }) {
 						onSwiper={setSwiper}
 						onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
 					>
-						{events.map((item, index) => (
+						{news.slice(-6).map((item, index) => (
 							<SwiperSlide key={index}>
 								<EventsItemExp {...item} />
 							</SwiperSlide>

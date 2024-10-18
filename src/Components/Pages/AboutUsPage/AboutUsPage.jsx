@@ -1,53 +1,63 @@
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+
+import getToken from '../../../getToken'
+import serverConfig from '../../../serverConfig'
+import uploadsConfig from '../../../uploadsConfig'
 import PageHeader from '../../Blocks/PageHeader/PageHeader'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 
 import styles from './AboutUsPage.module.css'
 
+const fetchAboutUs = async () => {
+	try {
+		const response = await axios.get(`${serverConfig}/about-us`, {
+			headers: { Authorization: `Bearer ${getToken}` }
+		})
+		return response.data
+	} catch (error) {
+		console.error('Error fetching products:', error)
+		return []
+	}
+}
+
 function AboutUsPage({ children, ...props }) {
+	const [info, setInfo] = useState([])
+
+	useEffect(() => {
+		const getInfo = async () => {
+			const info = await fetchAboutUs()
+			setInfo(info)
+		}
+		getInfo()
+	}, [])
+
+	const item = info[0]
+
+	const img1 = item?.images?.[0]
+	const img2 = item?.images?.[1]
+	const img3 = item?.images?.[2]
+
 	return (
 		<main className={styles.main_wrapper}>
 			<CenterBlock>
 				<WidthBlock>
 					<PageHeader title='о нас' />
-					<div className={styles.abus_images__wrapper}>
-						<img src='/images/abus1.png' alt='' />
-						<img src='/images/abus2.png' alt='' />
-						<img src='/images/abus3.png' alt='' />
-					</div>
+					{info.length === 0 ? null : (
+						<>
+							<div className={styles.abus_images__wrapper}>
+								<img src={`${uploadsConfig}${img1}`} alt='' />
+								<img src={`${uploadsConfig}${img2}`} alt='' />
+								<img src={`${uploadsConfig}${img3}`} alt='' />
+							</div>
 
-					<div className={styles.abus_text}>
-						В Карачаево-Черкесии в период празднования Дня Карачаево-Черкесской
-						Республики и Дня города Черкесска, 15-16 сентября, масштабно прошли
-						гатсрофестиваль и этноквест в рамках туристического фестиваля
-						«Притяжение 2023», собравшего почти 10 тыс. гостей. Об этом своем
-						телеграм-канале сообщил Глава Карачаево-Черкесии Рашид Темрезов.
-						<br />
-						<br />
-						«По замыслу организаторов, фестиваль - это презентация нашим гостям
-						богатейшего гастрономического наследия Карачаево-Черкесии, ее
-						славных традиций гостеприимства и радушия, а для жителей региона
-						Фестиваль стал прекрасным завершением празднования Дня рождения
-						республики!», - отметил Р. Темрезов.
-						<br />
-						<br />
-						Дополним, что на территории парка культуры и отдыха «Зеленый остров»
-						были развернуты кулинарные зоны, где гости абсолютно бесплатно
-						смогли угоститься блюдами национальных кухонь всех субъектобразующих
-						народов республики. Каждое из блюд специалисты символично
-						приготовили прямо на фестивальной площадке в емкостях, вмещающих 100
-						кг/л.
-						<br />
-						<br />
-						Помимо этого, на альтернативной площадке шеф-повара провели
-						авторские мастер-классы, а посетители бесплатно продегустировали
-						блюда, приготовленные как по классическим рецептам, так и по
-						экспериментальным. Также на площадке была возможность принять
-						участие в туристическом этноквесте. Желающие стали участниками
-						интерактивных театральных постановок, проверили свою физическую
-						подготовку на спортивных площадках и знания в познавательных
-						викторинах.
-					</div>
+							<div
+								className={styles.abus_text}
+								dangerouslySetInnerHTML={{ __html: item.text }}
+							/>
+						</>
+					)}
 				</WidthBlock>
 			</CenterBlock>
 		</main>

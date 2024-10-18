@@ -80,9 +80,10 @@ function ProjectsPage({ children, ...props }) {
 	}, [])
 
 	// Если запрашиваемая страница меньше 1 или больше pageCount, возвращаем NotFoundPage
-	if (safePage < 1 || safePage > pageCount) {
-		return <NotFoundPage />
-	}
+	
+	// if (safePage < 1 || safePage > pageCount) {
+	// 	return <NotFoundPage />
+	// }
 
 	return (
 		<main ref={projectsRef} className={styles.main_wrapper}>
