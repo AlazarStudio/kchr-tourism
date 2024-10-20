@@ -4,9 +4,9 @@ import {
 	Datagrid,
 	DateTimeInput,
 	Edit,
-	FileField,
-	FileInput,
 	FunctionField,
+	ImageField,
+	ImageInput,
 	List,
 	SimpleForm,
 	TextField,
@@ -28,8 +28,6 @@ const formatDate = dateString => {
 		day: '2-digit',
 		month: '2-digit',
 		year: 'numeric'
-		// hour: '2-digit',
-		// minute: '2-digit'
 	}
 
 	return new Date(dateString).toLocaleString('ru-RU', options)
@@ -53,8 +51,6 @@ export const NewsList = props => (
 			/>
 
 			<FunctionField label='Дата' render={record => formatDate(record.date)} />
-
-			{/* <TextField source='date' /> */}
 
 			<FunctionField
 				label='Текст'
@@ -80,38 +76,43 @@ export const NewsEdit = props => (
 			<RichTextInput source='text' label='Текст' />
 			<DateTimeInput source='date' label='Дата' />
 
-			{/* Поле для добавления новых изображений */}
-			<FileInput source='imagesRaw' label='Добавить новые изображения' multiple>
-				<FileField source='src' title='title' />
-			</FileInput>
+			<ImageInput
+				source='imagesRaw'
+				label='Добавить новые изображения'
+				multiple
+			>
+				<ImageField source='src' title='title' />
+			</ImageInput>
 
-			{/* Отображение старых изображений */}
-			<FunctionField
-				label='Старые изображения'
-				render={record => {
-					const images = Array.isArray(record.images)
-						? record.images
-						: [record.images]
-
-					return (
-						<div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-							{images.map((image, index) => (
-								<div key={index}>
-									<img
-										src={`${uploadsConfig}${image}`}
-										alt={image}
-										style={{
-											width: '150px',
-											height: '200px',
-											objectFit: 'cover'
-										}}
-									/>
-								</div>
-							))}
-						</div>
-					)
-				}}
-			/>
+			{/* Поле для редактирования старых и добавления новых изображений */}
+			<ImageInput
+				source='images'
+				label='Изображения'
+				multiple
+				accept='image/*'
+				format={value =>
+					value && value.length
+						? value.map(image => ({
+								src: image.includes('http')
+									? image
+									: `${uploadsConfig}${image}`,
+								title: image
+							}))
+						: []
+				}
+				parse={value =>
+					value.map(file => {
+						// Если это новый файл (имеет rawImage), вернем только его имя
+						if (file.rawImage) {
+							return file.rawImage
+						}
+						// Если это старое изображение (имеет только src), извлекаем имя файла
+						return file.src.replace(`${uploadsConfig}`, '')
+					})
+				}
+			>
+				<ImageField source='src' title='title' />
+			</ImageInput>
 		</SimpleForm>
 	</Edit>
 )
@@ -122,9 +123,9 @@ export const NewsCreate = props => (
 			<TextInput source='title' label='Заголовок' />
 			<RichTextInput source='text' label='Текст' />
 			<DateTimeInput source='date' label='Дата' />
-			<FileInput source='images' label='Изображения' multiple>
-				<FileField source='src' title='title' />
-			</FileInput>
+			<ImageInput source='images' label='Изображения' multiple>
+				<ImageField source='src' title='title' />
+			</ImageInput>
 		</SimpleForm>
 	</Create>
 )
