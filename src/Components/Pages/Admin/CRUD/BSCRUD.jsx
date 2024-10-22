@@ -86,10 +86,11 @@ export const BSEdit = props => (
 					{ id: 'hoteliers', name: 'Для отельеров' },
 					{ id: 'grants', name: 'Гранты' }
 				]}
+				required
 			/>
-			<TextInput source='title' label='Заголовок' />
+			<TextInput source='title' label='Заголовок' required />
 			<RichTextInput source='text' label='Текст' />
-			<DateTimeInput source='date' label='Дата' />
+			<DateTimeInput source='date' label='Дата' required />
 			<ImageInput
 				source='imagesRaw'
 				label='Добавить новые изображения'
@@ -142,10 +143,11 @@ export const BSCreate = props => (
 					{ id: 'hoteliers', name: 'Для отельеров' },
 					{ id: 'grants', name: 'Гранты' }
 				]}
+				required
 			/>
-			<TextInput source='title' label='Заголовок' />
+			<TextInput source='title' label='Заголовок' required />
 			<RichTextInput source='text' label='Текст' />
-			<DateTimeInput source='date' label='Дата' />
+			<DateTimeInput source='date' label='Дата' required />
 			<ImageInput source='images' label='Изображения' multiple>
 				<ImageField source='src' title='title' />
 			</ImageInput>

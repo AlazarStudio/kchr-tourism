@@ -123,7 +123,7 @@ export const NewsCreate = props => (
 			<TextInput source='title' label='Заголовок' />
 			<RichTextInput source='text' label='Текст' />
 			<DateTimeInput source='date' label='Дата' />
-			<ImageInput source='images' label='Изображения' multiple>
+			<ImageInput source='images' label='Изображения' multiple >
 				<ImageField source='src' title='title' />
 			</ImageInput>
 		</SimpleForm>

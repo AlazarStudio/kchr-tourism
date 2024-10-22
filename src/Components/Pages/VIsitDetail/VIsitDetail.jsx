@@ -9,11 +9,11 @@ import uploadsConfig from '../../../uploadsConfig'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 
-import styles from './NewsDetail.module.css'
+import styles from './VIsitDetail.module.css'
 
 Modal.setAppElement('#root')
 
-function NewsDetail({ children, ...props }) {
+function VIsitDetail({ children, ...props }) {
 	const { id } = useParams()
 	const [news, setNews] = useState({})
 	const [selectedImage, setSelectedImage] = useState(null)
@@ -22,11 +22,12 @@ function NewsDetail({ children, ...props }) {
 		const fetchNews = async () => {
 			try {
 				const response = await axios.get(
-					`${serverConfig}/news/${parseInt(id)}`,
+					`${serverConfig}/visit/${parseInt(id)}`,
 					{
 						headers: { Authorization: `Bearer ${getToken}` }
 					}
 				)
+				// console.log(response.data)
 				setNews(response.data)
 			} catch (error) {
 				console.error('Error fetching news:', error)
@@ -39,12 +40,10 @@ function NewsDetail({ children, ...props }) {
 		window.scrollTo({ top: '0', behavior: 'instant' })
 	}, [])
 
-	// Функция для открытия модального окна
 	const openModal = img => {
 		setSelectedImage(img)
 	}
 
-	// Функция для закрытия модального окна
 	const closeModal = () => {
 		setSelectedImage(null)
 	}
@@ -74,7 +73,6 @@ function NewsDetail({ children, ...props }) {
 							))}
 					</div>
 
-					{/* Модальное окно */}
 					<Modal
 						isOpen={!!selectedImage}
 						onRequestClose={closeModal}
@@ -97,4 +95,4 @@ function NewsDetail({ children, ...props }) {
 	)
 }
 
-export default NewsDetail
+export default VIsitDetail

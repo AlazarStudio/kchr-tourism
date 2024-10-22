@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import Modal from 'react-modal'
 import { useParams } from 'react-router-dom'
 
 import { events, projects } from '../../../../data'
@@ -11,14 +12,12 @@ import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 
 import styles from './EventsDetail.module.css'
 
+Modal.setAppElement('#root')
+
 function EventsDetail({ children, ...props }) {
 	const { id } = useParams()
-	// console.log(id)
-
 	const [news, setNews] = useState({})
-
-	// const article = news.find(link => link.id === id)
-	// console.log(article)
+	const [selectedImage, setSelectedImage] = useState(null)
 
 	useEffect(() => {
 		const fetchEvent = async () => {
@@ -42,6 +41,14 @@ function EventsDetail({ children, ...props }) {
 		window.scrollTo({ top: '0', behavior: 'instant' })
 	}, [])
 
+	const openModal = img => {
+		setSelectedImage(img)
+	}
+
+	const closeModal = () => {
+		setSelectedImage(null)
+	}
+
 	return (
 		<main className={styles.main_wrapper}>
 			<CenterBlock>
@@ -62,9 +69,32 @@ function EventsDetail({ children, ...props }) {
 						{news.images &&
 							Array.isArray(news.images) &&
 							news.images.map((img, index) => (
-								<img key={index} src={`${uploadsConfig}${img}`} alt='' />
+								<img
+									key={index}
+									src={`${uploadsConfig}${img}`}
+									alt=''
+									className={styles.image_thumbnail}
+									onClick={() => openModal(img)}
+								/>
 							))}
 					</div>
+
+					<Modal
+						isOpen={!!selectedImage}
+						onRequestClose={closeModal}
+						contentLabel='Просмотр изображения'
+						className={styles.modal_content}
+						overlayClassName={styles.modal_overlay}
+					>
+						<img
+							src={`${uploadsConfig}${selectedImage}`}
+							alt=''
+							className={styles.modal_image}
+						/>
+						<button className={styles.close_button} onClick={closeModal}>
+							x
+						</button>
+					</Modal>
 				</WidthBlock>
 			</CenterBlock>
 		</main>

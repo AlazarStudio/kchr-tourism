@@ -15,6 +15,7 @@ import NewsPage from './Components/Pages/NewsPage/NewsPage'
 import NotFoundPage from './Components/Pages/NotFoundPage/NotFoundPage'
 import ProjectDetail from './Components/Pages/ProjectDetail/ProjectDetail'
 import ProjectsPage from './Components/Pages/ProjectsPage/ProjectsPage'
+import VIsitDetail from './Components/Pages/VIsitDetail/VIsitDetail'
 import Layout from './Components/Standart/Layout/Layout'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
 			<Routes>
 				<Route index element={<MainPage />} />
 				<Route path='/' element={<Layout />}>
+					<Route path='/places-to-visit/:id' element={<VIsitDetail />} />
 					<Route path='/news' element={<NewsPage />} />
 					<Route path='/news/:id' element={<NewsDetail />} />
 					<Route path='/about-us' element={<AboutUsPage />} />
@@ -39,7 +41,7 @@ function App() {
 					<Route path='/contact' element={<ContactsPage />} />
 					<Route path='*' element={<NotFoundPage />} />
 				</Route>
-					<Route path="/admin/*" element={<AdminPage />} />
+				<Route path='/admin/*' element={<AdminPage />} />
 				{/* {!isAuthenticated ? (
 					<>
 						<Route path='/admin' element={<Auth />} />

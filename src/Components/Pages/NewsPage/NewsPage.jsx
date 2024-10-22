@@ -44,7 +44,7 @@ function NewsPage({ children, ...props }) {
 		const fetchTelegramNews = async () => {
 			try {
 				const response = await axios.get(`${serverConfig}/news/telegram`)
-				console.log('Данные из Telegram:', response.data)
+				// console.log('Данные из Telegram:', response.data)
 			} catch (error) {
 				console.error('Ошибка при получении данных из Telegram:', error.message)
 			}

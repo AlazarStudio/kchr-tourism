@@ -18,6 +18,12 @@
   background-color: #fff;
 }
 
+.group_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 
 
 @media (max-width: 1299px) {
@@ -34,4 +40,10 @@
   .docs_wrapper {
     padding: 0 16px;
   }
+
+
+  .group_wrapper {
+    gap: 20px;
+  }
+
 }

@@ -36,6 +36,11 @@ function NewsBlock({ children, ...props }) {
 		}
 		getNews()
 	}, [])
+
+	const sortedNews = [...news].sort(
+		(a, b) => new Date(b.date) - new Date(a.date)
+	)
+
 	return (
 		<section>
 			<CenterBlock>
@@ -68,7 +73,7 @@ function NewsBlock({ children, ...props }) {
 						onSwiper={setSwiper}
 						onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
 					>
-						{news.slice(-6).map((item, index) => (
+						{sortedNews.map((item, index) => (
 							<SwiperSlide key={index}>
 								<NewsItem {...item} />
 							</SwiperSlide>

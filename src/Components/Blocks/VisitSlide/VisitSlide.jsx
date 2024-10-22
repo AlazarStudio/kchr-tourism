@@ -1,3 +1,7 @@
+import { Link } from 'react-router-dom'
+
+import uploadsConfig from '../../../uploadsConfig'
+
 import styles from './VisitSlide.module.css'
 
 function VisitSlide({ children, ...props }) {
@@ -5,13 +9,15 @@ function VisitSlide({ children, ...props }) {
 		<div className={styles.visit_wrapper}>
 			<div className={styles.text_wrapper}>
 				<p>{props.title}</p>
-				<img style={{ cursor: 'pointer' }} src='/images/arrow.png' alt='' />
+				<Link to={`/places-to-visit/${props.id}`}>
+					<img style={{ cursor: 'pointer' }} src='/images/arrow.png' alt='' />
+				</Link>
 			</div>
 			<div className={styles.image_wrapper}>
-				<img src={props.images} alt='' />
+				<img src={`${uploadsConfig}${props.images[0]}`} alt='' />
 			</div>
 		</div>
 	)
-}
+} 
 
 export default VisitSlide

@@ -1,17 +1,58 @@
-import { useState } from 'react'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 import 'swiper/css'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { mainSliderImgs } from '../../../../data'
+import getToken from '../../../getToken'
+import serverConfig from '../../../serverConfig'
+import uploadsConfig from '../../../uploadsConfig'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 import MainSliderCard from '../MainSliderCard/MainSliderCard'
+import StoryViewer from '../StoryViewer/StoryViewer'
 
 import styles from './MainBanner.module.css'
+
+const fetchStories = async () => {
+	try {
+		const response = await axios.get(`${serverConfig}/stories`, {
+			headers: { Authorization: `Bearer ${getToken}` }
+		})
+		return response.data
+	} catch (error) {
+		console.error('Error fetching products:', error)
+		return []
+	}
+}
 
 function MainBanner({ children, ...props }) {
 	const [swiper, setSwiper] = useState()
 	const [activeIndex, setActiveIndex] = useState(0)
+
+	const [stories, setStories] = useState([])
+	const [isStoryViewerOpen, setIsStoryViewerOpen] = useState(false)
+	const [selectedStory, setSelectedStory] = useState([])
+
+	useEffect(() => {
+		const getNews = async () => {
+			const news = await fetchStories()
+			setStories(news)
+		}
+		getNews()
+	}, [])
+
+	const handleStoryClick = story => {
+		setSelectedStory(
+			story.images.map(img => ({ url: `${uploadsConfig}${img}` }))
+		)
+		setIsStoryViewerOpen(true)
+	}
+
+	const closeStoryViewer = () => {
+		setIsStoryViewerOpen(false)
+		setSelectedStory([])
+	}
 
 	return (
 		<CenterBlock
@@ -33,6 +74,9 @@ function MainBanner({ children, ...props }) {
 							0: {
 								slidesPerView: 2
 							},
+							768: {
+								slidesPerView: 3
+							},
 							1299: {
 								slidesPerView: 4
 							}
@@ -46,14 +90,23 @@ function MainBanner({ children, ...props }) {
 						onSwiper={setSwiper}
 						onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
 					>
-						{mainSliderImgs.map((img, index) => (
+						{stories.map((img, index) => (
 							<SwiperSlide key={index}>
-								<MainSliderCard {...img} />
+								<div
+									style={{ cursor: 'pointer' }}
+									onClick={() => handleStoryClick(img)}
+								>
+									<MainSliderCard {...img} />
+								</div>
 							</SwiperSlide>
 						))}
 					</Swiper>
 				</div>
 			</WidthBlock>
+
+			{isStoryViewerOpen && (
+				<StoryViewer stories={selectedStory} onClose={closeStoryViewer} />
+			)}
 		</CenterBlock>
 	)
 }

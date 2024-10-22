@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import Modal from 'react-modal'
 import { useParams } from 'react-router-dom'
 
-import { projects } from '../../../../data'
 import getToken from '../../../getToken'
 import serverConfig from '../../../serverConfig'
 import uploadsConfig from '../../../uploadsConfig'
@@ -11,14 +11,12 @@ import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 
 import styles from './ProjectDetail.module.css'
 
+Modal.setAppElement('#root')
+
 function ProjectDetail({ children, ...props }) {
 	const { id } = useParams()
-	console.log(id)
-
-	// const article = projects.find(link => link.id == id)
-	// console.log(article)
-
 	const [projects, setProjects] = useState({})
+	const [selectedImage, setSelectedImage] = useState(null)
 
 	useEffect(() => {
 		const fetchProjects = async () => {
@@ -42,6 +40,14 @@ function ProjectDetail({ children, ...props }) {
 		window.scrollTo({ top: '0', behavior: 'instant' })
 	}, [])
 
+	const openModal = img => {
+		setSelectedImage(img)
+	}
+
+	const closeModal = () => {
+		setSelectedImage(null)
+	}
+
 	return (
 		<main className={styles.main_wrapper}>
 			<CenterBlock>
@@ -57,9 +63,32 @@ function ProjectDetail({ children, ...props }) {
 						{projects.images &&
 							Array.isArray(projects.images) &&
 							projects.images.map((img, index) => (
-								<img key={index} src={`${uploadsConfig}${img}`} alt='' />
+								<img
+									key={index}
+									src={`${uploadsConfig}${img}`}
+									alt=''
+									className={styles.image_thumbnail}
+									onClick={() => openModal(img)}
+								/>
 							))}
 					</div>
+
+					<Modal
+						isOpen={!!selectedImage}
+						onRequestClose={closeModal}
+						contentLabel='Просмотр изображения'
+						className={styles.modal_content}
+						overlayClassName={styles.modal_overlay}
+					>
+						<img
+							src={`${uploadsConfig}${selectedImage}`}
+							alt=''
+							className={styles.modal_image}
+						/>
+						<button className={styles.close_button} onClick={closeModal}>
+							x
+						</button>
+					</Modal>
 				</WidthBlock>
 			</CenterBlock>
 		</main>
