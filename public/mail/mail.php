@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message .= "Email: $email\n\n";
         $message .= "Комментарий: $comment\n\n";
 
-        $to = "musakubanov@gmail.com";
+        $to = "kchtourism@bk.ru";
         // $to = "";
         $headers = "From: $email";
 
