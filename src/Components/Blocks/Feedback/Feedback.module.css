@@ -52,8 +52,8 @@
 }
 
 .form input[type="checkBox"] {
-  padding: 0 !important;
-  width: 16px;
+  padding: 10px !important;
+  /* width: 16px; */
   height: 16px;
   background-color: white;
   border-radius: 50%;
@@ -79,7 +79,7 @@
   height: 8px;
   border: solid white;
   border-width: 0 2px 2px 0;
-  transform: translate(-50%, -60%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
   transform-origin: center center;
 }
 
@@ -174,19 +174,21 @@
     font-size: 14px;
   }
 
-  .form input[type="checkBox"] {
+  .form input[type="checkbox"] {
     flex-basis: 16%;
     padding: 0 !important;
-    width: 16px;
-    height: 16px;
+    max-width: 16px;
+    max-height: 16px;
+    position: relative;
+    /* Добавлено для правильного позиционирования ::after */
   }
 
-  .form input[type="checkBox"]:checked {
+  .form input[type="checkbox"]:checked {
     background-color: var(--primaryColor);
     border: none;
   }
 
-  .form input[type="checkBox"]::after {
+  .form input[type="checkbox"]:checked::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -198,6 +200,7 @@
     transform: translate(-50%, -60%) rotate(45deg);
     transform-origin: center center;
   }
+
 
   .form textarea {
     margin-top: 20px;

@@ -35,11 +35,21 @@ function MainPage({ children, ...props }) {
 			<HeaderAbs />
 
 			<MainBanner />
-			<PlacesToVisit />
-			<EventsBlock />
-			<OurProjectsBlock />
-			<NewsBlock />
-			<Feedback />
+			<section>
+				<PlacesToVisit />
+			</section>
+			<section className={styles.places_section}>
+				<EventsBlock />
+			</section>
+			<section>
+				<OurProjectsBlock />
+			</section>
+			<section>
+				<NewsBlock />
+			</section>
+			<section className={styles.last_section}>
+				<Feedback />
+			</section>
 
 			<Footer />
 		</>

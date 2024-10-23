@@ -4,11 +4,9 @@ import { Link } from 'react-router-dom'
 import styles from './Burger.module.css'
 
 function Burger({ menuRef, active, toggleBurger }) {
-	// Управляем состоянием видимости подменю
 	const [isMediaMenuOpen, setIsMediaMenuOpen] = useState(false)
 	const mediaMenuRef = useRef(null)
 
-	// Обработчик клика по пункту "МЕДИА"
 	const toggleMediaMenu = () => {
 		setIsMediaMenuOpen(!isMediaMenuOpen)
 	}
@@ -33,7 +31,7 @@ function Burger({ menuRef, active, toggleBurger }) {
 	// Функция для закрытия меню и перехода по ссылке
 	const handleLinkClick = () => {
 		setIsMediaMenuOpen(false)
-		toggleBurger
+		toggleBurger()
 	}
 	return (
 		<nav

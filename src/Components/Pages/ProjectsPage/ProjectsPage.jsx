@@ -80,7 +80,7 @@ function ProjectsPage({ children, ...props }) {
 	}, [])
 
 	// Если запрашиваемая страница меньше 1 или больше pageCount, возвращаем NotFoundPage
-	
+
 	// if (safePage < 1 || safePage > pageCount) {
 	// 	return <NotFoundPage />
 	// }
@@ -91,40 +91,56 @@ function ProjectsPage({ children, ...props }) {
 				<WidthBlock>
 					<PageHeader title='наши Проекты' />
 
-					<div className={styles.projects_wrapper}>
-						{displayProjects.map((item, index) => (
-							<ProjectItem key={index} {...item} />
-						))}
-					</div>
+					{displayProjects.length !== 0 ? (
+						<>
+							<div className={styles.projects_wrapper}>
+								{displayProjects.map((item, index) => (
+									<ProjectItem key={index} {...item} />
+								))}
+							</div>
 
-					<ReactPaginate
-						previousLabel={
-							<p style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-								<img
-									style={{ transform: 'rotate(180deg)' }}
-									src='/images/next_paginate.png'
-									alt=''
-								/>
-								Предыдущий
-							</p>
-						}
-						nextLabel={
-							<p style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-								Следующий <img src='/images/next_paginate.png' alt='' />
-							</p>
-						}
-						breakLabel={'...'}
-						pageCount={pageCount}
-						forcePage={currentPage}
-						marginPagesDisplayed={2}
-						pageRangeDisplayed={3}
-						onPageChange={handlePageClick}
-						containerClassName={styles.pagination}
-						pageClassName={styles.page}
-						previousClassName={styles.next_prev}
-						nextClassName={styles.next_prev}
-						activeClassName={styles.active}
-					/>
+							<ReactPaginate
+								previousLabel={
+									<p
+										style={{
+											display: 'flex',
+											alignItems: 'center',
+											gap: '5px'
+										}}
+									>
+										<img
+											style={{ transform: 'rotate(180deg)' }}
+											src='/images/next_paginate.png'
+											alt=''
+										/>
+										Предыдущий
+									</p>
+								}
+								nextLabel={
+									<p
+										style={{
+											display: 'flex',
+											alignItems: 'center',
+											gap: '5px'
+										}}
+									>
+										Следующий <img src='/images/next_paginate.png' alt='' />
+									</p>
+								}
+								breakLabel={'...'}
+								pageCount={pageCount}
+								forcePage={currentPage}
+								marginPagesDisplayed={2}
+								pageRangeDisplayed={3}
+								onPageChange={handlePageClick}
+								containerClassName={styles.pagination}
+								pageClassName={styles.page}
+								previousClassName={styles.next_prev}
+								nextClassName={styles.next_prev}
+								activeClassName={styles.active}
+							/>
+						</>
+					) : null}
 				</WidthBlock>
 			</CenterBlock>
 		</main>

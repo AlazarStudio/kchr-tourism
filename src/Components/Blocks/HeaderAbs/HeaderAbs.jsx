@@ -12,6 +12,7 @@ import styles from './HeaderAbs.module.css'
 
 function HeaderAbs({ children, ...props }) {
 	const [burgerActive, setBurgerActive] = useState(false)
+	const [isScrolled, setIsScrolled] = useState(false)
 	const menuRef = useRef(null)
 	const burgerIconRef = useRef(null)
 
@@ -30,15 +31,22 @@ function HeaderAbs({ children, ...props }) {
 		}
 	}
 
+	const handleScroll = () => {
+		setIsScrolled(window.scrollY > 0) // Устанавливаем true, если прокрутка больше 0
+	}
+
 	useEffect(() => {
 		document.addEventListener('mousedown', handleClickOutside)
+		window.addEventListener('scroll', handleScroll)
+
 		return () => {
 			document.removeEventListener('mousedown', handleClickOutside)
+			window.removeEventListener('scroll', handleScroll)
 		}
 	}, [])
 
 	return (
-		<header className={styles.header}>
+		<header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
 			<CenterBlock>
 				<WidthBlock>
 					<div className={styles.header_wrapper}>
@@ -46,7 +54,7 @@ function HeaderAbs({ children, ...props }) {
 						<div className={styles.wrapper_item}>
 							<Link to='/' className={styles.main_icon}>
 								<img src='/favicon-alazar-studio.png' alt='' />
-								<div className={styles.main_text}>
+								<div className={`${styles.main_text} ${isScrolled ? styles.scrolled_main_text : ''}`}>
 									<p>КАРАЧАЕВО-ЧЕРКЕСИЯ</p>
 									<p>ТУРИЗМ</p>
 								</div>
@@ -55,6 +63,7 @@ function HeaderAbs({ children, ...props }) {
 								menuRef={menuRef}
 								active={burgerActive}
 								toggleBurger={toggleBurger}
+								isScrolled={isScrolled}
 							/>
 						</div>
 						<div className={styles.menu_search}>

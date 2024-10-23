@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import styles from './BurgerWhite.module.css'
 
-function BurgerWhite({ menuRef, active, toggleBurger }) {
+function BurgerWhite({ menuRef, active, toggleBurger, isScrolled }) {
 	// Управляем состоянием видимости подменю
 	const [isMediaMenuOpen, setIsMediaMenuOpen] = useState(false)
 	const mediaMenuRef = useRef(null)
@@ -38,7 +38,7 @@ function BurgerWhite({ menuRef, active, toggleBurger }) {
 	return (
 		<nav
 			ref={menuRef}
-			className={`${styles.burger} ${active ? styles.active : styles.closed}`}
+			className={`${styles.burger} ${active ? styles.active : styles.closed} ${isScrolled ? styles.scrolled_text : ''}`}
 		>
 			<Link to='/news' onClick={toggleBurger}>
 				НОВОСТИ
@@ -46,7 +46,7 @@ function BurgerWhite({ menuRef, active, toggleBurger }) {
 			<div className={styles.media_menu} ref={mediaMenuRef}>
 				<a onClick={toggleMediaMenu}>О НАС</a>
 				{isMediaMenuOpen && (
-					<ul className={styles.dropdown_menu}>
+					<ul className={`${styles.dropdown_menu} ${isScrolled ? styles.scrolled_text : ''}`}>
 						<li>
 							<Link to='/about-us' onClick={handleLinkClick}>
 								О НАС

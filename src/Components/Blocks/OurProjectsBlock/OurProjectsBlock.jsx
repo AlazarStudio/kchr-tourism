@@ -35,7 +35,6 @@ function OurProjectsBlock({ children, ...props }) {
 	}, [])
 
 	return (
-		<section>
 			<CenterBlock>
 				<WidthBlock>
 					<header className={styles.events_header}>
@@ -54,7 +53,6 @@ function OurProjectsBlock({ children, ...props }) {
 					</div>
 				</WidthBlock>
 			</CenterBlock>
-		</section>
 	)
 }
 

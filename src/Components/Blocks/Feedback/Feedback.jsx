@@ -53,7 +53,6 @@ function Feedback({ children, ...props }) {
 	}
 
 	return (
-		<section className={styles.last_section}>
 			<CenterBlock>
 				<WidthBlock position='relative'>
 					<header className={styles.events_header}>
@@ -111,7 +110,6 @@ function Feedback({ children, ...props }) {
 					</form>
 				</WidthBlock>
 			</CenterBlock>
-		</section>
 	)
 }
 

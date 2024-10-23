@@ -104,9 +104,9 @@ function EventsAnnouncementPage({ children, ...props }) {
 	}, [])
 
 	// Если запрашиваемая страница меньше 1 или больше pageCount, возвращаем NotFoundPage
-	if (safePage < 1 || safePage > pageCount) {
-		return <NotFoundPage />
-	}
+	// if (safePage < 1 || safePage > pageCount) {
+	// 	return <NotFoundPage />
+	// }
 
 	return (
 		<main className={styles.main_wrapper}>
@@ -133,7 +133,7 @@ function EventsAnnouncementPage({ children, ...props }) {
 								<option value='Теберда'>Теберда</option>
 								<option value='Домбай'>Домбай</option>
 								<option value='Черкесск'>Черкесск</option>
-								<option value='Пятигорск'>Пятигорск</option>
+								<option value='Карачаевск'>Карачаевск</option>
 							</select>
 							<select
 								name='month'

@@ -89,7 +89,7 @@ export const EventsEdit = props => (
 					{ id: 'Теберда', name: 'Теберда' },
 					{ id: 'Домбай', name: 'Домбай' },
 					{ id: 'Черкесск', name: 'Черкесск' },
-					{ id: 'Пятигорск', name: 'Пятигорск' }
+					{ id: 'Карачаевск', name: 'Карачаевск' }
 				]}
 			/>
 			<TextInput source='title' label='Заголовок' />
@@ -148,7 +148,7 @@ export const EventsCreate = props => (
 					{ id: 'Теберда', name: 'Теберда' },
 					{ id: 'Домбай', name: 'Домбай' },
 					{ id: 'Черкесск', name: 'Черкесск' },
-					{ id: 'Пятигорск', name: 'Пятигорск' }
+					{ id: 'Карачаевск', name: 'Карачаевск' }
 				]}
 			/>
 			<TextInput source='title' label='Заголовок' />

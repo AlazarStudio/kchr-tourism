@@ -2,8 +2,23 @@ section {
   margin: 50px 0 0 0;
 }
 
+.places_section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.last_section {
+  margin-bottom: 150px;
+  position: relative;
+}
+
 @media (max-width: 1299px) {
   section {
     margin: 40px 0 0 0;
+  }
+
+  .last_section {
+    margin-bottom: 70px;
   }
 }

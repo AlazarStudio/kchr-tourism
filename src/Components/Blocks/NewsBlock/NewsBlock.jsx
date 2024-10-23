@@ -42,7 +42,6 @@ function NewsBlock({ children, ...props }) {
 	)
 
 	return (
-		<section>
 			<CenterBlock>
 				<WidthBlock>
 					<header className={styles.events_header}>
@@ -81,7 +80,6 @@ function NewsBlock({ children, ...props }) {
 					</Swiper>
 				</WidthBlock>
 			</CenterBlock>
-		</section>
 	)
 }
 

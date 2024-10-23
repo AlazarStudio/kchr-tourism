@@ -44,7 +44,6 @@ function PlacesToVisit({ children, ...props }) {
 
 
 	return (
-		<section>
 			<CenterBlock>
 				<WidthBlock>
 					<p className={styles.visit_title}>
@@ -78,7 +77,6 @@ function PlacesToVisit({ children, ...props }) {
 					</Swiper>
 				</WidthBlock>
 			</CenterBlock>
-		</section>
 	)
 }
 

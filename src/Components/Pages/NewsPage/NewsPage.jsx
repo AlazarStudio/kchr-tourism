@@ -92,9 +92,9 @@ function NewsPage({ children, ...props }) {
 	}, [])
 
 	// Проверка на корректный рендер страницы после всех хуков
-	if (safePage < 1 || safePage > pageCount) {
-		return <NotFoundPage />
-	}
+	// if (safePage < 1 || safePage > pageCount) {
+	// 	return <NotFoundPage />
+	// }
 
 	return (
 		<main ref={newsRef} className={styles.main_wrapper}>

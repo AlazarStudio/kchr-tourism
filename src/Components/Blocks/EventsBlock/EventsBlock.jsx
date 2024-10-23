@@ -40,7 +40,7 @@ function EventsBlock({ children, ...props }) {
 	}, [])
 
 	return (
-		<section className={styles.places_section}>
+		<>
 			<CenterBlock>
 				<WidthBlock>
 					<header className={styles.events_header}>
@@ -86,7 +86,7 @@ function EventsBlock({ children, ...props }) {
 					</Swiper>
 				</WidthBlock>
 			</CenterBlock>
-		</section>
+		</>
 	)
 }
 
