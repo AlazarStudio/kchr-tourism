@@ -58,7 +58,7 @@ function HeaderAbs({ children, ...props }) {
 							/>
 						</div>
 						<div className={styles.menu_search}>
-							<img src='/images/search.png' alt='' />
+							{/* <img src='/images/search.png' alt='' /> */}
 							<img src='/images/bvi.png' alt='' />
 							<div
 								onClick={toggleBurger}

@@ -24,7 +24,7 @@ function LinksWhite({ children, ...props }) {
 			</div>
 			<div className={styles.wrapper_item}>
 				<div className={styles.link}>
-					<img src='/images/search_white.png' alt='' />
+					{/* <img src='/images/search_white.png' alt='' /> */}
 					<img src='/images/bvi_white.png' alt='' />
 				</div>
 				<div className={styles.link}>
