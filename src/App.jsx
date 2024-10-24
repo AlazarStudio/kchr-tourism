@@ -42,15 +42,6 @@ function App() {
 					<Route path='*' element={<NotFoundPage />} />
 				</Route>
 				<Route path='/admin/*' element={<AdminPage />} />
-				{/* {!isAuthenticated ? (
-					<>
-						<Route path='/admin' element={<Auth />} />
-					</>
-				) : (
-					<>
-						<Route path='/admin' element={<MainPage />} />
-					</>
-				)} */}
 			</Routes>
 		</>
 	)
