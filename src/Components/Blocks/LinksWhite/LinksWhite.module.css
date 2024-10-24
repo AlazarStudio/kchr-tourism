@@ -3,24 +3,36 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all ease-in-out 0.3s;
+}
+
+.borderScroll {
+  border-bottom: 1px solid rgb(0, 0, 0);
 }
 
 .wrapper_item {
   display: flex;
   align-items: center;
   gap: 30px;
+  transition: all ease-in-out 0.3s;
 }
 
 .link {
   display: flex;
   align-items: center;
   gap: 15px;
+  transition: all ease-in-out 0.3s;
 }
 
 .wrapper_item p {
   font-size: 16px;
   line-height: 19px;
   color: #fff;
+  transition: all ease-in-out 0.3s;
+}
+
+.isScrolled p {
+  color: #000;
 }
 
 @media (max-width: 1299px) {

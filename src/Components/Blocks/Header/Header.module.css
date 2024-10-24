@@ -1,6 +1,7 @@
 .header {
-  padding: 20px 0 0 0;
-  position: sticky;
+  padding: 15px 0;
+  width: 100%;
+  position: fixed;
   top: 0;
   background-color: #fff;
   transition: all ease-in-out 0.3s;

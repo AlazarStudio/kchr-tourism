@@ -33,7 +33,7 @@ function BurgerWhite({ menuRef, active, toggleBurger, isScrolled }) {
 	// Функция для закрытия меню и перехода по ссылке
 	const handleLinkClick = () => {
 		setIsMediaMenuOpen(false)
-		toggleBurger
+		toggleBurger()
 	}
 	return (
 		<nav

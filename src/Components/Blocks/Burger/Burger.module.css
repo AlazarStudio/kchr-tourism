@@ -49,6 +49,23 @@
   border: none;
 }
 
+.scrolled_text.active {
+  background-color: #fff;
+}
+
+.scrolled_text {
+  background-color: #fff;
+}
+
+.scrolled_text a {
+  color: #000;
+}
+
+.scrolled_text li a {
+  color: #000;
+}
+
+
 
 
 

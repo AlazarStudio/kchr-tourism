@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import styles from './Burger.module.css'
 
-function Burger({ menuRef, active, toggleBurger }) {
+function Burger({ menuRef, active, toggleBurger, isScrolled }) {
 	const [isMediaMenuOpen, setIsMediaMenuOpen] = useState(false)
 	const mediaMenuRef = useRef(null)
 
@@ -36,7 +36,7 @@ function Burger({ menuRef, active, toggleBurger }) {
 	return (
 		<nav
 			ref={menuRef}
-			className={`${styles.burger} ${active ? styles.active : styles.closed}`}
+			className={`${styles.burger} ${active ? styles.active : styles.closed} ${isScrolled ? styles.scrolled_text : ''}`}
 		>
 			<Link to='/news' onClick={toggleBurger}>
 				НОВОСТИ
@@ -44,7 +44,7 @@ function Burger({ menuRef, active, toggleBurger }) {
 			<div className={styles.media_menu} ref={mediaMenuRef}>
 				<a onClick={toggleMediaMenu}>О НАС</a>
 				{isMediaMenuOpen && (
-					<ul className={styles.dropdown_menu}>
+					<ul className={`${styles.dropdown_menu} ${isScrolled ? styles.scrolled_text : ''}`}>
 						<li>
 							<Link to='/about-us' onClick={handleLinkClick}>
 								О НАС

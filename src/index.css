@@ -22,7 +22,7 @@ a {
 }
 
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 
@@ -82,6 +82,26 @@ img {
 ::selection {
     background-color: #25A9DD;
     color: #fff;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: white;
+    /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--primaryLinear);
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    /* border: 3px solid orange; */
+    /* creates padding around scroll thumb */
 }
 
 /* main {

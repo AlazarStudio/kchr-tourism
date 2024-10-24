@@ -50,7 +50,7 @@ function HeaderAbs({ children, ...props }) {
 			<CenterBlock>
 				<WidthBlock>
 					<div className={styles.header_wrapper}>
-						<LinksWhite />
+						<LinksWhite isScrolled={isScrolled} />
 						<div className={styles.wrapper_item}>
 							<Link to='/' className={styles.main_icon}>
 								<img src='/favicon-alazar-studio.png' alt='' />

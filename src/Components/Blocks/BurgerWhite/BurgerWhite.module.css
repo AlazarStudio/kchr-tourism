@@ -52,6 +52,22 @@
 }
 
 
+.scrolled_text.active {
+  /* background-color: #fff; */
+}
+
+.scrolled_text {
+  /* background-color: #fff; */
+}
+
+.scrolled_text a {
+  color: #000;
+}
+
+.scrolled_text li a {
+  color: #000;
+}
+
 
 /* Для больших экранов бургер-меню не отображается */
 @media (max-width: 1299px) {

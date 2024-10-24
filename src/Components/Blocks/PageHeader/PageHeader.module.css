@@ -1,4 +1,5 @@
 .head {
+  margin-top: 150px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,6 +22,7 @@
 
 @media (max-width: 1299px) {
   .head {
+    margin: 0;
     padding: 20px 16px 0 16px;
     gap: 10px;
   }
