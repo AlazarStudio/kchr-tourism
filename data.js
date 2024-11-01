@@ -43,7 +43,14 @@ export const social = [
 		images: '/images/vk1.png',
 		title: 'Вконтакте',
 		subtitle: '@kchturism'
-	}
+	},
+	{
+		id: 3,
+		link: 'https://dzen.ru/kchtourism',
+		images: '/images/dzen.png',
+		title: 'Дзен',
+		subtitle: 'https://dzen.ru/kchtourism'
+	},
 ]
 
 export const mainSliderImgs = [
