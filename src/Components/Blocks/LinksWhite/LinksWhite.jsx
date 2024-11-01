@@ -19,18 +19,30 @@ function LinksWhite({ children, isScrolled }) {
 					target='_blank'
 					className={styles.link}
 				>
-					<img src='/images/min_tourism.png' alt='' />
-					<p>Министерство туризма КЧР</p>
+					<img
+						style={{
+							width: '220px',
+							objectFit: 'cover'
+						}}
+						src='/images/min-tourism.png'
+						alt=''
+					/>
+					{/* <p>Министерство туризма КЧР</p> */}
 				</a>
-				<p>Туристический портал КЧР </p>
+				<a
+				className={styles.tourism}
+					style={{ fontSize: '16px' }}
+					href='https://перваятуристическая.рф/'
+					target='_blank'
+				>
+					Туристический портал КЧР
+				</a>
 			</div>
 			<div className={styles.wrapper_item}>
 				<div className={styles.link}>
 					{/* <img src='/images/search_white.png' alt='' /> */}
 					<img
-						src={
-							!isScrolled ? '/images/bvi_white.png' : '/images/bvi.png'
-						}
+						src={!isScrolled ? '/images/bvi_white.png' : '/images/bvi.png'}
 						alt=''
 					/>
 				</div>

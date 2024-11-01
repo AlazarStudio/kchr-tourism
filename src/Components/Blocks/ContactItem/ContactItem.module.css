@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   gap: 15px;
+  background-color: #fff;
   border: 2px solid var(--primaryColor);
   border-radius: 10px;
 }
@@ -36,13 +37,13 @@
     border: 2px solid var(--primaryColor);
     border-radius: 10px;
   }
-  
-  
+
+
   .contact_item__text :first-child {
     font-size: 16px;
     line-height: 19px;
     font-weight: 500;
   }
-  
+
 
 }

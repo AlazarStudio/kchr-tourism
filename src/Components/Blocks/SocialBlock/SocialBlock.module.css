@@ -1,0 +1,24 @@
+.contacts_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.name {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+@media (max-width: 1299px) {
+  .contacts_wrapper {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .name {
+    font-size: 22px;
+    line-height: 25px;
+  }
+}
