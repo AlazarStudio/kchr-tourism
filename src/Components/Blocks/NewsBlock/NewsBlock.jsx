@@ -57,14 +57,14 @@ function NewsBlock({ children, ...props }) {
 					<Swiper
 						className={styles.sliderBox}
 						spaceBetween={40}
-						slidesPerView={3}
+						slidesPerView={4}
 						breakpoints={{
 							0: {
 								slidesPerView: 1
 							},
 
 							1299: {
-								slidesPerView: 3
+								slidesPerView: 4
 							}
 						}}
 						direction='horizontal'

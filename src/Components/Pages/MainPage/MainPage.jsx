@@ -36,6 +36,9 @@ function MainPage({ children, ...props }) {
 
 			<MainBanner />
 			<section>
+				<NewsBlock />
+			</section>
+			<section>
 				<PlacesToVisit />
 			</section>
 			<section className={styles.places_section}>
@@ -43,9 +46,6 @@ function MainPage({ children, ...props }) {
 			</section>
 			<section>
 				<OurProjectsBlock />
-			</section>
-			<section>
-				<NewsBlock />
 			</section>
 			<section className={styles.last_section}>
 				<Feedback />
