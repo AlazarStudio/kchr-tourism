@@ -13,6 +13,10 @@
   border: 1px solid var(--borderColor);
 }
 
+.article_text a {
+  color: blue !important;
+}
+
 .article_images {
   display: flex;
   flex-wrap: wrap;

@@ -41,6 +41,7 @@ const RichTextInput = props => {
 			['bold', 'italic', 'underline', 'strike', 'blockquote'],
 			[{ indent: '-1' }, { indent: '+1' }, { align: [] }],
 			[{ color: [] }, { background: [] }],
+			['link'],
 			// [{ align: [] }],
 
 			['clean']
