@@ -30,7 +30,7 @@ function LinksWhite({ children, isScrolled }) {
 					{/* <p>Министерство туризма КЧР</p> */}
 				</a>
 				<a
-				className={styles.tourism}
+					className={styles.tourism}
 					style={{ fontSize: '16px' }}
 					href='https://перваятуристическая.рф/'
 					target='_blank'
@@ -42,8 +42,11 @@ function LinksWhite({ children, isScrolled }) {
 				<div className={styles.link}>
 					{/* <img src='/images/search_white.png' alt='' /> */}
 					<img
+						id='specialButton'
 						src={!isScrolled ? '/images/bvi_white.png' : '/images/bvi.png'}
 						alt=''
+						style={{cursor:'pointer'}}
+						onClick={()=>{window.location.reload()}}
 					/>
 				</div>
 				<div className={styles.link}>

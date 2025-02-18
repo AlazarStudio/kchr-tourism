@@ -38,7 +38,13 @@ function Links({ children, ...props }) {
 			<div className={styles.wrapper_item}>
 				<div className={styles.link}>
 					{/* <img src='/images/search.png' alt='' /> */}
-					<img src='/images/bvi.png' alt='' />
+					<img
+						id='specialButton'
+						src='/images/bvi.png'
+						alt=''
+						onClick={()=>{window.location.reload()}}
+						style={{ cursor: 'pointer' }}
+					/>
 				</div>
 				<div className={styles.link}>
 					<a href='https://t.me/kchturism' target='_blank'>
