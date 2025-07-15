@@ -9,6 +9,7 @@ import Links from '../Links/Links'
 import LinksWhite from '../LinksWhite/LinksWhite'
 
 import styles from './HeaderAbs.module.css'
+import AccessibilityButton from '../AccessibilityButton/AccessibilityButton'
 
 function HeaderAbs({ children, ...props }) {
 	const [burgerActive, setBurgerActive] = useState(false)
@@ -54,7 +55,9 @@ function HeaderAbs({ children, ...props }) {
 						<div className={styles.wrapper_item}>
 							<Link to='/' className={styles.main_icon}>
 								<img src='/favicon-alazar-studio.png' alt='' />
-								<div className={`${styles.main_text} ${isScrolled ? styles.scrolled_main_text : ''}`}>
+								<div
+									className={`${styles.main_text} ${isScrolled ? styles.scrolled_main_text : ''}`}
+								>
 									<p>КАРАЧАЕВО-ЧЕРКЕСИЯ</p>
 									<p>ТУРИЗМ</p>
 								</div>
@@ -68,7 +71,12 @@ function HeaderAbs({ children, ...props }) {
 						</div>
 						<div className={styles.menu_search}>
 							{/* <img src='/images/search.png' alt='' /> */}
-							<img src='/images/bvi.png' alt='' />
+							{/* <img src='/images/bvi.png' alt='' /> */}
+							<AccessibilityButton
+								srcDefault={'/images/bvi.png'}
+								srcScrolled={'/images/bvi_white.png'}
+								// isScrolled={isScrolled}
+							/>
 							<div
 								onClick={toggleBurger}
 								className={styles.burger_icon}

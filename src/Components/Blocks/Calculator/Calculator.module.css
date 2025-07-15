@@ -1,0 +1,225 @@
+/* Calculator.module.css — светлая тема, повторяет стили тёмного калькулятора */
+
+/* Цветовые переменные */
+:root {
+  /* Фоновые цвета */
+  --bg-page: #f4f5f6;           /* общий фон страницы */
+  --bg-panel: #ffffff;         /* фон панели калькулятора */
+  --bg-option: #f9f9f9;        /* фон для радиоблоков */
+
+  /* Текст */
+  --text-primary: #222222;     /* основной цвет текста */
+  --text-secondary: #666666;   /* вспомогательный текст */
+
+  /* Границы */
+  --border-default: #d8d8d8;   /* стандартные границы */
+  --border-error: #ff4d4f;     /* цвет ошибки */
+
+  /* Кнопки */
+  --btn-calc-hover: #3cbdf0;
+  --btn-reset-bg: transparent;
+  --btn-reset-border: #555555;
+  --btn-reset-hover: #f0f0f0;
+}
+
+/* Основной контейнер */
+.calculator {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 32px;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-default);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Группы полей */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Общий стиль для select и input */
+.form-control {
+  padding: 12px 16px;
+  border: 2px solid var(--border-default);
+  border-radius: 8px;
+  /* background-color: var(--bg-option); */
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+.form-control:focus {
+  border-color: var(--primaryColor);
+  outline: none;
+}
+
+/* Стиль ошибки */
+.validation-error {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--border-error);
+}
+
+/* Секция с радиокнопками */
+.service-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Обертка label должна скрывать все, что выходит за её скругления */
+.radio-label {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px; /* совпадает с вашим .radio-label */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  /* background-color: var(--bg-option); */
+  border: 2px solid var(--border-default);
+  cursor: pointer;
+}
+
+/* Скрываем штатное оформление */
+.radio-label input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border-default);
+  border-radius: 50%;
+  background-color: var(--bg-option);
+  position: relative;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* Состояние hover/focus */
+.radio-label input[type="radio"]:hover,
+.radio-label input[type="radio"]:focus {
+  border-color: var(--primaryColor);
+  outline: none;
+}
+
+/* Когда радио отмечено – красим фон и рисуем inner-dot */
+.radio-label input[type="radio"]:checked {
+  border-color: var(--primaryColor);
+  background-color: var(--primaryColor);
+}
+
+.radio-label input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.radio-text {
+  flex: 1;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.price {
+  color: var(--primaryColor);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Результат */
+.result {
+  border: 2px solid var(--primaryColor);
+  border-radius: 8px;
+  padding: 16px;
+  /* background-color: var(--bg-option); */
+  text-align: center;
+}
+
+.result-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.result-price {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primaryColor);
+}
+
+.surcharge-info {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #ff8800;
+  font-style: italic;
+}
+
+/* Кнопки */
+.button-group {
+  display: flex;
+  gap: 16px;
+}
+
+.calculateBtn {
+  flex: 1;
+  padding: 12px 0;
+  background-color: var(--primaryColor);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.calculateBtn:hover {
+  background-color: var(--btn-calc-hover);
+}
+
+.resetBtn {
+  flex: 1;
+  padding: 12px 0;
+  background-color: var(--btn-reset-bg);
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid var(--btn-reset-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.resetBtn:hover {
+  background-color: var(--btn-reset-hover);
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+  .calculator {
+    padding: 24px;
+    width: auto;
+    margin: 0 16px;
+  }
+  .result-price {
+    font-size: 28px;
+  }
+}

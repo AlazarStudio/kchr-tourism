@@ -1,3 +1,5 @@
+import AccessibilityButton from '../AccessibilityButton/AccessibilityButton'
+
 import styles from './LinksWhite.module.css'
 
 function LinksWhite({ children, isScrolled }) {
@@ -41,13 +43,18 @@ function LinksWhite({ children, isScrolled }) {
 			<div className={styles.wrapper_item}>
 				<div className={styles.link}>
 					{/* <img src='/images/search_white.png' alt='' /> */}
-					<img
+					<AccessibilityButton
+						srcDefault={'/images/bvi_white.png'}
+						srcScrolled={'/images/bvi.png'}
+						isScrolled={isScrolled}
+					/>
+					{/* <img
 						id='specialButton'
 						src={!isScrolled ? '/images/bvi_white.png' : '/images/bvi.png'}
 						alt=''
 						style={{cursor:'pointer'}}
-						onClick={()=>{window.location.reload()}}
-					/>
+						// onClick={()=>{window.location.reload()}}
+					/> */}
 				</div>
 				<div className={styles.link}>
 					<a href='https://t.me/kchturism' target='_blank'>

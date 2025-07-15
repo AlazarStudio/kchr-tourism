@@ -7,6 +7,7 @@ import Burger from '../Burger/Burger'
 import Links from '../Links/Links'
 
 import styles from './Header.module.css'
+import AccessibilityButton from '../AccessibilityButton/AccessibilityButton'
 
 function Header({ children, ...props }) {
 	const [burgerActive, setBurgerActive] = useState(false)
@@ -71,7 +72,12 @@ function Header({ children, ...props }) {
 						</div>
 						<div className={styles.menu_search}>
 							{/* <img src='/images/search.png' alt='' /> */}
-							<img src='/images/bvi.png' alt='' />
+							{/* <img src='/images/bvi.png' alt='' /> */}
+							<AccessibilityButton
+								srcDefault={'/images/bvi.png'}
+								srcScrolled={'/images/bvi_white.png'}
+								// isScrolled={isScrolled}
+							/>
 							<div
 								onClick={toggleBurger}
 								className={styles.burger_icon}

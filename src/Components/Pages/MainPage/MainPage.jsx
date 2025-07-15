@@ -2,6 +2,8 @@ import axios from 'axios'
 import { useEffect } from 'react'
 
 import serverConfig from '../../../serverConfig'
+import { useAccessibilityScript } from '../../Blocks/BVI/BVI'
+import { useAccessibilityStyles } from '../../Blocks/BVIStyles/BVIStyles'
 import EventsBlock from '../../Blocks/EventsBlock/EventsBlock'
 import Feedback from '../../Blocks/Feedback/Feedback'
 import Footer from '../../Blocks/Footer/Footer'
@@ -29,6 +31,9 @@ function MainPage({ children, ...props }) {
 		}
 		fetchTelegramNews()
 	}, [])
+
+	// useAccessibilityScript()
+	// useAccessibilityStyles()
 
 	return (
 		<>

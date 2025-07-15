@@ -1,3 +1,4 @@
+import AccessibilityButton from '../AccessibilityButton/AccessibilityButton'
 import styles from './Links.module.css'
 
 function Links({ children, ...props }) {
@@ -38,13 +39,18 @@ function Links({ children, ...props }) {
 			<div className={styles.wrapper_item}>
 				<div className={styles.link}>
 					{/* <img src='/images/search.png' alt='' /> */}
-					<img
+					<AccessibilityButton
+						srcDefault={'/images/bvi.png'}
+						srcScrolled={'/images/bvi_white.png'}
+						// isScrolled={isScrolled}
+					/>
+					{/* <img
 						id='specialButton'
 						src='/images/bvi.png'
 						alt=''
-						onClick={()=>{window.location.reload()}}
+						// onClick={()=>{window.location.reload()}}
 						style={{ cursor: 'pointer' }}
-					/>
+					/> */}
 				</div>
 				<div className={styles.link}>
 					<a href='https://t.me/kchturism' target='_blank'>

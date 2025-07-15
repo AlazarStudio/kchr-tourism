@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import styles from './Burger.module.css'
-import BVI from '../BVI/BVI'
 
 function Burger({ menuRef, active, toggleBurger, isScrolled }) {
 	const [isMediaMenuOpen, setIsMediaMenuOpen] = useState(false)
@@ -71,7 +70,6 @@ function Burger({ menuRef, active, toggleBurger, isScrolled }) {
 			<Link to='/contact' onClick={toggleBurger}>
 				КОНТАКТЫ
 			</Link>
-			{/* <BVI/> */}
 		</nav>
 	)
 }

@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import styles from './BurgerWhite.module.css'
-import BVI from '../BVI/BVI'
 
 function BurgerWhite({ menuRef, active, toggleBurger, isScrolled }) {
 	// Управляем состоянием видимости подменю
@@ -73,7 +72,6 @@ function BurgerWhite({ menuRef, active, toggleBurger, isScrolled }) {
 			<Link to='/contact' onClick={toggleBurger}>
 				КОНТАКТЫ
 			</Link>
-			{/* <BVI/> */}
 		</nav>
 	)
 }

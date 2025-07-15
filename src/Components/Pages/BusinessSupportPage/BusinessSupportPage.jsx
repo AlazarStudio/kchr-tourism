@@ -7,6 +7,7 @@ import { bs, bs2, bs3, news } from '../../../../data'
 import getToken from '../../../getToken'
 import serverConfig from '../../../serverConfig'
 import BSItem from '../../Blocks/BSItem/BSItem'
+import Calculator from '../../Blocks/Calculator/Calculator'
 import NewsItem from '../../Blocks/NewsItem/NewsItem'
 import PageHeader from '../../Blocks/PageHeader/PageHeader'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
@@ -118,7 +119,14 @@ function BusinessSupportPage({ children, ...props }) {
 							гранты
 						</button>
 					</div>
-
+					{type === 'hoteliers' && (
+						<div
+							style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}
+						>
+							<p className={styles.not_found}>Калькулятор стоимости услуг</p>
+							<Calculator />
+						</div>
+					)}
 					{displayNews.length === 0 ? (
 						<p className={styles.not_found}>Не найдено</p>
 					) : (

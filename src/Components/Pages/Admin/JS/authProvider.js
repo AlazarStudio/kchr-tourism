@@ -7,7 +7,7 @@ import serverConfig from '../../../../serverConfig'
 const authProvider = {
 	// Метод входа в систему
 	login: async ({ username, password }) => {
-		console.log(username,password)
+		// console.log(username,password)
 		try {
 			const response = await axios.post(
 				`${serverConfig}/auth/login`,

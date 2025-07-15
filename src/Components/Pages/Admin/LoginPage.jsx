@@ -36,6 +36,17 @@ const LoginPage = () => {
 				alignItems: 'center'
 			}}
 		>
+			{/* <img
+				id='specialButton'
+				src='/images/bvi.png'
+				alt=''
+				onClick={() => {
+					window.location.reload()
+				}}
+				style={{display:'none'}}
+				// style={{ cursor: 'pointer', position: 'absolute', top:'250px', right: '250px', display:'none' }}
+			/> */}
+			{/* <div id='specialButton'></div> */}
 			<Card>
 				<form onSubmit={handleSubmit}>
 					<div style={{ padding: '16px 24px', width: 300 }}>
