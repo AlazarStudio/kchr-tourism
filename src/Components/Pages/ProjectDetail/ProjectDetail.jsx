@@ -24,7 +24,7 @@ function ProjectDetail({ children, ...props }) {
 				const response = await axios.get(
 					`${serverConfig}/projects/${parseInt(id)}`,
 					{
-						headers: { Authorization: `Bearer ${getToken}` }
+						headers: { Authorization: `Bearer ${getToken()}` }
 					}
 				)
 				// console.log(response.data)

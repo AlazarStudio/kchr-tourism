@@ -7,7 +7,7 @@ export const fetchJsonWithToken = async (url, options = {}) => {
 	if (!options.headers) {
 		options.headers = new Headers({ Accept: 'application/json' })
 	}
-	options.headers.set('Authorization', `Bearer ${getToken}`)
+	options.headers.set('Authorization', `Bearer ${getToken()}`)
 
 	try {
 		const response = await fetchUtils.fetchJson(url, options)

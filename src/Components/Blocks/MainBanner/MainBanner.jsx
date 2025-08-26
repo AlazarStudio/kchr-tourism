@@ -17,7 +17,7 @@ import styles from './MainBanner.module.css'
 const fetchStories = async () => {
 	try {
 		const response = await axios.get(`${serverConfig}/stories`, {
-			headers: { Authorization: `Bearer ${getToken}` }
+			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data
 	} catch (error) {

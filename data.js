@@ -6,18 +6,25 @@ export const contacts = [
 		title: 'Наш адрес',
 		subtitle: 'Черкесск, Октябрьская 376 б'
 	},
-	{
-		id: 2,
-		link: 'https://wa.me/+79280319656',
-		images: '/images/whatsapp.png',
-		title: 'WatsApp',
-		subtitle: '+7 928 031-96-56'
-	},
-	{
-		id: 3,
-		link: 'https://t.me/+79280319656',
-		images: '/images/tg.svg',
-		title: 'Telegram',
+	// {
+	// 	id: 2,
+	// 	link: 'https://wa.me/+79280319656',
+	// 	images: '/images/whatsapp.png',
+	// 	title: 'WatsApp',
+	// 	subtitle: '+7 928 031-96-56'
+	// },
+	// {
+	// 	id: 3,
+	// 	link: 'https://t.me/+79280319656',
+	// 	images: '/images/tg.svg',
+	// 	title: 'Telegram',
+	// 	subtitle: '+7 928 031-96-56'
+	// },
+		{
+		id: 5,
+		link: 'https://max.ru/u/f9LHodD0cOJsivhILdNAHYqbBVt8PPAUM-3rEg1bfu7Z2IR8J9o-mjPwqq0',
+		images: '/images/max.png',
+		title: 'Max',
 		subtitle: '+7 928 031-96-56'
 	},
 	{

@@ -11,7 +11,7 @@ function ContactsPage({ children, ...props }) {
 		<main className={styles.main_wrapper}>
 			<CenterBlock>
 				<WidthBlock>
-					<PageHeader title='АНО КЧР Туризм' />
+					<PageHeader title='АНО Карачаево-Черкесия туризм' />
 					<section className={styles.contacts_section}>
 						<ContactsBlock />
 						<SocialBlock />

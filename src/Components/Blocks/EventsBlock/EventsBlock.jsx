@@ -18,7 +18,7 @@ import styles from './EventsBlock.module.css'
 const fetchNews = async () => {
 	try {
 		const response = await axios.get(`${serverConfig}/events`, {
-			headers: { Authorization: `Bearer ${getToken}` }
+			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data
 	} catch (error) {

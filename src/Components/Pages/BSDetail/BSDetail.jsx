@@ -25,7 +25,7 @@ function BSDetail({ children, ...props }) {
 				const response = await axios.get(
 					`${serverConfig}/business-support/${parseInt(id)}`,
 					{
-						headers: { Authorization: `Bearer ${getToken}` }
+						headers: { Authorization: `Bearer ${getToken()}` }
 					}
 				)
 				setNews(response.data)

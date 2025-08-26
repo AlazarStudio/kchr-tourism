@@ -14,7 +14,7 @@ import styles from './DocsPage.module.css'
 const fetchDocs = async () => {
 	try {
 		const response = await axios.get(`${serverConfig}/docs`, {
-			headers: { Authorization: `Bearer ${getToken}` }
+			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data
 	} catch (error) {
@@ -26,7 +26,7 @@ const fetchDocs = async () => {
 const fetchDocsGroup = async () => {
 	try {
 		const response = await axios.get(`${serverConfig}/group`, {
-			headers: { Authorization: `Bearer ${getToken}` }
+			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data
 	} catch (error) {

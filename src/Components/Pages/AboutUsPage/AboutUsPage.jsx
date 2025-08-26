@@ -13,7 +13,7 @@ import styles from './AboutUsPage.module.css'
 const fetchAboutUs = async () => {
 	try {
 		const response = await axios.get(`${serverConfig}/about-us`, {
-			headers: { Authorization: `Bearer ${getToken}` }
+			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data
 	} catch (error) {

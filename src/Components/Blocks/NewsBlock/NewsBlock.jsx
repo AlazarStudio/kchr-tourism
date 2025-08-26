@@ -15,7 +15,7 @@ import styles from './NewsBlock.module.css'
 const fetchNews = async () => {
 	try {
 		const response = await axios.get(`${serverConfig}/news`, {
-			headers: { Authorization: `Bearer ${getToken}` }
+			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data
 	} catch (error) {

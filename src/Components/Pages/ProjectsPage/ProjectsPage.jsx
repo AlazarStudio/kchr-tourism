@@ -17,7 +17,7 @@ import styles from './ProjectsPage.module.css'
 const fetchProjects = async () => {
 	try {
 		const response = await axios.get(`${serverConfig}/projects`, {
-			headers: { Authorization: `Bearer ${getToken}` }
+			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data
 	} catch (error) {

@@ -19,7 +19,7 @@ import styles from './EventsAnnouncementPage.module.css'
 const fetchEvents = async () => {
 	try {
 		const response = await axios.get(`${serverConfig}/events`, {
-			headers: { Authorization: `Bearer ${getToken}` }
+			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data
 	} catch (error) {
@@ -130,10 +130,19 @@ function EventsAnnouncementPage({ children, ...props }) {
 							>
 								<option value=''>Город</option>
 								<option value='Архыз'>Архыз</option>
-								<option value='Теберда'>Теберда</option>
 								<option value='Домбай'>Домбай</option>
-								<option value='Черкесск'>Черкесск</option>
+								<option value='Казань'>Казань</option>
 								<option value='Карачаевск'>Карачаевск</option>
+								<option value='Кисловодски'>Кисловодски</option>
+								<option value='Краснодар'>Краснодар</option>
+								<option value='Минеральные воды'>Минеральные воды</option>
+								<option value='Москва'>Москва</option>
+								<option value='Пятигорск'>Пятигорск</option>
+								<option value='Санкт-Петербург'>Санкт-Петербург</option>
+								<option value='Сочи'>Сочи</option>
+								<option value='Ставрополь'>Ставрополь</option>
+								<option value='Теберда'>Теберда</option>
+								<option value='Черкесск'>Черкесск</option>
 							</select>
 							<select
 								name='month'

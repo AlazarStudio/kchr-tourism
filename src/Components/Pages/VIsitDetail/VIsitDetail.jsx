@@ -24,7 +24,7 @@ function VIsitDetail({ children, ...props }) {
 				const response = await axios.get(
 					`${serverConfig}/visit/${parseInt(id)}`,
 					{
-						headers: { Authorization: `Bearer ${getToken}` }
+						headers: { Authorization: `Bearer ${getToken()}` }
 					}
 				)
 				// console.log(response.data)

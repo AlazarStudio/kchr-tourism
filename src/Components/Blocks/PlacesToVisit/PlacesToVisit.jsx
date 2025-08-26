@@ -16,7 +16,7 @@ import styles from './PlacesToVisit.module.css'
 const fetchNews = async () => {
 	try {
 		const response = await axios.get(`${serverConfig}/visit`, {
-			headers: { Authorization: `Bearer ${getToken}` }
+			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data
 	} catch (error) {

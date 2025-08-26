@@ -1,0 +1,133 @@
+/* Секция информации */
+.infosection {
+  margin: 32px 0;
+}
+
+.sectiontitle {
+  text-align: center;
+  /* color: var(--primaryColor); */
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Montserrat Alternates;
+}
+
+.infocards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.infocard {
+  /* background: var(--color-surface); */
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid var(--border-default);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3); */
+}
+
+.cardtitle {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: Montserrat Alternates;
+  /* color: var(--primaryColor); */
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.infolist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.infolist li {
+  padding: 8px 0;
+  /* border-bottom: 1px solid var(--color-border); */
+  color: var(--color-text-secondary);
+}
+
+.infolist li:last-child {
+  border-bottom: none;
+}
+
+.infolist strong {
+  color: var(--color-error);
+}
+
+.deadlineinfo p {
+  margin: 12px 0;
+  color: var(--color-text-secondary);
+}
+
+.deadlineinfo strong {
+  color: var(--primaryColor);
+}
+
+.warning {
+  color: var(--color-error);
+  font-weight: 500;
+}
+
+
+/* Секция контактов */
+.contactssection {
+  margin: 32px 0;
+}
+
+.contactsblock {
+  background: var(--color-surface);
+  border-radius: var(--block-border-radius);
+  padding: 32px 62px;
+  box-shadow: var(--block-shadow);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  border: 1px solid #BABABA;
+  border-radius: 20px;
+}
+
+.contactitem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contacticon {
+  font-size: 24px;
+  width: 48px;
+  height: 48px;
+  /* background: var(--primaryColor); */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactinfo {
+  flex: 1;
+}
+
+.contactlabel {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-bottom: 4px;
+}
+
+.contactlink {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contactlink:hover {
+  color: var(--primaryColor);
+}
+
+@media (max-width: 1299px) {
+  
+  .infocards {
+    padding: 0 16px;
+  }
+}

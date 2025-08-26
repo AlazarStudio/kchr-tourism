@@ -10,7 +10,7 @@ export const uploadDocument = async file => {
 		const response = await fetch(`${uploadsConfig}/upload-doc`, {
 			method: 'POST',
 			headers: {
-				Authorization: `Bearer ${getToken}`
+				Authorization: `Bearer ${getToken()}`
 			},
 			body: formData
 		})

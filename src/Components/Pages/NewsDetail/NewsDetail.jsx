@@ -24,7 +24,7 @@ function NewsDetail({ children, ...props }) {
 				const response = await axios.get(
 					`${serverConfig}/news/${parseInt(id)}`,
 					{
-						headers: { Authorization: `Bearer ${getToken}` }
+						headers: { Authorization: `Bearer ${getToken()}` }
 					}
 				)
 				setNews(response.data)

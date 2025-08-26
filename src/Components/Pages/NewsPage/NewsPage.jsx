@@ -16,8 +16,8 @@ import styles from './NewsPage.module.css'
 
 const fetchNews = async () => {
 	try {
-		const response = await axios.get(`${serverConfig}/news`, {
-			headers: { Authorization: `Bearer ${getToken}` }
+		const response = await axios.get(`${serverConfig}/news?all=true`, {
+			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data
 	} catch (error) {
