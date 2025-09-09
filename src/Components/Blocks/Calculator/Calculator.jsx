@@ -3,9 +3,9 @@ import styles from './Calculator.module.css';
 
 // Данные для калькулятора
 const serviceData = {
-  consultation: { name: 'Консультация', price: 5000 },
-  basic: { name: 'Базовая самооценка', price: 12000 },
-  full: { name: 'Полный пакет', price: 20000 }
+  consultation: { name: 'Консультация', price: 10000 },
+  basic: { name: 'Базовая самооценка', price: 20000 },
+  full: { name: 'Полный пакет', price: 30000 }
 };
 
 const Calculator = () => {
