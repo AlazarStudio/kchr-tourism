@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import 'swiper/css'
+import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { mainSliderImgs, visitSlides } from '../../../../data'
@@ -42,41 +43,43 @@ function PlacesToVisit({ children, ...props }) {
 		(a, b) => new Date(b.date) - new Date(a.date)
 	)
 
-
 	return (
-			<CenterBlock>
-				<WidthBlock>
-					<p className={styles.visit_title}>
-						Что посетить в Карачаево-Черкесии?
-					</p>
-					<Swiper
-						className={styles.sliderBox}
-						spaceBetween={20}
-						slidesPerView={3}
-						breakpoints={{
-							0: {
-								slidesPerView: 1
-							},
+		<CenterBlock>
+			<WidthBlock>
+				<p className={styles.visit_title}>Что посетить в Карачаево-Черкесии?</p>
+				<Swiper
+					className={styles.sliderBox}
+					spaceBetween={20}
+					slidesPerView={3}
+					breakpoints={{
+						0: {
+							slidesPerView: 1
+						},
 
-							1299: {
-								slidesPerView: 3
-							}
-						}}
-						direction='horizontal'
-						loop={true}
-						onSwiper={setSwiper}
-						onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
-					>
-						{sortedNews.map((item, index) => (
-							<SwiperSlide key={index}>
-								<div className={styles.visit_slide__wrapper}>
-									<VisitSlide {...item} />
-								</div>
-							</SwiperSlide>
-						))}
-					</Swiper>
-				</WidthBlock>
-			</CenterBlock>
+						1299: {
+							slidesPerView: 3
+						}
+					}}
+					direction='horizontal'
+					loop={true}
+					autoplay={{
+						delay: 4000,
+						disableOnInteraction: false
+					}}
+					onSwiper={setSwiper}
+					onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
+					modules={[Autoplay]}
+				>
+					{sortedNews.map((item, index) => (
+						<SwiperSlide key={index}>
+							<div className={styles.visit_slide__wrapper}>
+								<VisitSlide {...item} />
+							</div>
+						</SwiperSlide>
+					))}
+				</Swiper>
+			</WidthBlock>
+		</CenterBlock>
 	)
 }
 

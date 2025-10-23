@@ -39,7 +39,7 @@ function Burger({ menuRef, active, toggleBurger, isScrolled }) {
 			className={`${styles.burger} ${active ? styles.active : styles.closed} ${isScrolled ? styles.scrolled_text : ''}`}
 		>
 			<Link to='/news' onClick={toggleBurger}>
-				НОВОСТИ
+				ИНТЕРЕСНОЕ О РЕГИОНЕ
 			</Link>
 			<div className={styles.media_menu} ref={mediaMenuRef}>
 				<a onClick={toggleMediaMenu}>О НАС</a>

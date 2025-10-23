@@ -8,6 +8,8 @@ import {
 	ImageField,
 	ImageInput,
 	List,
+	required,
+	SelectInput,
 	SimpleForm,
 	TextField,
 	TextInput
@@ -72,6 +74,14 @@ export const NewsEdit = props => (
 	<Edit {...props} transform={handleSaveWithImages}>
 		<SimpleForm>
 			<TextInput disabled source='id' label='№' />
+			<SelectInput
+				source='type'
+				label='Выберите тип'
+				choices={[
+					{ id: 'news', name: 'Новость' },
+					{ id: 'article', name: 'Статья' }
+				]}
+			/>
 			<TextInput source='title' label='Заголовок' />
 			<RichTextInput source='text' label='Текст' />
 			<DateTimeInput source='date' label='Дата' />
@@ -120,10 +130,20 @@ export const NewsEdit = props => (
 export const NewsCreate = props => (
 	<Create {...props} transform={handleSave}>
 		<SimpleForm>
+			<SelectInput
+				source='type'
+				label='Выберите тип'
+				defaultValue={'news'}
+				choices={[
+					{ id: 'news', name: 'Новость' },
+					{ id: 'article', name: 'Статья' }
+				]}
+				validate={required()}
+			/>
 			<TextInput source='title' label='Заголовок' />
 			<RichTextInput source='text' label='Текст' />
 			<DateTimeInput source='date' label='Дата' />
-			<ImageInput source='images' label='Изображения' multiple >
+			<ImageInput source='images' label='Изображения' multiple>
 				<ImageField source='src' title='title' />
 			</ImageInput>
 		</SimpleForm>

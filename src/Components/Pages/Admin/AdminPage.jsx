@@ -64,7 +64,7 @@ function AdminPage() {
 			<Resource
 				icon={NewspaperIcon}
 				name='news'
-				options={{ label: 'Новости' }}
+				options={{ label: 'Интересное о регионе' }}
 				list={<NewsList />}
 				edit={<NewsEdit />}
 				create={<NewsCreate />}

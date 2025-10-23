@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import 'swiper/css'
+import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { mainSliderImgs } from '../../../../data'
@@ -84,11 +85,12 @@ function MainBanner({ children, ...props }) {
 						direction='horizontal'
 						loop={true}
 						autoplay={{
-							delay: 5000,
+							delay: 4000,
 							disableOnInteraction: false
 						}}
 						onSwiper={setSwiper}
 						onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
+						modules={[Autoplay]}
 					>
 						{stories.map((img, index) => (
 							<SwiperSlide key={index}>

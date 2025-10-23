@@ -19,7 +19,7 @@ function Footer({ children, ...props }) {
 							</div>
 						</Link>
 						<nav className={styles.links}>
-							<Link to='/news'>НОВОСТИ</Link>
+							<Link to='/news'>ИНТЕРЕСНОЕ О РЕГИОНЕ</Link>
 							<Link to='/about-us'>О НАС</Link>
 							<Link to='/our-projects'>НАШИ ПРОЕКТЫ</Link>
 							<Link to='/events-announcement'>АНОНСЫ СОБЫТИЙ</Link>

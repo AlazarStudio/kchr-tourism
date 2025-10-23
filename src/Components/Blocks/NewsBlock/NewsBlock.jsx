@@ -48,10 +48,10 @@ function NewsBlock({ children, ...props }) {
 						<div className={styles.events_header__item}>
 							<img src='/images/left_pic.png' alt='' />
 							<div className={styles.events_header__text}>
-								<p>нОВОСТИ</p>
+								<p>Интересное о регионе</p>
 							</div>
 						</div>
-						<Link to='/news'>Все новости</Link>
+						<Link to='/news'>Всё из интересного о регионе</Link>
 					</header>
 
 					<Swiper

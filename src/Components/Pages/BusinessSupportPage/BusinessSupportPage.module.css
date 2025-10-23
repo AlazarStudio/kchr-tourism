@@ -29,7 +29,8 @@
   transition: all ease-in-out 0.3s;
 }
 
-.switch_buttons .activeButton {
+.switch_buttons .activeButton,
+.switch_buttons :hover {
   color: var(--primaryColor);
 }
 

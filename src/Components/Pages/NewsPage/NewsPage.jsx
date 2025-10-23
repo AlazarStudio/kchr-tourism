@@ -29,6 +29,7 @@ const fetchNews = async () => {
 function NewsPage({ children, ...props }) {
 	const [searchParams, setSearchParams] = useSearchParams()
 	const newsRef = useRef(null)
+	const [type, setType] = useState('news')
 	const [news, setNews] = useState([])
 
 	// Используем хуки до всех проверок
@@ -57,18 +58,19 @@ function NewsPage({ children, ...props }) {
 
 	const itemsPerPage = 9
 
-	const sortedNews = [...news].sort(
-		(a, b) => new Date(b.date) - new Date(a.date)
-	)
+	// const sortedNews = [...news].sort(
+	// 	(a, b) => new Date(b.date) - new Date(a.date)
+	// )
+	const filteredNews = news.filter(item => item.type === type)
 
-	const pageCount = Math.ceil(sortedNews.length / itemsPerPage)
+	const pageCount = Math.ceil(filteredNews.length / itemsPerPage)
 
 	const safePage = Math.min(page, pageCount)
 
 	const [currentPage, setCurrentPage] = useState(safePage - 1)
 
 	// Это проверка на то, что хук работает корректно
-	const displayNews = sortedNews.slice(
+	const displayNews = filteredNews.slice(
 		currentPage * itemsPerPage,
 		(currentPage + 1) * itemsPerPage
 	)
@@ -100,7 +102,28 @@ function NewsPage({ children, ...props }) {
 		<main ref={newsRef} className={styles.main_wrapper}>
 			<CenterBlock>
 				<WidthBlock>
-					<PageHeader title='новости' />
+					<PageHeader title='ИНТЕРЕСНОЕ О РЕГИОНЕ' />
+					<div className={styles.switch_buttons}>
+						<button
+							className={type == 'news' ? styles.activeButton : null}
+							onClick={() => {
+								setType('news')
+							}}
+						>
+							новости
+						</button>
+						<button
+							className={type == 'article' ? styles.activeButton : null}
+							onClick={() => {
+								setType('article')
+								setCurrentPage(0)
+								setSearchParams({ page: 1 }) // Обновляем параметр страницы
+							}}
+						>
+							статьи
+						</button>
+					</div>
+
 					<div className={styles.news_wrapper}>
 						{displayNews.map((item, index) => (
 							<NewsItem key={index} {...item} />
