@@ -7,13 +7,13 @@ function DocumentItem({ children, ...props }) {
 		<div className={styles.doc_wrapper}>
 			<img
 				src={
-					props.src.endsWith('.pdf')
+					props.src.toLowerCase().endsWith('.pdf')
 						? '/images/pdf.png'
-						: props.src.endsWith('.docx')
+						: props.src.toLowerCase().endsWith('.docx')
 							? '/images/docx.png'
-							: props.src.endsWith('.doc')
+							: props.src.toLowerCase().endsWith('.doc')
 								? '/images/docx.png'
-								: props.src.endsWith('.rtf')
+								: props.src.toLowerCase().endsWith('.rtf')
 									? 'images/docx.png'
 									: '/images/xls.png'
 				}
@@ -24,13 +24,13 @@ function DocumentItem({ children, ...props }) {
 					{props.title}
 				</a>
 				<p style={{ color: '#696969' }}>
-					{props.src.endsWith('.pdf')
+					{props.src.toLowerCase().endsWith('.pdf')
 						? 'PDF'
-						: props.src.endsWith('.docx')
+						: props.src.toLowerCase().endsWith('.docx')
 							? 'DOCX'
-							: props.src.endsWith('.doc')
+							: props.src.toLowerCase().endsWith('.doc')
 								? 'DOC'
-								: props.src.endsWith('.rtf')
+								: props.src.toLowerCase().endsWith('.rtf')
 									? 'RTF'
 									: 'EXCEL'}
 				</p>
