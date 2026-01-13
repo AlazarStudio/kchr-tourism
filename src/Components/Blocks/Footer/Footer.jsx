@@ -35,7 +35,8 @@ function Footer({ children, ...props }) {
 								target='_blank'
 								title='kchtourism@bk.ru'
 							>
-								ПОЧТА
+								ПОЧТА <br /> <br />
+								kchtourism@bk.ru
 							</a>
 						</div>
 						<div className={styles.link}>

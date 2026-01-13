@@ -1,10 +1,10 @@
 export const contacts = [
 	{
 		id: 1,
-		link: 'https://yandex.ru/maps/-/CDTH7612',
+		link: 'https://yandex.ru/maps/-/CLdo7I-L',
 		images: '/images/location.png',
 		title: 'Наш адрес',
-		subtitle: 'Черкесск, Октябрьская 376 б'
+		subtitle: 'Черкесск, Кавказская 56'
 	},
 	// {
 	// 	id: 2,
@@ -22,10 +22,12 @@ export const contacts = [
 	// },
 		{
 		id: 5,
-		link: 'https://max.ru/u/f9LHodD0cOJsivhILdNAHYqbBVt8PPAUM-3rEg1bfu7Z2IR8J9o-mjPwqq0',
+		// link: 'https://max.ru/u/f9LHodD0cOJsivhILdNAHYqbBVt8PPAUM-3rEg1bfu7Z2IR8J9o-mjPwqq0',
+		link: 'https://max.ru/join/jRp5v79HNioCc86FxJmfxjVY6t79DZdS_ljsOmabH2s',
 		images: '/images/max.png',
 		title: 'Max',
-		subtitle: '+7 928 031-96-56'
+		// subtitle: 'https://max.ru/join/jRp5v79HNioCc86FxJmfxjVY6t79DZdS_ljsOmabH2s'
+		// subtitle: '+7 928 031-96-56'
 	},
 	{
 		id: 4,

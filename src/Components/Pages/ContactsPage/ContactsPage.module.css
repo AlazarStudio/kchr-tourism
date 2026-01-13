@@ -25,6 +25,7 @@
 }
 
 .work_schedule {
+  height: 100%;
   padding: 40px 80px;
   display: flex;
   flex-direction: column;

@@ -19,8 +19,10 @@ function ContactItem({ ...props }) {
 				</p>
 			)}
 			<div className={styles.contact_item__text}>
-				<p>{props.title}</p>
-				<p>{props.subtitle}</p>
+				<p style={!props.subtitle ? {fontSize: "20px", lineHeight: "23px", color: "#000"} : {}}>{props.title}</p>
+				{props.subtitle && (
+					<p>{props.subtitle}</p>
+				)}
 			</div>
 		</a>
 	)
