@@ -149,3 +149,66 @@ export const NewsCreate = props => (
 		</SimpleForm>
 	</Create>
 )
+
+
+export const StoriesCreate = props => (
+	<Create {...props} transform={handleSave}>
+		<SimpleForm>
+			<TextInput source='title' label='Заголовок' />
+			<RichTextInput source='text' label='Текст' />
+			<DateTimeInput source='date' label='Дата' />
+			<ImageInput source='images' label='Изображения' multiple>
+				<ImageField source='src' title='title' />
+			</ImageInput>
+		</SimpleForm>
+	</Create>
+)
+
+export const StoriesEdit = props => (
+	<Edit {...props} transform={handleSaveWithImages}>
+		<SimpleForm>
+			<TextInput disabled source='id' label='№' />
+			<TextInput source='title' label='Заголовок' />
+			<RichTextInput source='text' label='Текст' />
+			<DateTimeInput source='date' label='Дата' />
+
+			<ImageInput
+				source='imagesRaw'
+				label='Добавить новые изображения'
+				multiple
+			>
+				<ImageField source='src' title='title' />
+			</ImageInput>
+
+			{/* Поле для редактирования старых и добавления новых изображений */}
+			<ImageInput
+				source='images'
+				label='Изображения'
+				multiple
+				accept='image/*'
+				format={value =>
+					value && value.length
+						? value.map(image => ({
+								src: image.includes('http')
+									? image
+									: `${uploadsConfig}${image}`,
+								title: image
+							}))
+						: []
+				}
+				parse={value =>
+					value.map(file => {
+						// Если это новый файл (имеет rawImage), вернем только его имя
+						if (file.rawImage) {
+							return file.rawImage
+						}
+						// Если это старое изображение (имеет только src), извлекаем имя файла
+						return file.src.replace(`${uploadsConfig}`, '')
+					})
+				}
+			>
+				<ImageField source='src' title='title' />
+			</ImageInput>
+		</SimpleForm>
+	</Edit>
+)
