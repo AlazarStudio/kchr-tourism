@@ -24,10 +24,11 @@ import {
 } from './CRUD/DocGroupsCRUD'
 import { DocsCreate, DocsEdit, DocsList } from './CRUD/DocsCRUD'
 import { EventsCreate, EventsEdit, EventsList } from './CRUD/EventsCRUD'
-import { NewsCreate, NewsEdit, NewsList, StoriesCreate, StoriesEdit } from './CRUD/NewsCRUD'
+import { NewsCreate, NewsEdit, NewsList } from './CRUD/NewsCRUD'
 import authProvider from './JS/authProvider'
 import { fetchJsonWithToken } from './JS/fetchJsonWithToken'
 import LoginPage from './LoginPage'
+import { StoriesCreate, StoriesEdit, StoriesList } from './CRUD/StoriesCRUD'
 
 // Подключение к REST API
 const dataProvider = simpleRestProvider(`${serverConfig}`, fetchJsonWithToken)
@@ -47,7 +48,7 @@ function AdminPage() {
 				icon={WebStoriesIcon}
 				name='stories'
 				options={{ label: 'Сторисы' }}
-				list={<NewsList />}
+				list={<StoriesList />}
 				edit={<StoriesEdit />}
 				create={<StoriesCreate />}
 			/>
