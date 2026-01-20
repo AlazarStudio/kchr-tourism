@@ -28,7 +28,8 @@ function Footer({ children, ...props }) {
 						</nav>
 						<div className={styles.links}>
 							<a href='tel:+79280319656' target='_blank' title='+79280319656'>
-								ТЕЛЕФОН
+								ТЕЛЕФОН <br /> <br />
+								+7 (928) 031-96-56
 							</a>
 							<a
 								href='mailto:kchtourism@bk.ru'

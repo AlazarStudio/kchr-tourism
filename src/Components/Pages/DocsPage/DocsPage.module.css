@@ -2,12 +2,42 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.25s ease, opacity 0.25s ease;
+}
+
+.docs_wrapper_open {
+  max-height: 2000px;
+  opacity: 1;
+}
+
+.category_button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .category_title {
   font-size: 24px;
   line-height: 28px;
   font-weight: 500;
+}
+
+.category_icon {
+  font-size: 28px;
+  line-height: 28px;
+  transition: transform 0.2s ease;
+}
+
+.category_icon_open {
+  transform: rotate(45deg);
 }
 
 .main_wrapper {
@@ -35,6 +65,10 @@
     padding: 0 16px;
     font-size: 16px;
     line-height: 18px;
+  }
+
+  .category_button {
+    padding: 0 16px;
   }
 
   .docs_wrapper {

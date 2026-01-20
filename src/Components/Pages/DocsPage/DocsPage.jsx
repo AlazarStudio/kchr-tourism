@@ -1,7 +1,6 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
-import { docs } from '../../../../data'
 import getToken from '../../../getToken'
 import { API } from '../../../serverConfig'
 import DocumentItem from '../../Blocks/DocumentItem/DocumentItem'
@@ -13,7 +12,7 @@ import styles from './DocsPage.module.css'
 
 const fetchDocs = async () => {
 	try {
-		const response = await axios.get(`${API}/docs`, {
+		const response = await axios.get(`${API}/docs?all=true`, {
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data
@@ -25,7 +24,7 @@ const fetchDocs = async () => {
 
 const fetchDocsGroup = async () => {
 	try {
-		const response = await axios.get(`${API}/group`, {
+		const response = await axios.get(`${API}/group?all=true`, {
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data
@@ -38,6 +37,8 @@ const fetchDocsGroup = async () => {
 function DocsPage({ children, ...props }) {
 	const [docs, setDocs] = useState([])
 	const [groups, setGroups] = useState([])
+	const [openGroups, setOpenGroups] = useState(new Set())
+	const didInitOpen = useRef(false)
 
 	useEffect(() => {
 		const getDocs = async () => {
@@ -60,6 +61,38 @@ function DocsPage({ children, ...props }) {
 		return docs.some(item => item.groupId === groupId)
 	}
 
+	const docsByGroup = useMemo(() => {
+		return docs.reduce((acc, item) => {
+			if (!acc[item.groupId]) acc[item.groupId] = []
+			acc[item.groupId].push(item)
+			return acc
+		}, {})
+	}, [docs])
+
+	useEffect(() => {
+		if (!didInitOpen.current && groups.length && docs.length) {
+			const next = new Set(
+				groups
+					.filter(group => docs.some(item => item.groupId === group.id))
+					.map(group => group.id)
+			)
+			setOpenGroups(next)
+			didInitOpen.current = true
+		}
+	}, [docs, groups])
+
+	const toggleGroup = groupId => {
+		setOpenGroups(prev => {
+			const next = new Set(prev)
+			if (next.has(groupId)) {
+				next.delete(groupId)
+			} else {
+				next.add(groupId)
+			}
+			return next
+		})
+	}
+
 	return (
 		<main className={styles.main_wrapper}>
 			<CenterBlock>
@@ -69,13 +102,31 @@ function DocsPage({ children, ...props }) {
 						.filter(group => hasDocuments(group.id))
 						.map(group => (
 							<div key={group.id} className={styles.group_wrapper}>
-								<p className={styles.category_title}>{group.title}</p>
-								<div className={styles.docs_wrapper}>
-									{docs.map(item =>
-										item.groupId == group.id ? (
-											<DocumentItem key={item.id} {...item} />
-										) : null
-									)}
+								<button
+									type='button'
+									className={styles.category_button}
+									onClick={() => toggleGroup(group.id)}
+									aria-expanded={openGroups.has(group.id)}
+								>
+									<span className={styles.category_title}>{group.title}</span>
+									<span
+										className={`${styles.category_icon} ${
+											openGroups.has(group.id) ? styles.category_icon_open : ''
+										}`}
+										aria-hidden='true'
+									>
+										+
+									</span>
+								</button>
+								<div
+									className={`${styles.docs_wrapper} ${
+										openGroups.has(group.id) ? styles.docs_wrapper_open : ''
+									}`}
+									aria-hidden={!openGroups.has(group.id)}
+								>
+									{(docsByGroup[group.id] || []).map(item => (
+										<DocumentItem key={item.id} {...item} />
+									))}
 								</div>
 							</div>
 						))}
