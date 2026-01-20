@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import uploadsConfig from '../../../uploadsConfig'
+import { UPLOAD } from '../../../serverConfig'
 
 import styles from './VisitSlide.module.css'
 
@@ -14,10 +14,10 @@ function VisitSlide({ children, ...props }) {
 				</Link>
 			</div>
 			<div className={styles.image_wrapper}>
-				<img src={`${uploadsConfig}${props.images[0]}`} alt='' />
+				<img src={`${UPLOAD}${props.images[0]}`} alt='' />
 			</div>
 		</div>
 	)
-} 
+}
 
 export default VisitSlide

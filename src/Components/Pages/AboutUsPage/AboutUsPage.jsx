@@ -2,8 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 import getToken from '../../../getToken'
-import serverConfig from '../../../serverConfig'
-import uploadsConfig from '../../../uploadsConfig'
+import { API, UPLOAD } from '../../../serverConfig'
 import PageHeader from '../../Blocks/PageHeader/PageHeader'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
@@ -12,7 +11,7 @@ import styles from './AboutUsPage.module.css'
 
 const fetchAboutUs = async () => {
 	try {
-		const response = await axios.get(`${serverConfig}/about-us`, {
+		const response = await axios.get(`${API}/about-us`, {
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data
@@ -47,9 +46,9 @@ function AboutUsPage({ children, ...props }) {
 					{info.length === 0 ? null : (
 						<>
 							<div className={styles.abus_images__wrapper}>
-								<img src={`${uploadsConfig}${img1}`} alt='' />
-								<img src={`${uploadsConfig}${img2}`} alt='' />
-								<img src={`${uploadsConfig}${img3}`} alt='' />
+								<img src={`${UPLOAD}${img1}`} alt='' />
+								<img src={`${UPLOAD}${img2}`} alt='' />
+								<img src={`${UPLOAD}${img3}`} alt='' />
 							</div>
 
 							<div

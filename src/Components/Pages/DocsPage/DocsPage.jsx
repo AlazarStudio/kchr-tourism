@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 import { docs } from '../../../../data'
 import getToken from '../../../getToken'
-import serverConfig from '../../../serverConfig'
+import { API } from '../../../serverConfig'
 import DocumentItem from '../../Blocks/DocumentItem/DocumentItem'
 import PageHeader from '../../Blocks/PageHeader/PageHeader'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
@@ -13,7 +13,7 @@ import styles from './DocsPage.module.css'
 
 const fetchDocs = async () => {
 	try {
-		const response = await axios.get(`${serverConfig}/docs`, {
+		const response = await axios.get(`${API}/docs`, {
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data
@@ -25,7 +25,7 @@ const fetchDocs = async () => {
 
 const fetchDocsGroup = async () => {
 	try {
-		const response = await axios.get(`${serverConfig}/group`, {
+		const response = await axios.get(`${API}/group`, {
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data

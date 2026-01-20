@@ -5,8 +5,7 @@ import { useParams } from 'react-router-dom'
 
 import { events, projects } from '../../../../data'
 import getToken from '../../../getToken'
-import serverConfig from '../../../serverConfig'
-import uploadsConfig from '../../../uploadsConfig'
+import { API, UPLOAD } from '../../../serverConfig'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 
@@ -22,12 +21,9 @@ function EventsDetail({ children, ...props }) {
 	useEffect(() => {
 		const fetchEvent = async () => {
 			try {
-				const response = await axios.get(
-					`${serverConfig}/events/${parseInt(id)}`,
-					{
-						headers: { Authorization: `Bearer ${getToken()}` }
-					}
-				)
+				const response = await axios.get(`${API}/events/${parseInt(id)}`, {
+					headers: { Authorization: `Bearer ${getToken()}` }
+				})
 				// console.log(response.data)
 				setNews(response.data)
 			} catch (error) {
@@ -71,7 +67,7 @@ function EventsDetail({ children, ...props }) {
 							news.images.map((img, index) => (
 								<img
 									key={index}
-									src={`${uploadsConfig}${img}`}
+									src={`${UPLOAD}${img}`}
 									alt=''
 									className={styles.image_thumbnail}
 									onClick={() => openModal(img)}
@@ -87,7 +83,7 @@ function EventsDetail({ children, ...props }) {
 						overlayClassName={styles.modal_overlay}
 					>
 						<img
-							src={`${uploadsConfig}${selectedImage}`}
+							src={`${UPLOAD}${selectedImage}`}
 							alt=''
 							className={styles.modal_image}
 						/>

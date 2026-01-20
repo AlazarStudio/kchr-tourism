@@ -2,7 +2,7 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
-import serverConfig from '../../../../serverConfig'
+import { API } from '../../../../serverConfig'
 
 const authProvider = {
 	// Метод входа в систему
@@ -10,7 +10,7 @@ const authProvider = {
 		// console.log(username,password)
 		try {
 			const response = await axios.post(
-				`${serverConfig}/auth/login`,
+				`${API}/auth/login`,
 				{ login : username, password },
 				{ headers: { 'Content-Type': 'application/json' } }
 			)

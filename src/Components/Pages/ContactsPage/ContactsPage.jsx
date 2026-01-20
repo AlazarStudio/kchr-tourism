@@ -23,7 +23,7 @@ function ContactsPage({ children, ...props }) {
 									className={styles.time}
 									style={{ color: 'var(--primaryColor)', fontWeight: '700' }}
 								>
-									10:00
+									09:00
 								</p>
 								<p
 									className={styles.time}

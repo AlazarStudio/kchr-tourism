@@ -18,9 +18,9 @@ import {
 	TextInput
 } from 'react-admin'
 
-import uploadsConfig from '../../../../uploadsConfig'
 import RichTextInput from '../Auth/RichTextInput'
 import { handleSave, handleSaveWithImages } from '../JS/fileUploadUtils'
+import { UPLOAD } from '../../../../serverConfig'
 
 const stripHTML = html => {
 	const tmp = document.createElement('DIV')
@@ -124,7 +124,7 @@ export const EventsEdit = props => (
 						? value.map(image => ({
 								src: image.includes('http')
 									? image
-									: `${uploadsConfig}${image}`,
+									: `${UPLOAD}${image}`,
 								title: image
 							}))
 						: []
@@ -136,7 +136,7 @@ export const EventsEdit = props => (
 							return file.rawImage
 						}
 						// Если это старое изображение (имеет только src), извлекаем имя файла
-						return file.src.replace(`${uploadsConfig}`, '')
+						return file.src.replace(`${UPLOAD}`, '')
 					})
 				}
 			>

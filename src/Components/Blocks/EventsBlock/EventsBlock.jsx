@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { events, visitSlides } from '../../../../data'
 import getToken from '../../../getToken'
-import serverConfig from '../../../serverConfig'
+import { API } from '../../../serverConfig'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 import EventsItem from '../EventsItem/EventsItem'
@@ -17,7 +17,7 @@ import styles from './EventsBlock.module.css'
 
 const fetchNews = async () => {
 	try {
-		const response = await axios.get(`${serverConfig}/events`, {
+		const response = await axios.get(`${API}/events`, {
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data

@@ -13,7 +13,7 @@ import russianMessages from 'ra-language-russian'
 import React from 'react'
 import { Admin, Resource } from 'react-admin'
 
-import serverConfig from '../../../serverConfig'
+import { API } from '../../../serverConfig'
 
 import { AboutUsCreate, AboutUsEdit, AboutUsList } from './CRUD/AboutUsCRUD'
 import { BSCreate, BSEdit, BSList } from './CRUD/BSCRUD'
@@ -31,7 +31,7 @@ import LoginPage from './LoginPage'
 import { StoriesCreate, StoriesEdit, StoriesList } from './CRUD/StoriesCRUD'
 
 // Подключение к REST API
-const dataProvider = simpleRestProvider(`${serverConfig}`, fetchJsonWithToken)
+const dataProvider = simpleRestProvider(`${API}`, fetchJsonWithToken)
 
 const i18nProvider = polyglotI18nProvider(() => russianMessages, 'ru')
 

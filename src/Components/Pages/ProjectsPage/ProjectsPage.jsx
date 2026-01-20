@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom'
 
 // import { projects } from '../../../../data'
 import getToken from '../../../getToken'
-import serverConfig from '../../../serverConfig'
+import { API } from '../../../serverConfig'
 import PageHeader from '../../Blocks/PageHeader/PageHeader'
 import ProjectItem from '../../Blocks/ProjectItem/ProjectItem'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
@@ -16,7 +16,7 @@ import styles from './ProjectsPage.module.css'
 
 const fetchProjects = async () => {
 	try {
-		const response = await axios.get(`${serverConfig}/projects`, {
+		const response = await axios.get(`${API}/projects`, {
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import uploadsConfig from '../../../uploadsConfig'
+import { UPLOAD } from '../../../serverConfig'
 
 import styles from './EventsItemExp.module.css'
 
@@ -46,7 +46,7 @@ function EventsItemExp({ children, ...props }) {
 			to={`/events-announcement/${props.id}`}
 			className={styles.events_wrapper}
 		>
-			<img src={`${uploadsConfig}${props.images[0]}`} alt='' />
+			<img src={`${UPLOAD}${props.images[0]}`} alt='' />
 			<p className={styles.event_date}>{getDayMonth(props.date)}</p>
 			<p style={{ textTransform: 'uppercase' }} className={styles.event_title}>
 				{props.title}

@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { AuthContext } from '../../../../AuthContext'
-import serverConfig from '../../../../serverConfig'
+import { API } from '../../../../serverConfig'
 
 import styles from './Auth.module.css'
 
@@ -30,7 +30,7 @@ function Auth() {
 
 		try {
 			const response = await axios.post(
-				`${serverConfig}/auth/login`,
+				`${API}/auth/login`,
 				formData,
 				{
 					headers: { 'Content-Type': 'application/json' }

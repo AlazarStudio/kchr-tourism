@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 
-import uploadsConfig from '../../../uploadsConfig'
+import { UPLOAD } from '../../../serverConfig'
 
 import styles from './CurrentEvent.module.css'
 
@@ -12,7 +12,7 @@ function CurrentEvent({ ...props }) {
 			// to={`/events-announcement/${props.id}`}
 			className={styles.current_event__wrapper}
 		>
-			<img src={`${uploadsConfig}${props.images[0]}`} alt='' />
+			<img src={`${UPLOAD}${props.images[0]}`} alt='' />
 			<div className={styles.current_event__text}>
 				<p className={styles.current_title}>ТЕКУЩЕЕ СОБЫТИЕ</p>
 				<p className={styles.title}>{props.title}</p>

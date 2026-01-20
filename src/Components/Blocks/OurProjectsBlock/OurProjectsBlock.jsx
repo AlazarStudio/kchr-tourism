@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 // import { projects } from '../../../../data'
 import getToken from '../../../getToken'
-import serverConfig from '../../../serverConfig'
+import { API } from '../../../serverConfig'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 import ProjectItem from '../ProjectItem/ProjectItem'
@@ -13,7 +13,7 @@ import styles from './OurProjectsBlock.module.css'
 
 const fetchProjects = async () => {
 	try {
-		const response = await axios.get(`${serverConfig}/projects`, {
+		const response = await axios.get(`${API}/projects`, {
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data

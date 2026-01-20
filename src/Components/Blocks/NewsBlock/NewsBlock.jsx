@@ -5,7 +5,7 @@ import 'swiper/css'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import getToken from '../../../getToken'
-import serverConfig from '../../../serverConfig'
+import { API } from '../../../serverConfig'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 import NewsItem from '../NewsItem/NewsItem'
@@ -14,7 +14,7 @@ import styles from './NewsBlock.module.css'
 
 const fetchNews = async () => {
 	try {
-		const response = await axios.get(`${serverConfig}/news`, {
+		const response = await axios.get(`${API}/news`, {
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data

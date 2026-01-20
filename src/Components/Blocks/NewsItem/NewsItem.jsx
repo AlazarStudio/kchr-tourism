@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import uploadsConfig from '../../../uploadsConfig'
+import { UPLOAD } from '../../../serverConfig'
 
 import styles from './NewsItem.module.css'
 
@@ -9,7 +9,7 @@ function NewsItem({ children, ...props }) {
 		const options = {
 			day: '2-digit',
 			month: '2-digit',
-			year: 'numeric',
+			year: 'numeric'
 			// hour: '2-digit',
 			// minute: '2-digit'
 		}
@@ -19,7 +19,7 @@ function NewsItem({ children, ...props }) {
 
 	return (
 		<Link to={`/news/${props.id}`} className={styles.news_card__item}>
-			<img src={`${uploadsConfig}${props.images[0]}`} alt='' />
+			<img src={`${UPLOAD}${props.images[0]}`} alt='' />
 			<div className={styles.news_cart__text}>
 				<p>{formatDate(props.date)}</p>
 				<p>{props.title}</p>

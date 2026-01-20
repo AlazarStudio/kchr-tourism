@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import uploadsConfig from '../../../uploadsConfig'
+import { UPLOAD } from '../../../serverConfig'
 
 import styles from './BSItem.module.css'
 
@@ -21,7 +21,7 @@ function BSItem({ children, ...props }) {
 			state={props.type}
 			className={styles.news_card__item}
 		>
-			<img src={`${uploadsConfig}${props.images[0]}`} alt='' />
+			<img src={`${UPLOAD}${props.images[0]}`} alt='' />
 			<div className={styles.news_cart__text}>
 				<p>{formatDate(props.date)}</p>
 				<p>{props.title}</p>

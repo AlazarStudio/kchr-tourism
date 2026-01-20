@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { mainSliderImgs, visitSlides } from '../../../../data'
 import getToken from '../../../getToken'
-import serverConfig from '../../../serverConfig'
+import { API } from '../../../serverConfig'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 import MainSliderCard from '../MainSliderCard/MainSliderCard'
@@ -16,7 +16,7 @@ import styles from './PlacesToVisit.module.css'
 
 const fetchNews = async () => {
 	try {
-		const response = await axios.get(`${serverConfig}/visit`, {
+		const response = await axios.get(`${API}/visit`, {
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data

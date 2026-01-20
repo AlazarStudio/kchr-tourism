@@ -4,7 +4,7 @@ import ReactPaginate from 'react-paginate'
 import { useSearchParams } from 'react-router-dom'
 
 import getToken from '../../../getToken'
-import serverConfig from '../../../serverConfig'
+import { API } from '../../../serverConfig'
 // import { news } from '../../../../data'
 import NewsItem from '../../Blocks/NewsItem/NewsItem'
 import PageHeader from '../../Blocks/PageHeader/PageHeader'
@@ -14,15 +14,33 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage'
 
 import styles from './NewsPage.module.css'
 
-const fetchNews = async () => {
+const parseTotalFromContentRange = headerValue => {
+	if (!headerValue) return 0
+	const parts = headerValue.split('/')
+	return Number(parts[1]) || 0
+}
+
+const fetchNews = async ({ page, perPage, type }) => {
 	try {
-		const response = await axios.get(`${serverConfig}/news?all=true`, {
+		const rangeStart = (page - 1) * perPage
+		const rangeEnd = rangeStart + perPage - 1
+
+		const response = await axios.get(`${API}/news`, {
+			params: {
+				range: JSON.stringify([rangeStart, rangeEnd]),
+				sort: JSON.stringify(['date', 'DESC']),
+				filter: JSON.stringify({ type })
+			},
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
-		return response.data
+
+		return {
+			items: response.data,
+			total: parseTotalFromContentRange(response.headers['content-range'])
+		}
 	} catch (error) {
 		console.error('Error fetching products:', error)
-		return []
+		return { items: [], total: 0 }
 	}
 }
 
@@ -31,20 +49,12 @@ function NewsPage({ children, ...props }) {
 	const newsRef = useRef(null)
 	const [type, setType] = useState('news')
 	const [news, setNews] = useState([])
-
-	// Используем хуки до всех проверок
-	useEffect(() => {
-		const getNews = async () => {
-			const news = await fetchNews()
-			setNews(news)
-		}
-		getNews()
-	}, [])
+	const [pageCount, setPageCount] = useState(1)
 
 	useEffect(() => {
 		const fetchTelegramNews = async () => {
 			try {
-				const response = await axios.get(`${serverConfig}/news/telegram`)
+				const response = await axios.get(`${API}/news/telegram`)
 				// console.log('Данные из Telegram:', response.data)
 			} catch (error) {
 				console.error('Ошибка при получении данных из Telegram:', error.message)
@@ -54,40 +64,37 @@ function NewsPage({ children, ...props }) {
 	}, [])
 
 	// Извлекаем параметр "page" из строки запроса
-	const page = parseInt(searchParams.get('page')) || 1
+	const page = Math.max(parseInt(searchParams.get('page')) || 1, 1)
 
 	const itemsPerPage = 9
 
-	// const sortedNews = [...news].sort(
-	// 	(a, b) => new Date(b.date) - new Date(a.date)
-	// )
-	const filteredNews = news.filter(item => item.type === type)
+	useEffect(() => {
+		const getNews = async () => {
+			const { items, total } = await fetchNews({
+				page,
+				perPage: itemsPerPage,
+				type
+			})
+			setNews(items)
+			const totalPages = Math.max(1, Math.ceil(total / itemsPerPage))
+			setPageCount(totalPages)
 
-	const pageCount = Math.ceil(filteredNews.length / itemsPerPage)
+			if (total > 0 && page > totalPages) {
+				setSearchParams({ page: totalPages })
+			}
+		}
 
-	const safePage = Math.min(page, pageCount)
+		getNews()
+	}, [page, type, itemsPerPage, setSearchParams])
 
-	const [currentPage, setCurrentPage] = useState(safePage - 1)
-
-	// Это проверка на то, что хук работает корректно
-	const displayNews = filteredNews.slice(
-		currentPage * itemsPerPage,
-		(currentPage + 1) * itemsPerPage
-	)
+	const currentPage = Math.min(page, pageCount) - 1
 
 	const handlePageClick = ({ selected }) => {
 		setSearchParams({ page: selected + 1 })
-		setCurrentPage(selected) // Обновляем состояние currentPage
 		if (newsRef.current) {
 			newsRef.current.scrollIntoView({ behavior: 'smooth' })
 		}
 	}
-
-	// Дополнительные хуки
-	useEffect(() => {
-		// Обновляем currentPage при изменении параметра страницы
-		setCurrentPage(safePage - 1)
-	}, [safePage])
 
 	useEffect(() => {
 		window.scrollTo({ top: 0, behavior: 'instant' })
@@ -108,6 +115,7 @@ function NewsPage({ children, ...props }) {
 							className={type == 'news' ? styles.activeButton : null}
 							onClick={() => {
 								setType('news')
+								setSearchParams({ page: 1 })
 							}}
 						>
 							новости
@@ -116,7 +124,6 @@ function NewsPage({ children, ...props }) {
 							className={type == 'article' ? styles.activeButton : null}
 							onClick={() => {
 								setType('article')
-								setCurrentPage(0)
 								setSearchParams({ page: 1 }) // Обновляем параметр страницы
 							}}
 						>
@@ -125,39 +132,41 @@ function NewsPage({ children, ...props }) {
 					</div>
 
 					<div className={styles.news_wrapper}>
-						{displayNews.map((item, index) => (
+						{news.map((item, index) => (
 							<NewsItem key={index} {...item} />
 						))}
 					</div>
 
-					<ReactPaginate
-						previousLabel={
-							<p style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-								<img
-									style={{ transform: 'rotate(180deg)' }}
-									src='/images/next_paginate.png'
-									alt=''
-								/>
-								Предыдущий
-							</p>
-						}
-						nextLabel={
-							<p style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-								Следующий <img src='/images/next_paginate.png' alt='' />
-							</p>
-						}
-						breakLabel={'...'}
-						pageCount={pageCount}
-						forcePage={currentPage} // Используем currentPage без -1
-						marginPagesDisplayed={2}
-						pageRangeDisplayed={3}
-						onPageChange={handlePageClick}
-						containerClassName={styles.pagination}
-						pageClassName={styles.page}
-						previousClassName={styles.next_prev}
-						nextClassName={styles.next_prev}
-						activeClassName={styles.active}
-					/>
+					{pageCount > 1 && (
+						<ReactPaginate
+							previousLabel={
+								<p style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+									<img
+										style={{ transform: 'rotate(180deg)' }}
+										src='/images/next_paginate.png'
+										alt=''
+									/>
+									Предыдущий
+								</p>
+							}
+							nextLabel={
+								<p style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+									Следующий <img src='/images/next_paginate.png' alt='' />
+								</p>
+							}
+							breakLabel={'...'}
+							pageCount={pageCount}
+							forcePage={currentPage}
+							marginPagesDisplayed={2}
+							pageRangeDisplayed={3}
+							onPageChange={handlePageClick}
+							containerClassName={styles.pagination}
+							pageClassName={styles.page}
+							previousClassName={styles.next_prev}
+							nextClassName={styles.next_prev}
+							activeClassName={styles.active}
+						/>
+					)}
 				</WidthBlock>
 			</CenterBlock>
 		</main>

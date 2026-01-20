@@ -5,7 +5,7 @@ import ReactPaginate from 'react-paginate'
 import { useSearchParams } from 'react-router-dom'
 
 import getToken from '../../../getToken'
-import serverConfig from '../../../serverConfig'
+import { API } from '../../../serverConfig'
 import BSItem from '../../Blocks/BSItem/BSItem'
 import CalculatorBlock from '../../Blocks/CalculatorBlock/CalculatorBlock'
 import FeedbackBS from '../../Blocks/FeedbackBS/FeedbackBS'
@@ -19,7 +19,7 @@ Modal.setAppElement('#root')
 
 const fetchNews = async () => {
 	try {
-		const response = await axios.get(`${serverConfig}/business-support`, {
+		const response = await axios.get(`${API}/business-support`, {
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data

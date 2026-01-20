@@ -1,5 +1,5 @@
 import getToken from '../../../../getToken'
-import uploadsConfig from '../../../../uploadsConfig'
+import { UPLOAD } from '../../../../serverConfig'
 
 // Функция для загрузки документа на сервер
 export const uploadDocument = async file => {
@@ -7,7 +7,7 @@ export const uploadDocument = async file => {
 	formData.append('document', file)
 
 	try {
-		const response = await fetch(`${uploadsConfig}/upload-doc`, {
+		const response = await fetch(`${UPLOAD}/upload-doc`, {
 			method: 'POST',
 			headers: {
 				Authorization: `Bearer ${getToken()}`

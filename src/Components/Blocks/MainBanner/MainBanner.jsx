@@ -6,8 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { mainSliderImgs } from '../../../../data'
 import getToken from '../../../getToken'
-import serverConfig from '../../../serverConfig'
-import uploadsConfig from '../../../uploadsConfig'
+import { API, UPLOAD } from '../../../serverConfig'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 import MainSliderCard from '../MainSliderCard/MainSliderCard'
@@ -17,7 +16,7 @@ import styles from './MainBanner.module.css'
 
 const fetchStories = async () => {
 	try {
-		const response = await axios.get(`${serverConfig}/stories`, {
+		const response = await axios.get(`${API}/stories`, {
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data
@@ -44,9 +43,7 @@ function MainBanner({ children, ...props }) {
 	}, [])
 
 	const handleStoryClick = story => {
-		setSelectedStory(
-			story.images.map(img => ({ url: `${uploadsConfig}${img}` }))
-		)
+		setSelectedStory(story.images.map(img => ({ url: `${UPLOAD}${img}` })))
 		setIsStoryViewerOpen(true)
 	}
 

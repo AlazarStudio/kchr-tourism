@@ -8,14 +8,14 @@ import {
 	ImageField,
 	ImageInput,
 	List,
-	required,
 	SelectInput,
 	SimpleForm,
 	TextField,
-	TextInput
+	TextInput,
+	required
 } from 'react-admin'
 
-import uploadsConfig from '../../../../uploadsConfig'
+import { UPLOAD } from '../../../../serverConfig'
 import RichTextInput from '../Auth/RichTextInput'
 import { handleSave, handleSaveWithImages } from '../JS/fileUploadUtils'
 
@@ -70,7 +70,6 @@ export const StoriesList = props => (
 	</List>
 )
 
-
 export const StoriesCreate = props => (
 	<Create {...props} transform={handleSave}>
 		<SimpleForm>
@@ -109,9 +108,7 @@ export const StoriesEdit = props => (
 				format={value =>
 					value && value.length
 						? value.map(image => ({
-								src: image.includes('http')
-									? image
-									: `${uploadsConfig}${image}`,
+								src: image.includes('http') ? image : `${UPLOAD}${image}`,
 								title: image
 							}))
 						: []
@@ -123,7 +120,7 @@ export const StoriesEdit = props => (
 							return file.rawImage
 						}
 						// Если это старое изображение (имеет только src), извлекаем имя файла
-						return file.src.replace(`${uploadsConfig}`, '')
+						return file.src.replace(`${UPLOAD}`, '')
 					})
 				}
 			>

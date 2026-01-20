@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 
-import uploadsConfig from '../../../../uploadsConfig'
+import { UPLOAD } from '../../../../serverConfig'
 
 const token = Cookies.get('token')
 
@@ -10,7 +10,7 @@ export const uploadFile = async file => {
 	formData.append('images', file)
 
 	try {
-		const response = await fetch(`${uploadsConfig}/uploads`, {
+		const response = await fetch(`${UPLOAD}/uploads`, {
 			method: 'POST',
 			headers: {
 				Authorization: `Bearer ${token}`

@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom'
 
 // import { events } from '../../../../data'
 import getToken from '../../../getToken'
-import serverConfig from '../../../serverConfig'
+import { API } from '../../../serverConfig'
 import CurrentEvent from '../../Blocks/CurrentEvent/CurrentEvent'
 import EventsItem from '../../Blocks/EventsItem/EventsItem'
 import EventsItemExp from '../../Blocks/EventsItemExp/EventsItemExp'
@@ -18,7 +18,7 @@ import styles from './EventsAnnouncementPage.module.css'
 
 const fetchEvents = async () => {
 	try {
-		const response = await axios.get(`${serverConfig}/events`, {
+		const response = await axios.get(`${API}/events`, {
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
 		return response.data
