@@ -14,15 +14,30 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage'
 
 import styles from './ProjectsPage.module.css'
 
-const fetchProjects = async () => {
+const parseTotalFromContentRange = headerValue => {
+	if (!headerValue) return 0
+	const parts = headerValue.split('/')
+	return Number(parts[1]) || 0
+}
+
+const fetchProjects = async ({ page, perPage }) => {
 	try {
+		const rangeStart = (page - 1) * perPage
+		const rangeEnd = rangeStart + perPage - 1
+
 		const response = await axios.get(`${API}/projects`, {
+			params: {
+				range: JSON.stringify([rangeStart, rangeEnd])
+			},
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
-		return response.data
+		return {
+			items: response.data,
+			total: parseTotalFromContentRange(response.headers['content-range'])
+		}
 	} catch (error) {
 		console.error('Error fetching products:', error)
-		return []
+		return { items: [], total: 0 }
 	}
 }
 
@@ -30,30 +45,31 @@ function ProjectsPage({ children, ...props }) {
 	const [searchParams, setSearchParams] = useSearchParams()
 	const projectsRef = useRef(null)
 	const [projects, setProjects] = useState([])
-
-	useEffect(() => {
-		const getProjects = async () => {
-			const projects = await fetchProjects()
-			setProjects(projects)
-		}
-		getProjects()
-	}, [])
+	const [pageCount, setPageCount] = useState(1)
 
 	// Извлекаем параметр "page" из строки запроса
-	const page = parseInt(searchParams.get('page')) || 1
+	const page = Math.max(parseInt(searchParams.get('page')) || 1, 1)
 
 	const itemsPerPage = 6
 
-	const pageCount = Math.ceil(projects.length / itemsPerPage)
+	useEffect(() => {
+		const getProjects = async () => {
+			const { items, total } = await fetchProjects({
+				page,
+				perPage: itemsPerPage
+			})
+			setProjects(items)
+			const totalPages = Math.max(1, Math.ceil(total / itemsPerPage))
+			setPageCount(totalPages)
 
-	const safePage = Math.min(page, pageCount)
+			if (total > 0 && page > totalPages) {
+				setSearchParams({ page: totalPages })
+			}
+		}
+		getProjects()
+	}, [page, itemsPerPage, setSearchParams])
 
-	const [currentPage, setCurrentPage] = useState(safePage - 1)
-
-	const displayProjects = projects.slice(
-		currentPage * itemsPerPage,
-		(currentPage + 1) * itemsPerPage
-	)
+	const currentPage = Math.min(page, pageCount) - 1
 
 	// console.log(projects.length)
 	// console.log(displayProjects.length)
@@ -71,11 +87,6 @@ function ProjectsPage({ children, ...props }) {
 	// }
 
 	useEffect(() => {
-		// Обновляем currentPage при изменении параметра страницы
-		setCurrentPage(safePage - 1)
-	}, [safePage])
-
-	useEffect(() => {
 		window.scrollTo({ top: 0, behavior: 'instant' })
 	}, [])
 
@@ -91,10 +102,10 @@ function ProjectsPage({ children, ...props }) {
 				<WidthBlock>
 					<PageHeader title='наши Проекты' />
 
-					{displayProjects.length !== 0 ? (
+					{projects.length !== 0 ? (
 						<>
 							<div className={styles.projects_wrapper}>
-								{displayProjects.map((item, index) => (
+								{projects.map((item, index) => (
 									<ProjectItem key={index} {...item} />
 								))}
 							</div>

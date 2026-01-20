@@ -17,15 +17,31 @@ import styles from './BusinessSupportPage.module.css'
 
 Modal.setAppElement('#root')
 
-const fetchNews = async () => {
+const parseTotalFromContentRange = headerValue => {
+	if (!headerValue) return 0
+	const parts = headerValue.split('/')
+	return Number(parts[1]) || 0
+}
+
+const fetchNews = async ({ page, perPage, type }) => {
 	try {
+		const rangeStart = (page - 1) * perPage
+		const rangeEnd = rangeStart + perPage - 1
+
 		const response = await axios.get(`${API}/business-support`, {
+			params: {
+				range: JSON.stringify([rangeStart, rangeEnd]),
+				filter: JSON.stringify({ type })
+			},
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
-		return response.data
+		return {
+			items: response.data,
+			total: parseTotalFromContentRange(response.headers['content-range'])
+		}
 	} catch (error) {
 		console.error('Error fetching products:', error)
-		return []
+		return { items: [], total: 0 }
 	}
 }
 
@@ -35,49 +51,41 @@ function BusinessSupportPage({ children, ...props }) {
 	const [type, setType] = useState('tourism')
 	const [calculatorVisible, setCalculatorVisible] = useState(false)
 	const [news, setNews] = useState([])
+	const [pageCount, setPageCount] = useState(1)
 
 	const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
 
-	useEffect(() => {
-		const getNews = async () => {
-			const news = await fetchNews()
-			setNews(news)
-		}
-		getNews()
-	}, [])
-
-	// const items = type === 1 ? bs : type === 2 ? bs2 : bs3
-
 	// Извлекаем параметр "page" из строки запроса
-	const page = parseInt(searchParams.get('page')) || 1
+	const page = Math.max(parseInt(searchParams.get('page')) || 1, 1)
 
 	const itemsPerPage = 9
 
-	const filteredNews = news.filter(item => item.type === type)
+	useEffect(() => {
+		const getNews = async () => {
+			const { items, total } = await fetchNews({
+				page,
+				perPage: itemsPerPage,
+				type
+			})
+			setNews(items)
+			const totalPages = Math.max(1, Math.ceil(total / itemsPerPage))
+			setPageCount(totalPages)
 
-	const pageCount = Math.ceil(filteredNews.length / itemsPerPage)
+			if (total > 0 && page > totalPages) {
+				setSearchParams({ page: totalPages })
+			}
+		}
+		getNews()
+	}, [page, itemsPerPage, setSearchParams, type])
 
-	const safePage = Math.min(page, pageCount)
-
-	const [currentPage, setCurrentPage] = useState(safePage - 1)
-
-	const displayNews = filteredNews.slice(
-		currentPage * itemsPerPage,
-		(currentPage + 1) * itemsPerPage
-	)
+	const currentPage = Math.min(page, pageCount) - 1
 
 	const handlePageClick = ({ selected }) => {
 		setSearchParams({ page: selected + 1 })
-		setCurrentPage(selected) // Обновляем состояние currentPage
 		if (newsRef.current) {
 			newsRef.current.scrollIntoView({ behavior: 'smooth' })
 		}
 	}
-
-	useEffect(() => {
-		// Обновляем currentPage при изменении параметра страницы
-		setCurrentPage(safePage - 1)
-	}, [safePage])
 
 	useEffect(() => {
 		window.scrollTo({ top: 0, behavior: 'instant' })
@@ -98,6 +106,7 @@ function BusinessSupportPage({ children, ...props }) {
 							className={type == 'tourism' ? styles.activeButton : null}
 							onClick={() => {
 								setType('tourism')
+								setSearchParams({ page: 1 })
 							}}
 						>
 							для туризма
@@ -106,7 +115,6 @@ function BusinessSupportPage({ children, ...props }) {
 							className={type == 'hoteliers' ? styles.activeButton : null}
 							onClick={() => {
 								setType('hoteliers')
-								setCurrentPage(0)
 								setSearchParams({ page: 1 })
 							}}
 						>
@@ -116,7 +124,6 @@ function BusinessSupportPage({ children, ...props }) {
 							className={type == 'grants' ? styles.activeButton : null}
 							onClick={() => {
 								setType('grants')
-								setCurrentPage(0)
 								setSearchParams({ page: 1 }) // Обновляем параметр страницы
 							}}
 						>
@@ -150,12 +157,12 @@ function BusinessSupportPage({ children, ...props }) {
 								<CalculatorBlock />
 							) : (
 								<>
-									{displayNews.length === 0 ? (
+									{news.length === 0 ? (
 										<p className={styles.not_found}>Нет статей</p>
 									) : (
 										<>
 											<div className={styles.news_wrapper}>
-												{displayNews.map((item, index) => (
+												{news.map((item, index) => (
 													<BSItem key={index} type:type {...item} />
 												))}
 											</div>
@@ -209,12 +216,12 @@ function BusinessSupportPage({ children, ...props }) {
 						</>
 					) : (
 						<>
-							{displayNews.length === 0 ? (
+							{news.length === 0 ? (
 								<p className={styles.not_found}>Нет статей</p>
 							) : (
 								<>
 									<div className={styles.news_wrapper}>
-										{displayNews.map((item, index) => (
+										{news.map((item, index) => (
 											<BSItem key={index} type:type {...item} />
 										))}
 									</div>

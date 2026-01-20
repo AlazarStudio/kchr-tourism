@@ -16,15 +16,32 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage'
 
 import styles from './EventsAnnouncementPage.module.css'
 
-const fetchEvents = async () => {
+const parseTotalFromContentRange = headerValue => {
+	if (!headerValue) return 0
+	const parts = headerValue.split('/')
+	return Number(parts[1]) || 0
+}
+
+const fetchEvents = async ({ page, perPage, filter, sort = ['date', 'DESC'] }) => {
 	try {
+		const rangeStart = (page - 1) * perPage
+		const rangeEnd = rangeStart + perPage - 1
+
 		const response = await axios.get(`${API}/events`, {
+			params: {
+				range: JSON.stringify([rangeStart, rangeEnd]),
+				sort: JSON.stringify(sort),
+				filter: JSON.stringify(filter || {})
+			},
 			headers: { Authorization: `Bearer ${getToken()}` }
 		})
-		return response.data
+		return {
+			items: response.data,
+			total: parseTotalFromContentRange(response.headers['content-range'])
+		}
 	} catch (error) {
 		console.error('Error fetching products:', error)
-		return []
+		return { items: [], total: 0 }
 	}
 }
 
@@ -36,43 +53,62 @@ function EventsAnnouncementPage({ children, ...props }) {
 	const eventsRef = useRef(null)
 
 	const [events, setEvents] = useState([])
-
-	// Используем хуки до всех проверок
-	useEffect(() => {
-		const getEvents = async () => {
-			const events = await fetchEvents()
-			setEvents(events)
-		}
-		getEvents()
-	}, [])
+	const [pageCount, setPageCount] = useState(1)
+	const [currentEvent, setCurrentEvent] = useState(null)
 
 	// Извлекаем параметр "page" из строки запроса
-	const page = parseInt(searchParams.get('page')) || 1
+	const page = Math.max(parseInt(searchParams.get('page')) || 1, 1)
 
 	const itemsPerPage = 9
 
-	const sortedNews = [...events].sort(
-		(a, b) => new Date(b.date) - new Date(a.date)
-	)
+	const currentYear = new Date().getFullYear()
 
-	const pageCount = Math.ceil(sortedNews.length / itemsPerPage)
+	useEffect(() => {
+		const getCurrentEvent = async () => {
+			const { items } = await fetchEvents({
+				page: 1,
+				perPage: 1,
+				filter: { isCurrent: true },
+				sort: ['date', 'DESC']
+			})
+			setCurrentEvent(items[0] || null)
+		}
 
-	const safePage = Math.min(page, pageCount)
+		getCurrentEvent()
+	}, [])
 
-	const [currentPage, setCurrentPage] = useState(safePage - 1)
+	useEffect(() => {
+		const filter = {
+			isCurrent: false,
+			...(selectedCity ? { city: selectedCity } : {}),
+			...(selectedMonth ? { month: selectedMonth } : {})
+		}
 
-	const displayEvents = sortedNews
-		.filter(item => item.isCurrent === false)
-		.filter(item => (selectedCity ? item.city === selectedCity : true))
-		.filter(item => {
-			if (selectedMonth) {
-				const eventMonth = new Date(item.date).getMonth() + 1
-				const selectedMonthIndex = parseInt(selectedMonth)
-				return eventMonth === selectedMonthIndex
+		const getEvents = async () => {
+			const { items, total } = await fetchEvents({
+				page,
+				perPage: itemsPerPage,
+				filter
+			})
+			setEvents(items)
+			const totalPages = Math.max(1, Math.ceil(total / itemsPerPage))
+			setPageCount(totalPages)
+
+			if (total > 0 && page > totalPages) {
+				setSearchParams({ page: totalPages })
 			}
-			return true
-		})
-		.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
+		}
+
+		getEvents()
+	}, [
+		page,
+		itemsPerPage,
+		selectedCity,
+		selectedMonth,
+		setSearchParams
+	])
+
+	const currentPage = Math.min(page, pageCount) - 1
 
 	const handlePageClick = ({ selected }) => {
 		setSearchParams({ page: selected + 1 })
@@ -83,21 +119,13 @@ function EventsAnnouncementPage({ children, ...props }) {
 
 	const handleCityChange = event => {
 		setSelectedCity(event.target.value)
+		setSearchParams({ page: 1 })
 	}
 
 	const handleMonthChange = event => {
 		setSelectedMonth(event.target.value)
+		setSearchParams({ page: 1 })
 	}
-
-	const currentEvent = events
-		.filter(item => item.isCurrent === true)
-		.sort((a, b) => new Date(b.date) - new Date(a.date))[0]
-
-	const currentYear = new Date().getFullYear()
-
-	useEffect(() => {
-		setCurrentPage(safePage - 1)
-	}, [safePage])
 
 	useEffect(() => {
 		window.scrollTo({ top: 0, behavior: 'instant' })
@@ -167,10 +195,10 @@ function EventsAnnouncementPage({ children, ...props }) {
 						</div>
 					</div>
 
-					{displayEvents.length !== 0 ? (
+					{events.length !== 0 ? (
 						<>
 							<div className={styles.announce_wrapper}>
-								{displayEvents.map((item, index) => (
+								{events.map((item, index) => (
 									<EventsItemExp key={index} {...item} />
 								))}
 							</div>
