@@ -161,8 +161,9 @@ function EventsAnnouncementPage({ children, ...props }) {
 								<option value='Домбай'>Домбай</option>
 								<option value='Казань'>Казань</option>
 								<option value='Карачаевск'>Карачаевск</option>
-								<option value='Кисловодски'>Кисловодски</option>
+								<option value='Кисловодск'>Кисловодск</option>
 								<option value='Краснодар'>Краснодар</option>
+								<option value='Малокарачаевский район'>Малокарачаевский район</option>
 								<option value='Минеральные воды'>Минеральные воды</option>
 								<option value='Москва'>Москва</option>
 								<option value='Пятигорск'>Пятигорск</option>
