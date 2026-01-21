@@ -168,9 +168,12 @@ function EventsAnnouncementPage({ children, ...props }) {
 								<option value='Москва'>Москва</option>
 								<option value='Пятигорск'>Пятигорск</option>
 								<option value='Санкт-Петербург'>Санкт-Петербург</option>
+								<option value='Софийская поляна'>Софийская поляна</option>
 								<option value='Сочи'>Сочи</option>
 								<option value='Ставрополь'>Ставрополь</option>
-								<option value='Теберда'>Теберда</option>
+								<option value='Теберда (нижняя)'>Теберда (нижняя)</option>
+								<option value='Теберда (верхняя)'>Теберда (верхняя)</option>
+								<option value='Новая теберда'>Новая теберда</option>
 								<option value='Черкесск'>Черкесск</option>
 							</select>
 							<select
