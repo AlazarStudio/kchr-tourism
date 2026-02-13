@@ -34,6 +34,36 @@ export const uploadFiles = async files => {
 	return uploadedFiles.flat() // Получаем плоский массив с ссылками на файлы
 }
 
+// Функция для загрузки одного видео на сервер
+export const uploadVideoFile = async file => {
+	const formData = new FormData()
+	formData.append('videos', file)
+
+	try {
+		const response = await fetch(`${UPLOAD}/upload-video`, {
+			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${token}`
+			},
+			body: formData
+		})
+
+		const data = await response.json()
+		return data.filePaths
+	} catch (error) {
+		console.error('Ошибка при загрузке видео:', error)
+		throw error
+	}
+}
+
+// Функция для загрузки всех видео перед сохранением формы
+export const uploadVideos = async files => {
+	const uploadedFiles = await Promise.all(
+		files.map(file => uploadVideoFile(file.rawFile))
+	)
+	return uploadedFiles.flat()
+}
+
 // Функция для обработки сохранения формы
 export const handleSave = async values => {
 	if (values.images && values.images.length > 0) {
@@ -42,6 +72,12 @@ export const handleSave = async values => {
 
 		// Заменяем файлы ссылками на загруженные изображения
 		values.images = uploadedImages
+	}
+
+	if (values.videos && values.videos.length > 0) {
+		// Загружаем все видео на сервер
+		const uploadedVideos = await uploadVideos(values.videos)
+		values.videos = uploadedVideos
 	}
 
 	return values
@@ -63,6 +99,15 @@ export const updateImages = async (existingImages = [], newFiles = []) => {
 	return updatedImages
 }
 
+// Функция для обновления видео
+export const updateVideos = async (existingVideos = [], newFiles = []) => {
+	let uploadedVideos = []
+	if (newFiles.length > 0) {
+		uploadedVideos = await uploadVideos(newFiles)
+	}
+	return Array.from(new Set([...existingVideos, ...uploadedVideos]))
+}
+
 // Функция для сохранения формы
 export const handleSaveWithImages = async values => {
 	const existingImages = values.images || [] // Старые изображения
@@ -76,6 +121,15 @@ export const handleSaveWithImages = async values => {
 
 	// Удаляем временные поля
 	delete values.imagesRaw
+
+	// Обновляем видео (старые + новые)
+	const existingVideos = (values.videos || []).filter(v => typeof v === 'string')
+	const newVideoFiles = values.videosRaw || []
+	const newFromVideosInput = (values.videos || []).filter(v => v && v.rawFile)
+	const allNewVideos = [...newVideoFiles, ...newFromVideosInput]
+	const updatedVideos = await updateVideos(existingVideos, allNewVideos)
+	values.videos = updatedVideos
+	delete values.videosRaw
 
 	return values
 }

@@ -30,6 +30,20 @@
   object-fit: cover;
 }
 
+.article_videos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.article_videos .video_player {
+  flex-basis: 31%;
+  width: 30%;
+  max-height: 400px;
+  object-fit: contain;
+}
+
 .main_wrapper {
   margin: 50px 0 50px 0;
   flex-grow: 1;
@@ -130,5 +144,15 @@
     width: 48%;
     height: 220px;
     object-fit: cover;
+  }
+
+  .article_videos {
+    gap: 10px;
+  }
+
+  .article_videos .video_player {
+    flex-basis: 100%;
+    width: 100%;
+    max-height: 220px;
   }
 }

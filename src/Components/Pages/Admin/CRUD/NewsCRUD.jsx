@@ -4,6 +4,8 @@ import {
 	Datagrid,
 	DateTimeInput,
 	Edit,
+	FileField,
+	FileInput,
 	FunctionField,
 	ImageField,
 	ImageInput,
@@ -121,6 +123,42 @@ export const NewsEdit = props => (
 			>
 				<ImageField source='src' title='title' />
 			</ImageInput>
+
+			<FileInput
+				source='videosRaw'
+				label='Добавить новые видео'
+				multiple
+				accept='video/*'
+			>
+				<FileField source='src' title='title' />
+			</FileInput>
+
+			<FileInput
+				source='videos'
+				label='Видео'
+				multiple
+				accept='video/*'
+				format={value =>
+					value && value.length
+						? value.map(video => ({
+								src: video.includes('http') ? video : `${UPLOAD}${video}`,
+								title: video
+							}))
+						: []
+				}
+				parse={value =>
+					value
+						? value.map(file => {
+								if (file.rawFile) {
+									return file.rawFile
+								}
+								return file.src.replace(`${UPLOAD}`, '')
+							})
+						: []
+				}
+			>
+				<FileField source='src' title='title' />
+			</FileInput>
 		</SimpleForm>
 	</Edit>
 )
@@ -144,6 +182,9 @@ export const NewsCreate = props => (
 			<ImageInput source='images' label='Изображения' multiple>
 				<ImageField source='src' title='title' />
 			</ImageInput>
+			<FileInput source='videos' label='Видео' multiple accept='video/*'>
+				<FileField source='src' title='title' />
+			</FileInput>
 		</SimpleForm>
 	</Create>
 )

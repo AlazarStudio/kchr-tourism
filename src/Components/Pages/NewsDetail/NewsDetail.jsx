@@ -70,6 +70,19 @@ function NewsDetail({ children, ...props }) {
 							))}
 					</div>
 
+					<div className={styles.article_videos}>
+						{news.videos &&
+							Array.isArray(news.videos) &&
+							news.videos.map((video, index) => (
+								<video
+									key={index}
+									controls
+									className={styles.video_player}
+									src={`${UPLOAD}${video}`}
+								/>
+							))}
+					</div>
+
 					{/* Модальное окно */}
 					<Modal
 						isOpen={!!selectedImage}
