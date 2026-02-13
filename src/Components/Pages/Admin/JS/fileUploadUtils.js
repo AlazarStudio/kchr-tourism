@@ -28,8 +28,9 @@ export const uploadFile = async file => {
 
 // Функция для загрузки всех файлов перед сохранением формы
 export const uploadFiles = async files => {
+	const validFiles = (files || []).filter(f => f && f.rawFile)
 	const uploadedFiles = await Promise.all(
-		files.map(file => uploadFile(file.rawFile))
+		validFiles.map(file => uploadFile(file.rawFile))
 	)
 	return uploadedFiles.flat() // Получаем плоский массив с ссылками на файлы
 }
@@ -58,8 +59,9 @@ export const uploadVideoFile = async file => {
 
 // Функция для загрузки всех видео перед сохранением формы
 export const uploadVideos = async files => {
+	const validFiles = (files || []).filter(f => f && f.rawFile)
 	const uploadedFiles = await Promise.all(
-		files.map(file => uploadVideoFile(file.rawFile))
+		validFiles.map(file => uploadVideoFile(file.rawFile))
 	)
 	return uploadedFiles.flat()
 }
