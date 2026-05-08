@@ -57,6 +57,37 @@ export const uploadVideoFile = async file => {
 	}
 }
 
+// Функция для загрузки одного документа на сервер
+export const uploadDocumentFile = async file => {
+	const formData = new FormData()
+	formData.append('document', file)
+
+	try {
+		const response = await fetch(`${UPLOAD}/upload-doc`, {
+			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${token}`
+			},
+			body: formData
+		})
+
+		const data = await response.json()
+		return data.filePath
+	} catch (error) {
+		console.error('Ошибка при загрузке документов:', error)
+		throw error
+	}
+}
+
+// Функция для загрузки всех документов перед сохранением формы
+export const uploadDocuments = async files => {
+	const validFiles = (files || []).filter(f => f && f.rawFile)
+	const uploadedFiles = await Promise.all(
+		validFiles.map(file => uploadDocumentFile(file.rawFile))
+	)
+	return uploadedFiles.flat()
+}
+
 // Функция для загрузки всех видео перед сохранением формы
 export const uploadVideos = async files => {
 	const validFiles = (files || []).filter(f => f && f.rawFile)
@@ -133,5 +164,45 @@ export const handleSaveWithImages = async values => {
 	values.videos = updatedVideos
 	delete values.videosRaw
 
+	return values
+}
+
+export const updateDocuments = async (existingDocuments = [], newFiles = []) => {
+	let uploadedDocuments = []
+	if (newFiles.length > 0) {
+		uploadedDocuments = await uploadDocuments(newFiles)
+	}
+	return Array.from(new Set([...existingDocuments, ...uploadedDocuments]))
+}
+
+export const handleSaveWithDocs = async values => {
+	const existingDocuments = Array.isArray(values.documents)
+		? values.documents.filter(document => typeof document === 'string')
+		: []
+
+	const documentsFromField = Array.isArray(values.documents)
+		? values.documents.filter(document => document && document.rawFile)
+		: []
+	const newDocuments = values.documentsRaw || []
+
+	const updatedDocuments = await updateDocuments(
+		existingDocuments,
+		[...documentsFromField, ...newDocuments]
+	)
+	values.documents = updatedDocuments
+	delete values.documentsRaw
+
+	return values
+}
+
+export const handleSaveWithImagesAndDocs = async values => {
+	values = await handleSaveWithImages(values)
+	values = await handleSaveWithDocs(values)
+	return values
+}
+
+export const handleSaveWithFilesAndDocs = async values => {
+	values = await handleSave(values)
+	values = await handleSaveWithDocs(values)
 	return values
 }

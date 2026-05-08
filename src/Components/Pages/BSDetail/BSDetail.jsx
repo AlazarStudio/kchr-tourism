@@ -1,12 +1,12 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Modal from 'react-modal'
-import { useLocation, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
-import { bs, bs2, bs3 } from '../../../../data'
 import getToken from '../../../getToken'
 import { API, UPLOAD } from '../../../serverConfig'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
+import DocumentItem from '../../Blocks/DocumentItem/DocumentItem'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 
 import styles from './BSDetail.module.css'
@@ -70,6 +70,26 @@ function BSDetail({ children, ...props }) {
 								/>
 							))}
 					</div>
+
+					{news.type === 'tourism' &&
+						news.documents &&
+						Array.isArray(news.documents) &&
+						news.documents.length > 0 && (
+							<div className={styles.document_section}>
+								<p className={styles.document_title}>Документы</p>
+								<div className={styles.document_list}>
+									{news.documents.map((doc, index) => (
+										<DocumentItem
+											key={index}
+											src={doc}
+											title={doc.split('/').pop().split('.').slice(0, -1).join('.')}
+											// title={doc.split('/').pop()}
+											// title={news.title ? `${news.title} — ${doc.split('/').pop()}` : doc.split('/').pop()}
+										/>
+									))}
+								</div>
+							</div>
+						)}
 
 					<Modal
 						isOpen={!!selectedImage}

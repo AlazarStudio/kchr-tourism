@@ -163,7 +163,7 @@ function BusinessSupportPage({ children, ...props }) {
 										<>
 											<div className={styles.news_wrapper}>
 												{news.map((item, index) => (
-													<BSItem key={index} type:type {...item} />
+													<BSItem key={item.id} type:type {...item} />
 												))}
 											</div>
 
@@ -222,7 +222,7 @@ function BusinessSupportPage({ children, ...props }) {
 								<>
 									<div className={styles.news_wrapper}>
 										{news.map((item, index) => (
-											<BSItem key={index} type:type {...item} />
+											<BSItem key={item.id} type:type {...item} />
 										))}
 									</div>
 
