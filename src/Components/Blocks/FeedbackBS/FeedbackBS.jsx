@@ -93,7 +93,7 @@ function FeedbackBS({ children, ...props }) {
 							style={{
 								display: 'flex',
 								flexDirection: 'row',
-								alignItems: 'flex-start',
+								alignItems: 'center',
 								gap: '15px'
 							}}
 						>
@@ -120,7 +120,7 @@ function FeedbackBS({ children, ...props }) {
 							style={{
 								display: 'flex',
 								flexDirection: 'row',
-								alignItems: 'flex-start',
+								alignItems: 'center',
 								gap: '15px'
 							}}
 						>
