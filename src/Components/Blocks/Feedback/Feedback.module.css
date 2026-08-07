@@ -83,6 +83,15 @@
   transform-origin: center center;
 }
 
+.docLink {
+  color: var(--primaryColor);
+  text-decoration: underline;
+}
+
+.docLink:hover {
+  text-decoration: none;
+}
+
 .form textarea {
   margin-top: 50px;
   padding: 20px 30px;

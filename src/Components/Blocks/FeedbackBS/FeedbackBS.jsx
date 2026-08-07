@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
@@ -87,25 +88,67 @@ function FeedbackBS({ children, ...props }) {
 							required
 						></textarea>
 
-						{/* <label
-							htmlFor='agree'
+						<label
+							htmlFor='agreeTerms'
 							style={{
 								display: 'flex',
 								flexDirection: 'row',
-								gap: '15px',
-								// fontSize: '16px'
+								alignItems: 'flex-start',
+								gap: '15px'
 							}}
 						>
 							<input
 								className={styles.checkBox}
 								type='checkbox'
-								name=''
-								id=''
+								id='agreeTerms'
 								required
 							/>
-							Отправляя форму, я даю согласие на обработку персональных данных,
-							подтверждаю согласие с политикой конфиденциальности
-						</label> */}
+							<span>
+								Согласен с{' '}
+								<Link
+									to='/legal/terms'
+									target='_blank'
+									className={styles.docLink}
+								>
+									Соглашением пользования сайтом
+								</Link>
+							</span>
+						</label>
+
+						<label
+							htmlFor='agreePrivacy'
+							style={{
+								display: 'flex',
+								flexDirection: 'row',
+								alignItems: 'flex-start',
+								gap: '15px'
+							}}
+						>
+							<input
+								className={styles.checkBox}
+								type='checkbox'
+								id='agreePrivacy'
+								required
+							/>
+							<span>
+								Ознакомлен с{' '}
+								<Link
+									to='/legal/privacy-policy'
+									target='_blank'
+									className={styles.docLink}
+								>
+									Политикой конфиденциальности
+								</Link>{' '}
+								и согласен на{' '}
+								<Link
+									to='/legal/consent'
+									target='_blank'
+									className={styles.docLink}
+								>
+									обработку персональных данных
+								</Link>
+							</span>
+						</label>
 						<button type='submit'>ОТПРАВИТЬ</button>
 					</form>
 				{/* </WidthBlock> */}

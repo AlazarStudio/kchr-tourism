@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
@@ -8,7 +9,6 @@ import styles from './Feedback.module.css'
 function Feedback({ children, ...props }) {
 	const [formData, setFormData] = useState({
 		fullName: '',
-		phone: '',
 		email: '',
 		comment: ''
 	})
@@ -39,7 +39,6 @@ function Feedback({ children, ...props }) {
 					setSuccessMessage('Сообщение успешно отправлено!')
 					setFormData({
 						fullName: '',
-						phone: '',
 						email: '',
 						comment: ''
 					})
@@ -65,16 +64,11 @@ function Feedback({ children, ...props }) {
 					</header>
 					<form action='' onSubmit={handleSubmit} className={styles.form}>
 						<label htmlFor='fullName'>
-							ФИО*
+							Имя*
 							<input type='text' name='fullName' required />
 						</label>
 
-						<label htmlFor='fullName'>
-							Телефон*
-							<input type='tel' name='phone' required />
-						</label>
-
-						<label htmlFor='fullName'>
+						<label htmlFor='email'>
 							E-mail*
 							<input type='email' name='email' required />
 						</label>
@@ -88,23 +82,65 @@ function Feedback({ children, ...props }) {
 						></textarea>
 
 						<label
-							htmlFor='agree'
+							htmlFor='agreeTerms'
 							style={{
 								display: 'flex',
 								flexDirection: 'row',
-								gap: '15px',
-								// fontSize: '16px'
+								alignItems: 'flex-start',
+								gap: '15px'
 							}}
 						>
 							<input
 								className={styles.checkBox}
 								type='checkbox'
-								name=''
-								id=''
+								id='agreeTerms'
 								required
 							/>
-							Отправляя форму, я даю согласие на обработку персональных данных,
-							подтверждаю согласие с политикой конфиденциальности
+							<span>
+								Согласен с{' '}
+								<Link
+									to='/legal/terms'
+									target='_blank'
+									className={styles.docLink}
+								>
+									Соглашением пользования сайтом
+								</Link>
+							</span>
+						</label>
+
+						<label
+							htmlFor='agreePrivacy'
+							style={{
+								display: 'flex',
+								flexDirection: 'row',
+								alignItems: 'flex-start',
+								gap: '15px'
+							}}
+						>
+							<input
+								className={styles.checkBox}
+								type='checkbox'
+								id='agreePrivacy'
+								required
+							/>
+							<span>
+								Ознакомлен с{' '}
+								<Link
+									to='/legal/privacy-policy'
+									target='_blank'
+									className={styles.docLink}
+								>
+									Политикой конфиденциальности
+								</Link>{' '}
+								и согласен на{' '}
+								<Link
+									to='/legal/consent'
+									target='_blank'
+									className={styles.docLink}
+								>
+									обработку персональных данных
+								</Link>
+							</span>
 						</label>
 						<button type='submit'>ОТПРАВИТЬ</button>
 					</form>

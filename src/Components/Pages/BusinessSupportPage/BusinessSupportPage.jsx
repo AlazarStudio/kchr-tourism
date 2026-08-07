@@ -131,7 +131,7 @@ function BusinessSupportPage({ children, ...props }) {
 						</button>
 					</div>
 
-					<div className={styles.calcButton}>
+					{/* <div className={styles.calcButton}>
 					{type === 'hoteliers' && (
 							<button
 								onClick={() => {
@@ -146,7 +146,7 @@ function BusinessSupportPage({ children, ...props }) {
 						<button onClick={() => setIsFeedbackOpen(true)}>
 							Оставить заявку
 						</button>
-					</div>
+					</div> */}
 
 					{/* <div className={styles.calcButton}>
 					</div> */}

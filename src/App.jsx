@@ -9,6 +9,7 @@ import ContactsPage from './Components/Pages/ContactsPage/ContactsPage'
 import DocsPage from './Components/Pages/DocsPage/DocsPage'
 import EventsAnnouncementPage from './Components/Pages/EventsAnnouncementPage/EventsAnnouncementPage'
 import EventsDetail from './Components/Pages/EventsDetail/EventsDetail'
+import LegalPage from './Components/Pages/LegalPage/LegalPage'
 import MainPage from './Components/Pages/MainPage/MainPage'
 import NewsDetail from './Components/Pages/NewsDetail/NewsDetail'
 import NewsPage from './Components/Pages/NewsPage/NewsPage'
@@ -39,6 +40,7 @@ function App() {
 					<Route path='/business-support' element={<BusinessSupportPage />} />
 					<Route path='/business-support/:id' element={<BSDetail />} />
 					<Route path='/contact' element={<ContactsPage />} />
+					<Route path='/legal/:slug' element={<LegalPage />} />
 					<Route path='*' element={<NotFoundPage />} />
 				</Route>
 				<Route path='/admin/*' element={<AdminPage />} />

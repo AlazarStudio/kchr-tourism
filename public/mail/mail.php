@@ -4,17 +4,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $inputJSON = file_get_contents('php://input');
     $input = json_decode($inputJSON, true);
 
-    $name = $input['fullName'];
-    $phone = $input['phone'];
-    $email = $input['email'];
-    $comment = $input['comment'];
+    $name = $input['fullName'] ?? '';
+    $phone = $input['phone'] ?? '';
+    $email = $input['email'] ?? '';
+    $comment = $input['comment'] ?? '';
 
-    if ($name != "" && $phone != "" && $email != "" && $comment != "") {
+    if ($name != "" && $email != "" && $comment != "") {
         $subject = "Сообщение от $name";
 
         $message = "";
         $message .= "Имя: $name\n";
-        $message .= "Телефон: $phone\n";
+        if ($phone != "") {
+            $message .= "Телефон: $phone\n";
+        }
         $message .= "Email: $email\n\n";
         $message .= "Комментарий: $comment\n\n";
 
