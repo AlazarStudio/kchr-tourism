@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { useEffect, useRef, useState } from 'react'
-import Modal from 'react-modal'
 import ReactPaginate from 'react-paginate'
 import { useSearchParams } from 'react-router-dom'
 
@@ -8,14 +7,11 @@ import getToken from '../../../getToken'
 import { API } from '../../../serverConfig'
 import BSItem from '../../Blocks/BSItem/BSItem'
 import CalculatorBlock from '../../Blocks/CalculatorBlock/CalculatorBlock'
-import FeedbackBS from '../../Blocks/FeedbackBS/FeedbackBS'
 import PageHeader from '../../Blocks/PageHeader/PageHeader'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 
 import styles from './BusinessSupportPage.module.css'
-
-Modal.setAppElement('#root')
 
 const parseTotalFromContentRange = headerValue => {
 	if (!headerValue) return 0
@@ -52,8 +48,6 @@ function BusinessSupportPage({ children, ...props }) {
 	const [calculatorVisible, setCalculatorVisible] = useState(false)
 	const [news, setNews] = useState([])
 	const [pageCount, setPageCount] = useState(1)
-
-	const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
 
 	// Извлекаем параметр "page" из строки запроса
 	const page = Math.max(parseInt(searchParams.get('page')) || 1, 1)
@@ -130,26 +124,6 @@ function BusinessSupportPage({ children, ...props }) {
 							гранты
 						</button>
 					</div>
-
-					{/* <div className={styles.calcButton}>
-					{type === 'hoteliers' && (
-							<button
-								onClick={() => {
-									setCalculatorVisible(prev => !prev)
-								}}
-							>
-								{calculatorVisible
-									? 'Мероприятия'
-									: 'Калькулятор стоимости услуг'}
-							</button>
-					)}
-						<button onClick={() => setIsFeedbackOpen(true)}>
-							Оставить заявку
-						</button>
-					</div> */}
-
-					{/* <div className={styles.calcButton}>
-					</div> */}
 
 					{type === 'hoteliers' ? (
 						<>
@@ -272,26 +246,6 @@ function BusinessSupportPage({ children, ...props }) {
 					)}
 				</WidthBlock>
 			</CenterBlock>
-			<Modal
-				isOpen={isFeedbackOpen}
-				onRequestClose={() => setIsFeedbackOpen(false)} // закрытие по Esc/оверлею/крестику
-				contentLabel='Оставить заявку'
-				className={styles.modalContent} // стили содержимого
-				overlayClassName={styles.modalOverlay} // стили подложки
-				closeTimeoutMS={150} // плавное закрытие (по желанию)
-				shouldCloseOnOverlayClick={true}
-			>
-				<button
-					type='button'
-					aria-label='Закрыть модальное окно'
-					className={styles.modalClose}
-					onClick={() => setIsFeedbackOpen(false)}
-				>
-					×
-				</button>
-
-				<FeedbackBS />
-			</Modal>
 		</main>
 	)
 }

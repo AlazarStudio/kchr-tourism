@@ -94,6 +94,11 @@
   text-decoration: none;
 }
 
+.policyNote {
+  font-size: 20px;
+  font-weight: 500;
+}
+
 .form textarea {
   margin-top: 50px;
   padding: 20px 30px;
@@ -176,6 +181,11 @@
 
   .form label {
     padding: 10px 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .policyNote {
     font-size: 14px;
     font-weight: 600;
   }

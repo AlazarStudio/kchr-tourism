@@ -7,41 +7,37 @@ import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 import styles from './Feedback.module.css'
 
 function Feedback({ children, ...props }) {
-	const [formData, setFormData] = useState({
-		fullName: '',
-		email: '',
-		comment: ''
-	})
-
 	const [successMessage, setSuccessMessage] = useState('')
-
-	const handleChange = e => {
-		const { name, value } = e.target
-		setFormData(prevData => ({
-			...prevData,
-			[name]: value
-		}))
-	}
 
 	const handleSubmit = e => {
 		e.preventDefault()
+		const form = e.currentTarget
+		const fd = new FormData(form)
+
+		const payload = {
+			fullName: (fd.get('fullName') || '').toString().trim(),
+			email: (fd.get('email') || '').toString().trim(),
+			comment: (fd.get('comment') || '').toString().trim(),
+			consent: form.consent.checked,
+			consentDocument: 'Согласие на обработку персональных данных',
+			consentVersion: 'от 17 августа 2026 года',
+			consentUrl: `${window.location.origin}/legal/consent`,
+			page: window.location.href,
+			consentedAt: new Date().toISOString()
+		}
 
 		fetch('/mail/mail.php', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify(formData)
+			body: JSON.stringify(payload)
 		})
-			.then(response => response.json)
+			.then(response => response.json())
 			.then(data => {
 				if (data.success) {
 					setSuccessMessage('Сообщение успешно отправлено!')
-					setFormData({
-						fullName: '',
-						email: '',
-						comment: ''
-					})
+					form.reset()
 				} else {
 					console.error('Произошла ошибка:', data.message)
 				}
@@ -109,7 +105,7 @@ function Feedback({ children, ...props }) {
 						</label>
 
 						<label
-							htmlFor='agreePrivacy'
+							htmlFor='agreeConsent'
 							style={{
 								display: 'flex',
 								flexDirection: 'row',
@@ -120,28 +116,32 @@ function Feedback({ children, ...props }) {
 							<input
 								className={styles.checkBox}
 								type='checkbox'
-								id='agreePrivacy'
+								name='consent'
+								id='agreeConsent'
 								required
 							/>
 							<span>
-								Ознакомлен с{' '}
-								<Link
-									to='/legal/privacy-policy'
-									target='_blank'
-									className={styles.docLink}
-								>
-									Политикой конфиденциальности
-								</Link>{' '}
-								и согласен на{' '}
+								Я даю{' '}
 								<Link
 									to='/legal/consent'
 									target='_blank'
 									className={styles.docLink}
 								>
-									обработку персональных данных
+									согласие на обработку персональных данных
 								</Link>
 							</span>
 						</label>
+
+						<p className={styles.policyNote}>
+							Обработка данных осуществляется в соответствии с{' '}
+							<Link
+								to='/legal/privacy-policy'
+								target='_blank'
+								className={styles.docLink}
+							>
+								Политикой конфиденциальности
+							</Link>
+						</p>
 						<button type='submit'>ОТПРАВИТЬ</button>
 					</form>
 				</WidthBlock>
