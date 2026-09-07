@@ -1,14 +1,17 @@
+/* Полоса по центру внизу ограниченной ширины: текст и кнопка в одну строку */
 .notice {
   position: fixed;
-  left: 16px;
-  right: 16px;
-  bottom: 16px;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
   z-index: 1000;
+  width: calc(100% - 48px);
+  max-width: 880px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  padding: 16px 20px;
+  gap: 24px;
+  padding: 16px 24px;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
@@ -23,12 +26,12 @@
 }
 
 .link {
+  font: inherit;
   color: var(--primaryColor);
   text-decoration: underline;
 }
 
 .button {
-  flex-shrink: 0;
   padding: 10px 24px;
   border: none;
   border-radius: 30px;
@@ -38,6 +41,7 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .button:hover {
@@ -46,12 +50,11 @@
 
 @media (max-width: 600px) {
   .notice {
+    bottom: 12px;
+    width: calc(100% - 24px);
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
-  }
-
-  .button {
-    width: 100%;
+    padding: 16px;
   }
 }
