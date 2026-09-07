@@ -59,7 +59,7 @@ function Links({ children, ...props }) {
 				</div>
 				<div className={styles.link}>
 					<a href='https://max.ru/id917041946_biz' target='_blank' rel='noopener noreferrer' aria-label='Канал в Max'>
-						<img src='/images/max.png' alt='' style={{ width: '34px', height: '34px' }} />
+						<img src='/images/max_blue.png' alt='' />
 					</a>
 					<a href='https://vk.com/kchturism' target='_blank'>
 						<img src='/images/vk.png' alt='' />
