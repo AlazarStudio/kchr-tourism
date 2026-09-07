@@ -41,14 +41,19 @@ function Footer({ children, ...props }) {
 							</a>
 						</div>
 						<div className={styles.link}>
-							<a href='https://t.me/kchturism' target='_blank'>
-								<img src='/images/telegram.png' alt='' />
+							<a href='https://max.ru/id917041946_biz' target='_blank' rel='noopener noreferrer' aria-label='Канал в Max'>
+								<img src='/images/max.png' alt='' style={{ width: '34px', height: '34px' }} />
 							</a>
 							<a href='https://vk.com/kchturism' target='_blank'>
 								<img src='/images/vk.png' alt='' />
 							</a>
 						</div>
 					</div>
+					<nav className={styles.legal} aria-label='Юридические документы'>
+						<Link to='/legal/privacy-policy'>Политика обработки персональных данных</Link>
+						<Link to='/legal/consent'>Согласие на обработку персональных данных</Link>
+						<Link to='/legal/terms'>Пользовательское соглашение</Link>
+					</nav>
 				</WidthBlock>
 			</CenterBlock>
 		</footer>

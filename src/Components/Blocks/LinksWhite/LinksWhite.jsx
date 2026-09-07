@@ -33,11 +33,16 @@ function LinksWhite({ children, isScrolled }) {
 				</a>
 				<a
 					className={styles.tourism}
-					style={{ fontSize: '16px' }}
-					href='https://перваятуристическая.рф/'
+					href='https://посетикчр.рф/'
 					target='_blank'
+					rel='noopener noreferrer'
+					aria-label='Туристический портал Карачаево-Черкесии'
 				>
-					Туристический портал КЧР
+					<img
+						src={!isScrolled ? '/images/portal-logo-white.png' : '/images/portal-logo.png'}
+						alt='Карачаево-Черкесия'
+						style={{ height: '36px', width: 'auto' }}
+					/>
 				</a>
 			</div>
 			<div className={styles.wrapper_item}>
@@ -57,15 +62,8 @@ function LinksWhite({ children, isScrolled }) {
 					/> */}
 				</div>
 				<div className={styles.link}>
-					<a href='https://t.me/kchturism' target='_blank'>
-						<img
-							src={
-								!isScrolled
-									? '/images/telegram_white.png'
-									: '/images/telegram.png'
-							}
-							alt=''
-						/>
+					<a href='https://max.ru/id917041946_biz' target='_blank' rel='noopener noreferrer' aria-label='Канал в Max'>
+						<img src='/images/max.png' alt='' style={{ width: '34px', height: '34px' }} />
 					</a>
 					<a href='https://vk.com/kchturism' target='_blank'>
 						<img

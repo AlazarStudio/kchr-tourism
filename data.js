@@ -40,13 +40,6 @@ export const contacts = [
 
 export const social = [
 	{
-		id: 1,
-		link: 'https://t.me/kchturism',
-		images: '/images/tg.svg',
-		title: 'Telegram канал',
-		subtitle: 'https://t.me/kchturism'
-	},
-	{
 		id: 2,
 		link: 'https://vk.com/kchturism',
 		images: '/images/vk1.png',

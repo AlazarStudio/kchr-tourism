@@ -139,43 +139,17 @@ function CalculatorBlock({ children, ...props }) {
 
 					<div className={styles.contactitem}>
 						<div className={styles.contacticon}>
-							<svg
-								width='38'
-								height='33'
-								viewBox='0 0 38 33'
-								fill='none'
-								xmlns='http://www.w3.org/2000/svg'
-							>
-								<path
-									fillRule='evenodd'
-									clipRule='evenodd'
-									d='M9.6307 18.9189L0 15.1425L38 0.5L31.3069 32.5L20.3547 25.4553L13.5094 30.4666L9.63908 18.9203L10.864 18.2263L14.1941 27.1256L15.487 21.3883L30.5463 7.29878L9.6307 18.9189Z'
-									fill='url(#paint0_linear_2009_1037)'
-								/>
-								<defs>
-									<linearGradient
-										id='paint0_linear_2009_1037'
-										x1='-0.0023512'
-										y1='16.5036'
-										x2='38.0044'
-										y2='16.5036'
-										gradientUnits='userSpaceOnUse'
-									>
-										<stop stopColor='#25A9DD' />
-										<stop offset='1' stopColor='#00EED0' />
-									</linearGradient>
-								</defs>
-							</svg>
+							<img src='/images/max.png' alt='' width={38} height={38} />
 						</div>
-						{/* <div className={styles.contacticon}>📱</div> */}
 						<div className={styles.contactinfo}>
-							<div className={styles.contactlabel}>Telegram</div>
+							<div className={styles.contactlabel}>Max</div>
 							<a
-								href='https://t.me/kchturism'
+								href='https://max.ru/id917041946_biz'
 								target='_blank'
+								rel='noopener noreferrer'
 								className={styles.contactlink}
 							>
-								t.me/kchturism
+								max.ru/id917041946_biz
 							</a>
 						</div>
 					</div>

@@ -48,6 +48,23 @@
   line-height: 14px;
 }
 
+.legal {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.legal a {
+  color: #6D6D6D;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.legal a:hover {
+  color: #25A9DD;
+}
+
 @media (max-width: 1299px) {
 
   .footer {
@@ -86,5 +103,10 @@
     display: flex;
     align-items: center;
     gap: 15px;
+  }
+
+  .legal {
+    padding: 0 16px;
+    margin-top: 24px;
   }
 }

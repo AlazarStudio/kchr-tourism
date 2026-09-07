@@ -6,6 +6,7 @@ import AdminPage from './Components/Pages/Admin/AdminPage'
 import BSDetail from './Components/Pages/BSDetail/BSDetail'
 import BusinessSupportPage from './Components/Pages/BusinessSupportPage/BusinessSupportPage'
 import ContactsPage from './Components/Pages/ContactsPage/ContactsPage'
+import CookieNotice from './Components/Blocks/CookieNotice/CookieNotice'
 import DocsPage from './Components/Pages/DocsPage/DocsPage'
 import EventsAnnouncementPage from './Components/Pages/EventsAnnouncementPage/EventsAnnouncementPage'
 import EventsDetail from './Components/Pages/EventsDetail/EventsDetail'
@@ -45,6 +46,7 @@ function App() {
 				</Route>
 				<Route path='/admin/*' element={<AdminPage />} />
 			</Routes>
+			<CookieNotice />
 		</>
 	)
 }
