@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom'
 
 import getToken from '../../../getToken'
 import { API, UPLOAD } from '../../../serverConfig'
+import Gallery from '../../Blocks/Gallery/Gallery'
+import VideoPlayer from '../../Blocks/VideoPlayer/VideoPlayer'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 
@@ -56,32 +58,18 @@ function NewsDetail({ children, ...props }) {
 						className={styles.article_text}
 					/>
 
-					<div className={styles.article_images}>
-						{news.images &&
-							Array.isArray(news.images) &&
-							news.images.map((img, index) => (
-								<img
-									key={index}
-									src={`${UPLOAD}${img}`}
-									alt=''
-									className={styles.image_thumbnail}
-									onClick={() => openModal(img)}
-								/>
-							))}
-					</div>
+					{Array.isArray(news.images) && news.images.length > 0 && (
+						<Gallery images={news.images} onSelect={openModal} />
+					)}
 
 					<div className={styles.article_videos}>
 						{news.videos &&
 							Array.isArray(news.videos) &&
 							news.videos.map((video, index) => (
-								// #t=0.1 заставляет браузер показать первый кадр вместо чёрного фона до запуска
-								<video
+								<VideoPlayer
 									key={index}
-									controls
-									preload='metadata'
-									playsInline
+									src={`${UPLOAD}${video}`}
 									className={styles.video_player}
-									src={`${UPLOAD}${video}#t=0.1`}
 								/>
 							))}
 					</div>
