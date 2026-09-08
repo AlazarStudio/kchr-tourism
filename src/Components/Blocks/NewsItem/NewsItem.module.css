@@ -1,5 +1,5 @@
 .news_card__item {
-  height: 640px;
+  height: auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -15,9 +15,7 @@
   box-shadow: 0px 0px 20px 0px rgba(34, 60, 80, 0.2);
 }
 
-.news_card__item img {
-  height: 400px;
-  object-fit: cover;
+.news_cover {
   border-radius: 20px;
 }
 
@@ -55,7 +53,7 @@
 
 @media (max-width: 1299px) {
   .news_card__item {
-    height: 475px;
+    height: auto;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -67,12 +65,6 @@
 
   .news_card__item:hover {
     transform: scale(1);
-  }
-
-  .news_card__item img {
-    height: 300px;
-    object-fit: cover;
-    border-radius: 20px;
   }
 
   .news_cart__text {

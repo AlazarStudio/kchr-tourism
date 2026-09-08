@@ -4,6 +4,7 @@ import Modal from 'react-modal'
 import { useParams } from 'react-router-dom'
 
 import { events, projects } from '../../../../data'
+import { formatEventPeriod } from '../../../formatEventDates'
 import getToken from '../../../getToken'
 import { API, UPLOAD } from '../../../serverConfig'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
@@ -50,11 +51,15 @@ function EventsDetail({ children, ...props }) {
 			<CenterBlock>
 				<WidthBlock>
 					<p className={styles.article_title}>{news.title}</p>
-					{/* <div className={styles.article_info} style={{ textTransform: 'uppercase' }}>
-						<p>{article.date}</p>
-						<p>{article.day}</p>
-						<p>{article.location}</p>
-					</div> */}
+					{news.date && (
+						<div
+							className={styles.article_info}
+							style={{ textTransform: 'uppercase' }}
+						>
+							<p>{formatEventPeriod(news.date, news.dateEnd)}</p>
+							{news.city && <p>{news.city}</p>}
+						</div>
+					)}
 
 					<div
 						dangerouslySetInnerHTML={{ __html: news.text }}

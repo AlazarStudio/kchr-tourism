@@ -20,25 +20,13 @@ import {
 
 import RichTextInput from '../Auth/RichTextInput'
 import { handleSave, handleSaveWithImages } from '../JS/fileUploadUtils'
+import { formatEventPeriod } from '../../../../formatEventDates'
 import { UPLOAD } from '../../../../serverConfig'
 
 const stripHTML = html => {
 	const tmp = document.createElement('DIV')
 	tmp.innerHTML = html
 	return tmp.textContent || tmp.innerText || ''
-}
-
-const formatDate = dateString => {
-	const options = {
-		day: '2-digit',
-		month: '2-digit',
-		year: 'numeric',
-		weekday: 'long'
-		// hour: '2-digit',
-		// minute: '2-digit'
-	}
-
-	return new Date(dateString).toLocaleString('ru-RU', options)
 }
 
 export const EventsList = props => (
@@ -58,7 +46,10 @@ export const EventsList = props => (
 				}}
 			/>
 
-			<FunctionField label='Дата' render={record => formatDate(record.date)} />
+			<FunctionField
+				label='Дата'
+				render={record => formatEventPeriod(record.date, record.dateEnd)}
+			/>
 
 			<FunctionField
 				label='Текст'
@@ -108,6 +99,10 @@ export const EventsEdit = props => (
 			<TextInput source='title' label='Заголовок' />
 			<RichTextInput source='text' label='Текст' />
 			<DateTimeInput source='date' label='Дата' />
+			<DateTimeInput
+				source='dateEnd'
+				label='Дата окончания (если событие длится несколько дней)'
+			/>
 
 			<ImageInput
 				source='imagesRaw'
@@ -180,6 +175,10 @@ export const EventsCreate = props => (
 			<TextInput source='title' label='Заголовок' />
 			<RichTextInput source='text' label='Текст' />
 			<DateTimeInput source='date' label='Дата' />
+			<DateTimeInput
+				source='dateEnd'
+				label='Дата окончания (если событие длится несколько дней)'
+			/>
 			<ImageInput source='images' label='Изображения' multiple>
 				<ImageField source='src' title='title' />
 			</ImageInput>

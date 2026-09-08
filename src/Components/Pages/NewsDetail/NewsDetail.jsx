@@ -74,11 +74,14 @@ function NewsDetail({ children, ...props }) {
 						{news.videos &&
 							Array.isArray(news.videos) &&
 							news.videos.map((video, index) => (
+								// #t=0.1 заставляет браузер показать первый кадр вместо чёрного фона до запуска
 								<video
 									key={index}
 									controls
+									preload='metadata'
+									playsInline
 									className={styles.video_player}
-									src={`${UPLOAD}${video}`}
+									src={`${UPLOAD}${video}#t=0.1`}
 								/>
 							))}
 					</div>

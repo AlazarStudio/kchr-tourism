@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import { UPLOAD } from '../../../serverConfig'
+import CoverImage from '../CoverImage/CoverImage'
 
 import styles from './NewsItem.module.css'
 
@@ -19,7 +20,10 @@ function NewsItem({ children, ...props }) {
 
 	return (
 		<Link to={`/news/${props.id}`} className={styles.news_card__item}>
-			<img src={`${UPLOAD}${props.images[0]}`} alt='' />
+			<CoverImage
+				src={`${UPLOAD}${props.images[0]}`}
+				className={styles.news_cover}
+			/>
 			<div className={styles.news_cart__text}>
 				<p>{formatDate(props.date)}</p>
 				<p>{props.title}</p>
