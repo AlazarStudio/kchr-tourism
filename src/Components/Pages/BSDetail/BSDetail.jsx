@@ -5,8 +5,9 @@ import { useParams } from 'react-router-dom'
 
 import getToken from '../../../getToken'
 import { API, UPLOAD } from '../../../serverConfig'
-import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import DocumentItem from '../../Blocks/DocumentItem/DocumentItem'
+import Gallery from '../../Blocks/Gallery/Gallery'
+import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 
 import styles from './BSDetail.module.css'
@@ -57,19 +58,9 @@ function BSDetail({ children, ...props }) {
 						dangerouslySetInnerHTML={{ __html: news.text }}
 						className={styles.article_text}
 					/>
-					<div className={styles.article_images}>
-						{news.images &&
-							Array.isArray(news.images) &&
-							news.images.map((img, index) => (
-								<img
-									key={index}
-									src={`${UPLOAD}${img}`}
-									alt=''
-									className={styles.image_thumbnail}
-									onClick={() => openModal(img)}
-								/>
-							))}
-					</div>
+					{Array.isArray(news.images) && news.images.length > 0 && (
+						<Gallery images={news.images} onSelect={openModal} />
+					)}
 
 					{news.type === 'tourism' &&
 						news.documents &&
@@ -82,7 +73,12 @@ function BSDetail({ children, ...props }) {
 										<DocumentItem
 											key={index}
 											src={doc}
-											title={doc.split('/').pop().split('.').slice(0, -1).join('.')}
+											title={doc
+												.split('/')
+												.pop()
+												.split('.')
+												.slice(0, -1)
+												.join('.')}
 											// title={doc.split('/').pop()}
 											// title={news.title ? `${news.title} — ${doc.split('/').pop()}` : doc.split('/').pop()}
 										/>

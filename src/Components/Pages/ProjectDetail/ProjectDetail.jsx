@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 
 import getToken from '../../../getToken'
 import { API, UPLOAD } from '../../../serverConfig'
+import Gallery from '../../Blocks/Gallery/Gallery'
 import CenterBlock from '../../Standart/CenterBlock/CenterBlock'
 import WidthBlock from '../../Standart/WidthBlock/WidthBlock'
 
@@ -55,19 +56,9 @@ function ProjectDetail({ children, ...props }) {
 						className={styles.article_text}
 					/>
 
-					<div className={styles.article_images}>
-						{projects.images &&
-							Array.isArray(projects.images) &&
-							projects.images.map((img, index) => (
-								<img
-									key={index}
-									src={`${UPLOAD}${img}`}
-									alt=''
-									className={styles.image_thumbnail}
-									onClick={() => openModal(img)}
-								/>
-							))}
-					</div>
+					{Array.isArray(projects.images) && projects.images.length > 0 && (
+						<Gallery images={projects.images} onSelect={openModal} />
+					)}
 
 					<Modal
 						isOpen={!!selectedImage}
