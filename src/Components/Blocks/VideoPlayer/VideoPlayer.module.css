@@ -81,6 +81,14 @@
   cursor: pointer;
 }
 
+.volume {
+  width: 70px;
+  flex: none;
+  height: 4px;
+  accent-color: var(--primaryColor);
+  cursor: pointer;
+}
+
 .time {
   font-size: 12px;
   line-height: 16px;
@@ -97,5 +105,9 @@
   .play_overlay {
     width: 56px;
     height: 56px;
+  }
+
+  .volume {
+    display: none;
   }
 }

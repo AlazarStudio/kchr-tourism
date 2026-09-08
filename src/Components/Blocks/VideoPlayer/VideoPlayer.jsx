@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import styles from './VideoPlayer.module.css'
 
@@ -19,8 +19,19 @@ function VideoPlayer({ src, className = '' }) {
 	const [playing, setPlaying] = useState(false)
 	const [started, setStarted] = useState(false)
 	const [muted, setMuted] = useState(false)
+	const [volume, setVolume] = useState(1)
 	const [currentTime, setCurrentTime] = useState(0)
 	const [duration, setDuration] = useState(0)
+	const [fullscreen, setFullscreen] = useState(false)
+
+	useEffect(() => {
+		const handleFullscreenChange = () => {
+			setFullscreen(document.fullscreenElement === wrapperRef.current)
+		}
+		document.addEventListener('fullscreenchange', handleFullscreenChange)
+		return () =>
+			document.removeEventListener('fullscreenchange', handleFullscreenChange)
+	}, [])
 
 	const toggle = () => {
 		const video = videoRef.current
@@ -92,12 +103,22 @@ function VideoPlayer({ src, className = '' }) {
 		const video = videoRef.current
 		if (!video) return
 		video.muted = !video.muted
+		if (!video.muted && video.volume === 0) video.volume = 1
 		setMuted(video.muted)
+	}
+
+	const changeVolume = e => {
+		const video = videoRef.current
+		if (!video) return
+		const value = Number(e.target.value)
+		video.volume = value
+		video.muted = value === 0
 	}
 
 	const toggleFullscreen = () => {
 		const wrapper = wrapperRef.current
-		if (wrapper && wrapper.requestFullscreen) wrapper.requestFullscreen()
+		if (document.fullscreenElement) document.exitFullscreen()
+		else if (wrapper && wrapper.requestFullscreen) wrapper.requestFullscreen()
 		else if (videoRef.current && videoRef.current.webkitEnterFullscreen)
 			videoRef.current.webkitEnterFullscreen()
 	}
@@ -122,6 +143,10 @@ function VideoPlayer({ src, className = '' }) {
 				onSeeked={checkPoster}
 				onDurationChange={e => setDuration(e.currentTarget.duration)}
 				onTimeUpdate={e => setCurrentTime(e.currentTarget.currentTime)}
+				onVolumeChange={e => {
+					setMuted(e.currentTarget.muted)
+					setVolume(e.currentTarget.volume)
+				}}
 				onPlay={() => {
 					setPlaying(true)
 					setStarted(true)
@@ -183,7 +208,7 @@ function VideoPlayer({ src, className = '' }) {
 					aria-label={muted ? 'Включить звук' : 'Выключить звук'}
 					onClick={toggleMute}
 				>
-					{muted ? (
+					{muted || volume === 0 ? (
 						<svg
 							viewBox='0 0 24 24'
 							width='20'
@@ -222,24 +247,52 @@ function VideoPlayer({ src, className = '' }) {
 					)}
 				</button>
 
+				<input
+					type='range'
+					className={styles.volume}
+					min={0}
+					max={1}
+					step={0.05}
+					value={muted ? 0 : volume}
+					onChange={changeVolume}
+					aria-label='Громкость'
+				/>
+
 				<button
 					type='button'
 					className={styles.button}
-					aria-label='Во весь экран'
+					aria-label={
+						fullscreen ? 'Выйти из полноэкранного режима' : 'Во весь экран'
+					}
 					onClick={toggleFullscreen}
 				>
-					<svg
-						viewBox='0 0 24 24'
-						width='20'
-						height='20'
-						fill='none'
-						stroke='currentColor'
-						strokeWidth='2'
-						strokeLinecap='round'
-						strokeLinejoin='round'
-					>
-						<path d='M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5' />
-					</svg>
+					{fullscreen ? (
+						<svg
+							viewBox='0 0 24 24'
+							width='20'
+							height='20'
+							fill='none'
+							stroke='currentColor'
+							strokeWidth='2'
+							strokeLinecap='round'
+							strokeLinejoin='round'
+						>
+							<path d='M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5' />
+						</svg>
+					) : (
+						<svg
+							viewBox='0 0 24 24'
+							width='20'
+							height='20'
+							fill='none'
+							stroke='currentColor'
+							strokeWidth='2'
+							strokeLinecap='round'
+							strokeLinejoin='round'
+						>
+							<path d='M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5' />
+						</svg>
+					)}
 				</button>
 			</div>
 		</div>
