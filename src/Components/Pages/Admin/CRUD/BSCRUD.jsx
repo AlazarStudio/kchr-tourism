@@ -17,6 +17,7 @@ TextInput
 } from 'react-admin'
 
 import RichTextInput from '../Auth/RichTextInput'
+import CroppedImageInput from '../Auth/CroppedImageInput'
 import {
 	handleSaveWithDocs,
 	handleSaveWithFilesAndDocs,
@@ -92,13 +93,13 @@ required
 <TextInput source='title' label='Заголовок' required />
 <RichTextInput source='text' label='Текст' />
 <DateTimeInput source='date' label='Дата' required />
-<ImageInput
+<CroppedImageInput
 source='imagesRaw'
 label='Добавить новые изображения'
 multiple
 >
 <ImageField source='src' title='title' />
-</ImageInput>
+</CroppedImageInput>
 
 <ImageInput
 source='images'
@@ -175,9 +176,9 @@ required
 <TextInput source='title' label='Заголовок' required />
 <RichTextInput source='text' label='Текст' />
 <DateTimeInput source='date' label='Дата' required />
-<ImageInput source='images' label='Изображения' multiple>
+<CroppedImageInput source='images' label='Изображения' multiple>
 <ImageField source='src' title='title' />
-</ImageInput>
+</CroppedImageInput>
 <FileInput source='documents' label='Документы' multiple accept='.pdf,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'>
 <FileField source='src' title='title' target='_blank' />
 </FileInput>

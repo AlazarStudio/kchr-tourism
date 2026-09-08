@@ -18,10 +18,11 @@ import {
 	TextInput
 } from 'react-admin'
 
-import RichTextInput from '../Auth/RichTextInput'
-import { handleSave, handleSaveWithImages } from '../JS/fileUploadUtils'
 import { formatEventPeriod } from '../../../../formatEventDates'
 import { UPLOAD } from '../../../../serverConfig'
+import CroppedImageInput from '../Auth/CroppedImageInput'
+import RichTextInput from '../Auth/RichTextInput'
+import { handleSave, handleSaveWithImages } from '../JS/fileUploadUtils'
 
 const stripHTML = html => {
 	const tmp = document.createElement('DIV')
@@ -104,13 +105,13 @@ export const EventsEdit = props => (
 				label='Дата окончания (если событие длится несколько дней)'
 			/>
 
-			<ImageInput
+			<CroppedImageInput
 				source='imagesRaw'
 				label='Добавить новые изображения'
 				multiple
 			>
 				<ImageField source='src' title='title' />
-			</ImageInput>
+			</CroppedImageInput>
 
 			{/* Поле для редактирования старых и добавления новых изображений */}
 			<ImageInput
@@ -121,9 +122,7 @@ export const EventsEdit = props => (
 				format={value =>
 					value && value.length
 						? value.map(image => ({
-								src: image.includes('http')
-									? image
-									: `${UPLOAD}${image}`,
+								src: image.includes('http') ? image : `${UPLOAD}${image}`,
 								title: image
 							}))
 						: []
@@ -179,9 +178,9 @@ export const EventsCreate = props => (
 				source='dateEnd'
 				label='Дата окончания (если событие длится несколько дней)'
 			/>
-			<ImageInput source='images' label='Изображения' multiple>
+			<CroppedImageInput source='images' label='Изображения' multiple>
 				<ImageField source='src' title='title' />
-			</ImageInput>
+			</CroppedImageInput>
 		</SimpleForm>
 	</Create>
 )

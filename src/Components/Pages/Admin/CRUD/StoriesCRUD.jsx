@@ -16,6 +16,7 @@ import {
 } from 'react-admin'
 
 import { UPLOAD } from '../../../../serverConfig'
+import CroppedImageInput from '../Auth/CroppedImageInput'
 import RichTextInput from '../Auth/RichTextInput'
 import { handleSave, handleSaveWithImages } from '../JS/fileUploadUtils'
 
@@ -76,9 +77,9 @@ export const StoriesCreate = props => (
 			<TextInput source='title' label='Заголовок' />
 			<RichTextInput source='text' label='Текст' />
 			<DateTimeInput source='date' label='Дата' />
-			<ImageInput source='images' label='Изображения' multiple>
+			<CroppedImageInput source='images' label='Изображения' multiple>
 				<ImageField source='src' title='title' />
-			</ImageInput>
+			</CroppedImageInput>
 		</SimpleForm>
 	</Create>
 )
@@ -91,13 +92,13 @@ export const StoriesEdit = props => (
 			<RichTextInput source='text' label='Текст' />
 			<DateTimeInput source='date' label='Дата' />
 
-			<ImageInput
+			<CroppedImageInput
 				source='imagesRaw'
 				label='Добавить новые изображения'
 				multiple
 			>
 				<ImageField source='src' title='title' />
-			</ImageInput>
+			</CroppedImageInput>
 
 			{/* Поле для редактирования старых и добавления новых изображений */}
 			<ImageInput

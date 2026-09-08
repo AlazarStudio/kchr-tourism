@@ -12,9 +12,10 @@ import {
 	SimpleForm
 } from 'react-admin'
 
+import { UPLOAD } from '../../../../serverConfig'
+import CroppedImageInput from '../Auth/CroppedImageInput'
 import RichTextInput from '../Auth/RichTextInput'
 import { handleSave, handleSaveWithImages } from '../JS/fileUploadUtils'
-import { UPLOAD } from '../../../../serverConfig'
 
 const stripHTML = html => {
 	const tmp = document.createElement('DIV')
@@ -54,14 +55,14 @@ export const AboutUsEdit = props => (
 		<SimpleForm>
 			<RichTextInput source='text' label='Текст' />
 
-			<ImageInput
+			<CroppedImageInput
 				source='imagesRaw'
 				label='Добавить новые изображения'
 				multiple
 				validate={validateImageCount}
 			>
 				<ImageField source='src' title='title' />
-			</ImageInput>
+			</CroppedImageInput>
 
 			{/* Поле для редактирования старых и добавления новых изображений */}
 			<ImageInput
@@ -72,9 +73,7 @@ export const AboutUsEdit = props => (
 				format={value =>
 					value && value.length
 						? value.map(image => ({
-								src: image.includes('http')
-									? image
-									: `${UPLOAD}${image}`,
+								src: image.includes('http') ? image : `${UPLOAD}${image}`,
 								title: image
 							}))
 						: []
@@ -100,14 +99,14 @@ export const AboutUsCreate = props => (
 	<Create {...props} transform={handleSave}>
 		<SimpleForm>
 			<RichTextInput source='text' label='Текст' />
-			<ImageInput
+			<CroppedImageInput
 				source='images'
 				label='Изображения'
 				multiple
 				validate={validateImageCount}
 			>
 				<ImageField source='src' title='title' />
-			</ImageInput>
+			</CroppedImageInput>
 		</SimpleForm>
 	</Create>
 )
