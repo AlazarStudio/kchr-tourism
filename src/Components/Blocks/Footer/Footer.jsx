@@ -11,13 +11,24 @@ function Footer({ children, ...props }) {
 			<CenterBlock>
 				<WidthBlock>
 					<div className={styles.footer_wrapper}>
-						<Link to='/contact' className={styles.main_icon}>
-							<img src='/favicon-alazar-studio.png' alt='' />
-							<div className={styles.main_text}>
-								<p>КАРАЧАЕВО-ЧЕРКЕСИЯ</p>
-								<p>ТУРИЗМ</p>
-							</div>
-						</Link>
+						<div className={styles.brand}>
+							<Link to='/contact' className={styles.main_icon}>
+								<img src='/favicon-alazar-studio.png' alt='' />
+								<div className={styles.main_text}>
+									<p>КАРАЧАЕВО-ЧЕРКЕСИЯ</p>
+									<p>ТУРИЗМ</p>
+								</div>
+							</Link>
+							<nav className={styles.legal} aria-label='Юридические документы'>
+								<Link to='/legal/privacy-policy'>
+									Политика обработки персональных данных
+								</Link>
+								<Link to='/legal/consent'>
+									Согласие на обработку персональных данных
+								</Link>
+								<Link to='/legal/terms'>Пользовательское соглашение</Link>
+							</nav>
+						</div>
 						<nav className={styles.links}>
 							<Link to='/news'>ИНТЕРЕСНОЕ О РЕГИОНЕ</Link>
 							<Link to='/about-us'>О НАС</Link>
@@ -41,7 +52,12 @@ function Footer({ children, ...props }) {
 							</a>
 						</div>
 						<div className={styles.link}>
-							<a href='https://max.ru/id917041946_biz' target='_blank' rel='noopener noreferrer' aria-label='Канал в Max'>
+							<a
+								href='https://max.ru/id917041946_biz'
+								target='_blank'
+								rel='noopener noreferrer'
+								aria-label='Канал в Max'
+							>
 								<img src='/images/max_blue.png' alt='' />
 							</a>
 							<a href='https://vk.com/kchturism' target='_blank'>
@@ -49,11 +65,6 @@ function Footer({ children, ...props }) {
 							</a>
 						</div>
 					</div>
-					<nav className={styles.legal} aria-label='Юридические документы'>
-						<Link to='/legal/privacy-policy'>Политика обработки персональных данных</Link>
-						<Link to='/legal/consent'>Согласие на обработку персональных данных</Link>
-						<Link to='/legal/terms'>Пользовательское соглашение</Link>
-					</nav>
 				</WidthBlock>
 			</CenterBlock>
 		</footer>
