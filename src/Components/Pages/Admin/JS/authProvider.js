@@ -38,7 +38,8 @@ const authProvider = {
 
 	// Метод проверки ошибок (например, истекший токен)
 	checkError: error => {
-		const status = error.response?.status
+		// fetchUtils кладёт статус в error.status, axios — в error.response.status
+		const status = error.status ?? error.response?.status
 		if (status === 401 || status === 403) {
 			Cookies.remove('token')
 			return Promise.reject()

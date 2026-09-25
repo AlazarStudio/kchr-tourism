@@ -22,7 +22,11 @@ const LoginPage = () => {
 		try {
 			await login({ username, password })
 		} catch (error) {
-			notify('Неправильное имя пользователя или пароль', { type: 'error' })
+			notify(
+				(error?.response?.status === 429 && error.response.data?.message) ||
+					'Неправильное имя пользователя или пароль',
+				{ type: 'error' }
+			)
 			setLoading(false)
 		}
 	}
